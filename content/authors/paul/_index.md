@@ -1,7 +1,6 @@
 ---
 authors:
-- admin
-bio: 
+bio: "Plant disease epidemiologist and modeller. Pennsylvania State University, USA"
 education:
   courses:
   - course: Ph.D. Plant Pathology
@@ -19,10 +18,9 @@ interests:
 - Plant disease epidemiology
 - Statistical methods for the agricultural sciences
 name: Paul D. Esker
-organizations:
+organizations: 
 - name: Penn State University
-  url: ""
-role: Assistant Professor of Epidemiology and Field Crop Pathology
+role: 
 social:
 - icon: envelope
   icon_pack: fas
@@ -45,7 +43,14 @@ social:
 
 superuser: true
 user_groups:
-- Presenters
+-  Organizers
+university:
+- Penn State University
+department:
+- Department of Plant Pathology and Environmental Microbiology
+activity:
+- Workshop Presenter
+
 
 ---
 

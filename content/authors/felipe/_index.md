@@ -50,9 +50,13 @@ social:
   link : https://www.linkedin.com/in/felipe-dalla-lana-6a9b2b35
 superuser: true
 user_groups:
-- Presenters
+- Organizers
+university:
+- Ohio State University
+department:
+- Department of Plant Pathology
+activity:
+- Workshop Assistent
+
+
 ---
-
-I am a Ph.D. candidate at the Department of Plant Pathology of the Ohio State University (OSU). My doctorate research is focused on the epidemiology study of Gibberella ear rot (*Fusarium gramearum*), a disease that cause yield and grain quality reduction, and mycotoxin contamination on maize (*Zea mays*). Under the mentorship of professor Paul, and co-advisor by professor Madden, we are studying the weather factors associated with this disease and mycotoxin contamination, hybrid stability, developing a risk assessment, chemical control, and more. On parallel of my Ph.D. research, I work with quantitative reviews, using meta-analytic models to summarise multiples studies. Other activities include presenting workshops on statistic methods and software use (as R or SAS), and leadership positions at American Phytopathology Society (APS) and Plant Pathology Graduat Student Association (PPGSA) of OSU.
-
-Before joining the Plant Pathology program of OSU, I earn my agronomy master degree under mentorship of professor Del Ponte, at the Federal University of Rio Grande do Sul, studying Soybean Rust. During my undergrad course, I also work on several plant pathology projects on field crops, under supervision of professor Balardin.

@@ -43,8 +43,9 @@
 
     <div class="portrait-title">
       <h2>{{with $link}}<a href="{{.}}">{{end}}{{ .Params.name }}{{if $link}}</a>{{end}}</h2>
-      {{ with .Params.role }}<h3>{{ . | markdownify | emojify }}</h3>{{ end }}
-      {{ with .Params.interests }}<p class="people-interests">{{ delimit . ", " | markdownify | emojify }}</p>{{ end }}
+      {{ with .Params.department}}  <h3 class= .Params.department>{{ delimit . ", " | markdownify | emojify }}</h3>{{ end }}
+      {{ with .Params.university}}  <p class= .Params.university>{{ delimit . ", " | markdownify | emojify }}</p>{{ end }}
+      {{ with .Params.activity}}  <h3 class= .Params.activity>{{ delimit . ", " | markdownify | emojify }}</h3>{{ end }}
     </div>
   </div>
 

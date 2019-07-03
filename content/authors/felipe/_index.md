@@ -19,9 +19,9 @@ education:
 email: "felipedallalana@gmail.com"
 interests:
 - Plant disease epidemiology
-- Clop lost assesment
+- Crop loss assessment
 - Risk estimation
-- Integrate pest managment
+- Integrated pest management
 - Meta-analysis
 
 name: Felipe Dalla Lana

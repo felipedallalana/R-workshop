@@ -6,352 +6,2025 @@
     <description>Recent content in Posts on APS - WORKSHOP</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Aug 2019 21:08:10 -0500</lastBuildDate>
     
 	    <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Display Jupyter Notebooks with Academic</title>
-      <link>/post/jupyter/</link>
-      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      <title>Regression 1</title>
+      <link>/post/linear_regression/</link>
+      <pubDate>Thu, 01 Aug 2019 21:08:10 -0500</pubDate>
       
-      <guid>/post/jupyter/</guid>
+      <guid>/post/linear_regression/</guid>
       <description>
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from IPython.core.display import Image
-Image(&#39;https://www.python.org/static/community_logos/python-logo-master-v3-TM-flattened.png&#39;)
-&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;./academic_0_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&amp;quot;Welcome to Academic!&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;Welcome to Academic!
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;install-python-and-jupyter&#34;&gt;Install Python and Jupyter&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.anaconda.com/distribution/#download-section&#34; target=&#34;_blank&#34;&gt;Install Anaconda&lt;/a&gt; which includes Python 3 and Jupyter notebook.&lt;/p&gt;
-
-&lt;p&gt;Otherwise, for advanced users, install Jupyter notebook with &lt;code&gt;pip3 install jupyter&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;create-a-new-blog-post-as-usual-https-sourcethemes-com-academic-docs-managing-content-create-a-blog-post&#34;&gt;Create a new blog post &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-a-blog-post&#34; target=&#34;_blank&#34;&gt;as usual&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Run the following commands in your Terminal, substituting &lt;code&gt;&amp;lt;MY_WEBSITE_FOLDER&amp;gt;&lt;/code&gt; and &lt;code&gt;my-post&lt;/code&gt; with the file path to your Academic website folder and a name for your blog post (without spaces), respectively:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd &amp;lt;MY_WEBSITE_FOLDER&amp;gt;
-hugo new  --kind post post/my-post
-cd &amp;lt;MY_WEBSITE_FOLDER&amp;gt;/content/post/my-post/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;create-or-upload-a-jupyter-notebook&#34;&gt;Create or upload a Jupyter notebook&lt;/h2&gt;
-
-&lt;p&gt;Run the following command to start Jupyter within your new blog post folder. Then create a new Jupyter notebook (&lt;em&gt;New &amp;gt; Python Notebook&lt;/em&gt;) or upload a notebook.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;jupyter notebook
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;convert-notebook-to-markdown&#34;&gt;Convert notebook to Markdown&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;jupyter nbconvert Untitled.ipynb --to markdown --NbConvertApp.output_files_dir=.
-
-# Copy the contents of Untitled.md and append it to index.md:
-cat Untitled.md | tee -a index.md
-
-# Remove the temporary file:
-rm Untitled.md
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;edit-your-post-metadata&#34;&gt;Edit your post metadata&lt;/h2&gt;
-
-&lt;p&gt;Open &lt;code&gt;index.md&lt;/code&gt; in your text editor and edit the title etc. in the &lt;a href=&#34;https://sourcethemes.com/academic/docs/front-matter/&#34; target=&#34;_blank&#34;&gt;front matter&lt;/a&gt; according to your preference.&lt;/p&gt;
-
-&lt;p&gt;To set a &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#featured-image&#34; target=&#34;_blank&#34;&gt;featured image&lt;/a&gt;, place an image named &lt;code&gt;featured&lt;/code&gt; into your post&amp;rsquo;s folder.&lt;/p&gt;
-
-&lt;p&gt;For other tips, such as using math, see the guide on &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;writing content with Academic&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Academic: the website builder for Hugo</title>
-      <link>/post/getting-started/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/post/getting-started/</guid>
-      <description>
-
-&lt;p&gt;&lt;strong&gt;Create a free website with Academic using Markdown, Jupyter, or RStudio. Choose a beautiful color theme and build anything with the Page Builder - over 40 &lt;em&gt;widgets&lt;/em&gt;, &lt;em&gt;themes&lt;/em&gt;, and &lt;em&gt;language packs&lt;/em&gt; included!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://academic-demo.netlify.com/&#34; target=&#34;_blank&#34;&gt;Check out the latest &lt;strong&gt;demo&lt;/strong&gt;&lt;/a&gt; of what you&amp;rsquo;ll get in less than 10 minutes, or &lt;a href=&#34;https://sourcethemes.com/academic/#expo&#34; target=&#34;_blank&#34;&gt;view the &lt;strong&gt;showcase&lt;/strong&gt;&lt;/a&gt; of personal, project, and business sites.&lt;/p&gt;
-
+&lt;div id=&#34;background&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Background&lt;/h2&gt;
+&lt;p&gt;This example is focued on modeling via linear regression. We will illustrate the concepts using an example, with particular focus on the assumptions and the tools that exist in R to explore the model fit.&lt;/p&gt;
+&lt;p&gt;Our goal is to related a “dependent variable” with an “independent variable” the explains something about the process.&lt;/p&gt;
+&lt;p&gt;Our simple example is that we might relate plant height with an index of crop growth (leaf area index). This would provide a simple base for considering in the future the impact of some pest on growth and development.&lt;/p&gt;
+&lt;p&gt;Our basic model form is:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[Y = f(X) + e\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Where:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#install&#34;&gt;&lt;strong&gt;Setup Academic&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/get-started/&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;Get Started&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/&#34; target=&#34;_blank&#34;&gt;View the documentation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://discuss.gohugo.io/&#34; target=&#34;_blank&#34;&gt;Ask a question&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues&#34; target=&#34;_blank&#34;&gt;Request a feature or report a bug&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Updating? View the &lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34; target=&#34;_blank&#34;&gt;Update Guide&lt;/a&gt; and &lt;a href=&#34;https://sourcethemes.com/academic/updates/&#34; target=&#34;_blank&#34;&gt;Release Notes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Support development of Academic:
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://paypal.me/cushen&#34; target=&#34;_blank&#34;&gt;Donate a coffee&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.patreon.com/cushen&#34; target=&#34;_blank&#34;&gt;Become a backer on Patreon&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.redbubble.com/people/neutreno/works/34387919-academic&#34; target=&#34;_blank&#34;&gt;Decorate your laptop or journal with an Academic sticker&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://academic.threadless.com/&#34; target=&#34;_blank&#34;&gt;Wear the T-shirt&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Y = dependent variable,&lt;/li&gt;
+&lt;li&gt;f(X) = a mathematical function that describes the relationship of the dependenct variable as a function of the independent variable,&lt;/li&gt;
+&lt;li&gt;e = error, the proper form for a model depends on the type of assumptions; in our simple example, we assume that the error is distributed normally with an expected value of 0 and variance equal to sigma.&lt;/li&gt;
 &lt;/ul&gt;
-
-
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://raw.githubusercontent.com/gcushen/hugo-academic/master/academic.png&#34; &gt;
-
-&lt;img src=&#34;https://raw.githubusercontent.com/gcushen/hugo-academic/master/academic.png&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
-
-
-&lt;p&gt;&lt;strong&gt;Key features:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Page builder&lt;/strong&gt; - Create &lt;em&gt;anything&lt;/em&gt; with &lt;a href=&#34;https://sourcethemes.com/academic/docs/page-builder/&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;widgets&lt;/strong&gt;&lt;/a&gt; and &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;elements&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Edit any type of content&lt;/strong&gt; - Blog posts, publications, talks, slides, projects, and more!&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Create content&lt;/strong&gt; in &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;Markdown&lt;/strong&gt;&lt;/a&gt;, &lt;a href=&#34;https://sourcethemes.com/academic/docs/jupyter/&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;Jupyter&lt;/strong&gt;&lt;/a&gt;, or &lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-rstudio&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;RStudio&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Plugin System&lt;/strong&gt; - Fully customizable &lt;a href=&#34;https://sourcethemes.com/academic/themes/&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;color&lt;/strong&gt; and &lt;strong&gt;font themes&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Display Code and Math&lt;/strong&gt; - Code highlighting and &lt;a href=&#34;https://en.wikibooks.org/wiki/LaTeX/Mathematics&#34; target=&#34;_blank&#34;&gt;LaTeX math&lt;/a&gt; supported&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Integrations&lt;/strong&gt; - &lt;a href=&#34;https://analytics.google.com&#34; target=&#34;_blank&#34;&gt;Google Analytics&lt;/a&gt;, &lt;a href=&#34;https://disqus.com&#34; target=&#34;_blank&#34;&gt;Disqus commenting&lt;/a&gt;, Maps, Contact Forms, and more!&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Beautiful Site&lt;/strong&gt; - Simple and refreshing one page design&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Industry-Leading SEO&lt;/strong&gt; - Help get your website found on search engines and social media&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Media Galleries&lt;/strong&gt; - Display your images and videos with captions in a customizable gallery&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Mobile Friendly&lt;/strong&gt; - Look amazing on every screen with a mobile friendly version of your site&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Multi-language&lt;/strong&gt; - 15+ language packs including English, 中文, and Português&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Multi-user&lt;/strong&gt; - Each author gets their own profile page&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Privacy Pack&lt;/strong&gt; - Assists with GDPR&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Stand Out&lt;/strong&gt; - Bring your site to life with animation, parallax backgrounds, and scroll effects&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;One-Click Deployment&lt;/strong&gt; - No servers. No databases. Only files.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;color-themes&#34;&gt;Color Themes&lt;/h2&gt;
-
-&lt;p&gt;Academic comes with &lt;strong&gt;day (light) and night (dark) mode&lt;/strong&gt; built-in. Click the sun/moon icon in the top right of the &lt;a href=&#34;https://academic-demo.netlify.com/&#34; target=&#34;_blank&#34;&gt;Demo&lt;/a&gt; to see it in action!&lt;/p&gt;
-
-&lt;p&gt;Choose a stunning color and font theme for your site. Themes are fully customizable and include:&lt;/p&gt;
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-&lt;div class=&#34;gallery&#34;&gt;
-
-  
-  
-  
-  
-    
-    
-    
-    
-    
-      
-        
-      
-    
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-1950s.png&#34; data-caption=&#34;1950s&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-1950s_huaf5482f8cea0c5a703a328640e3b7509_21614_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-      
-        
-      
-    
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-apogee.png&#34; data-caption=&#34;Apogee&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-apogee_hu4b45d99db97150df01464c393bfd17d4_24119_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-      
-        
-      
-    
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-coffee-playfair.png&#34; data-caption=&#34;Coffee theme with Playfair font&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-coffee-playfair_hu446a8f670cc5622adcc77b97ba95f6c5_22462_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-      
-        
-      
-    
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-dark.png&#34; data-caption=&#34;Dark&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-dark_hu1e8601ecc47f58eada7743fdcd709d3d_21456_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-      
-        
-      
-    
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-default.png&#34; data-caption=&#34;Default&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-default_huba6228b7bdf30e2f03f12ea91b2cba0d_21751_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-      
-        
-      
-    
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-forest.png&#34; data-caption=&#34;Forest&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-forest_hu4f093a1c683134431456584193ea41ee_21797_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-      
-        
-      
-    
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-ocean.png&#34; data-caption=&#34;Ocean&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-ocean_hu14831ccafc2219f30a7a096fa7617e01_21760_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-    
-    
-    
-    
-    
-      
-        
-      
-    
-  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;/post/getting-started/gallery/theme-strawberry.png&#34; data-caption=&#34;Strawberry&#34;&gt;
-  &lt;img src=&#34;/post/getting-started/gallery/theme-strawberry_hu36b0b347fcca08bd39e2df22dcedbdfb_39532_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
-  &lt;/a&gt;
-  
-
-  
+&lt;p&gt;For this first example, we are creating a more complete analysis where we will explore some of the tools that help with understanding the model assumptions and also how to use the prediction function, which is important for using the model to estimate new values, as well as information about the variability.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(Hmisc)
+library(corrplot)
+library(readr)
+library(HH)
+library(car)
+library(tinytex)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-
-&lt;h2 id=&#34;ecosystem&#34;&gt;Ecosystem&lt;/h2&gt;
-
+&lt;div id=&#34;data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data&lt;/h2&gt;
+&lt;p&gt;In the majority of our examples, we will use a manual data input approach, to minimize some of the confusion that occurs when trying to import data. R and RStudio are very flexible in this regards.&lt;/p&gt;
+&lt;p&gt;The data we are using for this first example comes from peanut, where we have two measures:
+1. The percentage of clean grain,
+2. The concentration of alfatoxin in &lt;em&gt;ppb&lt;/em&gt; (ug per kg).&lt;/p&gt;
+&lt;p&gt;We describe the variables as follows:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/sourcethemes/academic-admin&#34; target=&#34;_blank&#34;&gt;Academic Admin&lt;/a&gt;:&lt;/strong&gt; An admin tool to import publications from BibTeX or import assets for an offline site&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/sourcethemes/academic-scripts&#34; target=&#34;_blank&#34;&gt;Academic Scripts&lt;/a&gt;:&lt;/strong&gt; Scripts to help migrate content to new versions of Academic&lt;/li&gt;
+&lt;li&gt;clean = % of clean grain&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;alfatoxin = alfatoxin concentration&lt;/li&gt;
 &lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;clean &amp;lt;- c(99.97, 99.94, 99.86, 99.98, 99.93, 99.81, 99.98, 99.91, 99.88, 99.97, 99.97, 99.8, 99.96, 99.99, 99.86, 99.96, 99.93, 99.79, 99.96, 99.86, 99.82, 99.97, 99.99, 99.83, 99.89, 99.96, 99.72, 99.96, 99.91, 99.64, 99.98, 99.86, 99.66, 99.98)
+alfatoxin &amp;lt;- c(3, 18.8, 46.8, 4.7, 18.9, 46.8, 8.3, 21.7, 58.1, 9.3, 21.9, 62.3, 9.9, 22.8, 70.6, 11, 24.2, 71.1, 12.3, 25.8, 71.3, 12.5, 30.6, 83.2, 12.6, 36.2, 83.6, 15.9, 39.8, 99.5, 16.7, 44.3, 111.2, 18.8)
 
-&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
-
-&lt;p&gt;You can choose from one of the following four methods to install:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-web-browser&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;one-click install using your web browser (recommended)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-git&#34; target=&#34;_blank&#34;&gt;install on your computer using &lt;strong&gt;Git&lt;/strong&gt; with the Command Prompt/Terminal app&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-zip&#34; target=&#34;_blank&#34;&gt;install on your computer by downloading the &lt;strong&gt;ZIP files&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-rstudio&#34; target=&#34;_blank&#34;&gt;install on your computer with &lt;strong&gt;RStudio&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Then &lt;a href=&#34;https://sourcethemes.com/academic/docs/get-started/&#34; target=&#34;_blank&#34;&gt;personalize and deploy your new site&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;updating&#34;&gt;Updating&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34; target=&#34;_blank&#34;&gt;View the Update Guide&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Feel free to &lt;em&gt;star&lt;/em&gt; the project on &lt;a href=&#34;https://github.com/gcushen/hugo-academic/&#34; target=&#34;_blank&#34;&gt;Github&lt;/a&gt; to help keep track of &lt;a href=&#34;https://sourcethemes.com/academic/updates&#34; target=&#34;_blank&#34;&gt;updates&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
-
-&lt;p&gt;Copyright 2016-present &lt;a href=&#34;https://georgecushen.com&#34; target=&#34;_blank&#34;&gt;George Cushen&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Released under the &lt;a href=&#34;https://github.com/gcushen/hugo-academic/blob/master/LICENSE.md&#34; target=&#34;_blank&#34;&gt;MIT&lt;/a&gt; license.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/post/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/post/2015-07-23-r-rmarkdown/</guid>
-      <description>
-
-
-&lt;div id=&#34;r-markdown&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;R Markdown&lt;/h1&gt;
-&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; class=&#34;uri&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;You can embed an R code chunk like this:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(cars)
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-fit &amp;lt;- lm(dist ~ speed, data = cars)
-fit
+peanut &amp;lt;- data.frame(clean, alfatoxin)
+head(peanut)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   clean alfatoxin
+## 1 99.97       3.0
+## 2 99.94      18.8
+## 3 99.86      46.8
+## 4 99.98       4.7
+## 5 99.93      18.9
+## 6 99.81      46.8&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exploratory-analysis&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Exploratory analysis&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(alfatoxin)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 36.60294&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sd(alfatoxin)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 29.3194&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sd(alfatoxin)/mean(alfatoxin)*100&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 80.1012&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(clean)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 99.89647&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sd(clean)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.09351332&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sd(clean)/mean(clean)*100&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.09361024&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(clean, alfatoxin)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -0.9069581&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rcorr(clean, alfatoxin)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##       x     y
+## x  1.00 -0.91
+## y -0.91  1.00
 ## 
+## n= 34 
+## 
+## 
+## P
+##   x  y 
+## x     0
+## y  0&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;linear-regression&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Linear regression&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Visualizing the relationship
+with(peanut, plot(x=clean, y=alfatoxin, xlim=c(99.5,100), ylim=c(0,120), pch=10)) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/regression-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# We will use lm() = linear model, to run the regression
+
+#Format, Y &amp;lt;- X
+linreg &amp;lt;- with(peanut, lm(alfatoxin~clean)) 
+
+#ANOVA table to see how the model fit looks
+anova(linreg)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Response: alfatoxin
+##           Df  Sum Sq Mean Sq F value    Pr(&amp;gt;F)    
+## clean      1 23334.5 23334.5  148.36 1.479e-13 ***
+## Residuals 32  5033.2   157.3                      
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Another way to see results of the model, with a few more details. This is important as we extend on the modeling concept to understand more complex relationships. 
+summary(linreg)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
 ## Call:
-## lm(formula = dist ~ speed, data = cars)
+## lm(formula = alfatoxin ~ clean)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -25.843  -7.997  -2.771   6.835  27.695 
 ## 
 ## Coefficients:
-## (Intercept)        speed  
-##     -17.579        3.932&lt;/code&gt;&lt;/pre&gt;
+##             Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## (Intercept) 28443.18    2332.21   12.20 1.43e-13 ***
+## clean        -284.36      23.35  -12.18 1.48e-13 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 12.54 on 32 degrees of freedom
+## Multiple R-squared:  0.8226, Adjusted R-squared:  0.817 
+## F-statistic: 148.4 on 1 and 32 DF,  p-value: 1.479e-13&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The results indicated that there is a “significant” relationship. In the next step, we are going to learn about some of the tools that we can use to extract more information about the results to look at hypothesis testing on the parameters (intercept, slope, etc.)&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;### Example: let&amp;#39;s say that we are interested in comparing the slope to a known value of -220, which means that for every 1% change in the percentage of clean grain, the concentration of alfatoxin will be reduced by 220 ug per kg
+
+# First, we need to see and understand where the coefficients are located, especially the intercept and slope
+linreg$coef&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## (Intercept)       clean 
+##  28443.1778   -284.3601&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;linreg$coef[1]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## (Intercept) 
+##    28443.18&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;linreg$coef[2]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     clean 
+## -284.3601&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Furthermore, where are the errors associated with each parameter
+coefs &amp;lt;- summary(linreg)
+names(coefs)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;call&amp;quot;          &amp;quot;terms&amp;quot;         &amp;quot;residuals&amp;quot;     &amp;quot;coefficients&amp;quot;  &amp;quot;aliased&amp;quot;       &amp;quot;sigma&amp;quot;         &amp;quot;df&amp;quot;            &amp;quot;r.squared&amp;quot;     &amp;quot;adj.r.squared&amp;quot; &amp;quot;fstatistic&amp;quot;    &amp;quot;cov.unscaled&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coefs$coefficients&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##               Estimate Std. Error   t value     Pr(&amp;gt;|t|)
+## (Intercept) 28443.1778 2332.20556  12.19583 1.429478e-13
+## clean        -284.3601   23.34622 -12.18014 1.479070e-13&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# We can see this directly as follows: 
+coefs$coefficients[1,1]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 28443.18&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coefs$coefficients[1,2]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2332.206&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coefs$coefficients[2,1]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -284.3601&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coefs$coefficients[2,2]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 23.34622&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Now, we will define the test parameter value for the slope
+B1 &amp;lt;- -220
+
+# To realize the test, we need to define the parameter value and the appropriate error term 
+# abs = absolute value
+
+test_b1&amp;lt;-abs((coefs$coefficients[2,1]-B1)/coefs$coefficients[2,2])
+test_b1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2.75677&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Test statistic (two-tailed) with 32 degrees of freedom (error term) 
+2*pt(q=test_b1, df=32, lower.tail=FALSE) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.009560549&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;div id=&#34;including-plots&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Including Plots&lt;/h1&gt;
-&lt;p&gt;You can also embed plots. See Figure &lt;a href=&#34;#fig:pie&#34;&gt;1&lt;/a&gt; for example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c(&amp;#39;Sky&amp;#39;, &amp;#39;Sunny side of pyramid&amp;#39;, &amp;#39;Shady side of pyramid&amp;#39;),
-  col = c(&amp;#39;#0292D8&amp;#39;, &amp;#39;#F7EA39&amp;#39;, &amp;#39;#C4B632&amp;#39;),
-  init.angle = -50, border = NA
+&lt;div id=&#34;model-assumptions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Model assumptions&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## What does a simple call to plot provide?
+plot(linreg)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/assumptions-1.png&#34; width=&#34;576&#34; /&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/assumptions-2.png&#34; width=&#34;576&#34; /&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/assumptions-3.png&#34; width=&#34;576&#34; /&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/assumptions-4.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## With Rmarkdown and the reporting tools, we may have interest in controlling the outputted graphics, which can be accomplished as follows:
+par(mfrow=c(1,1))
+plot(linreg, which=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/assumptions-5.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(linreg, which=2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/assumptions-6.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(linreg, which=3)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/assumptions-7.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(linreg, which=4)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/assumptions-8.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(linreg, which=5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/assumptions-9.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(linreg, which=6)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/assumptions-10.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;estimation-and-prediction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Estimation and prediction&lt;/h2&gt;
+&lt;p&gt;Now that we have a model, we are normally interested in performing some type of prediction based on the model equation (form). In R, the function &lt;em&gt;predict()&lt;/em&gt; is very important for many of the modeling tools we might like to apply. This versatile function allows us to perform estimation (within the confines of the model and data structure) and prediction (under uncertainty). What this predicts is the point estimate for a value (or estiamtes for multiple values) as well as the respective interval type (confidence or prediction).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# One challenge with predict is the need to defien a data.frame, even if just for a single value, like the following example where the % clean grain is 99.68. 
+
+observation &amp;lt;- data.frame(clean=99.68)
+
+predict(object=linreg, newdata=observation, interval=&amp;quot;confidence&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        fit      lwr      upr
+## 1 98.15855 86.97085 109.3462&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;predict(object=linreg, newdata=observation, interval=&amp;quot;predict&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        fit      lwr     upr
+## 1 98.15855 70.27011 126.047&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# We can do the same for all values in the regression. 
+intervals&amp;lt;-predict(linreg, interval=&amp;quot;confidence&amp;quot;)
+intervals&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##          fit       lwr       upr
+## 1   15.69411 10.088679  21.29954
+## 2   24.22491 19.379382  29.07044
+## 3   46.97372 42.261813  51.68563
+## 4   12.85051  6.936739  18.76427
+## 5   27.06851 22.406270  31.73076
+## 6   61.19173 55.183124  67.20034
+## 7   12.85051  6.936739  18.76427
+## 8   32.75572 28.327614  37.18382
+## 9   41.28652 36.835944  45.73710
+## 10  15.69411 10.088679  21.29954
+## 11  15.69411 10.088679  21.29954
+## 12  64.03533 57.691794  70.37887
+## 13  18.53771 13.215931  23.85949
+## 14  10.00690  3.763770  16.25004
+## 15  46.97372 42.261813  51.68563
+## 16  18.53771 13.215931  23.85949
+## 17  27.06851 22.406270  31.73076
+## 18  66.87893 60.183421  73.57445
+## 19  18.53771 13.215931  23.85949
+## 20  46.97372 42.261813  51.68563
+## 21  58.34813 52.654402  64.04186
+## 22  15.69411 10.088679  21.29954
+## 23  10.00690  3.763770  16.25004
+## 24  55.50453 50.102122  60.90693
+## 25  38.44292 34.051014  42.83482
+## 26  18.53771 13.215931  23.85949
+## 27  86.78414 77.317367  96.25092
+## 28  18.53771 13.215931  23.85949
+## 29  32.75572 28.327614  37.18382
+## 30 109.53295 96.573565 122.49234
+## 31  12.85051  6.936739  18.76427
+## 32  46.97372 42.261813  51.68563
+## 33 103.84575 91.777175 115.91433
+## 34  12.85051  6.936739  18.76427&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;predictions&amp;lt;-predict(linreg, interval=&amp;quot;predict&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in predict.lm(linreg, interval = &amp;quot;predict&amp;quot;): predictions on current data refer to _future_ responses&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;predictions&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##          fit        lwr       upr
+## 1   15.69411 -10.459699  41.84791
+## 2   24.22491  -1.776625  50.22645
+## 3   46.97372  20.996756  72.95069
+## 4   12.85051 -13.371114  39.07213
+## 5   27.06851   1.100509  53.03652
+## 6   61.19173  34.948558  87.43490
+## 7   12.85051 -13.371114  39.07213
+## 8   32.75572   6.828726  58.68271
+## 9   41.28652  15.355682  67.21736
+## 10  15.69411 -10.459699  41.84791
+## 11  15.69411 -10.459699  41.84791
+## 12  64.03533  37.713455  90.35721
+## 13  18.53771  -7.556774  44.63219
+## 14  10.00690 -16.290956  36.30476
+## 15  46.97372  20.996756  72.95069
+## 16  18.53771  -7.556774  44.63219
+## 17  27.06851   1.100509  53.03652
+## 18  66.87893  40.470022  93.28784
+## 19  18.53771  -7.556774  44.63219
+## 20  46.97372  20.996756  72.95069
+## 21  58.34813  32.175256  84.52100
+## 22  15.69411 -10.459699  41.84791
+## 23  10.00690 -16.290956  36.30476
+## 24  55.50453  29.393482  81.61557
+## 25  38.44292  12.522086  64.36375
+## 26  18.53771  -7.556774  44.63219
+## 27  86.78414  59.540418 114.02787
+## 28  18.53771  -7.556774  44.63219
+## 29  32.75572   6.828726  58.68271
+## 30 109.53295  80.887772 138.17814
+## 31  12.85051 -13.371114  39.07213
+## 32  46.97372  20.996756  72.95069
+## 33 103.84575  75.592411 132.09909
+## 34  12.85051 -13.371114  39.07213&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# If we are interested in just some select values, it is easy to accomplish this going back to the original single value example:
+observations &amp;lt;- data.frame(clean=c(99.5, 99.6, 99.7, 99.8))
+predict(object=linreg, newdata=observations, interval=&amp;quot;confidence&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         fit       lwr       upr
+## 1 149.34338 129.98701 168.69974
+## 2 120.90736 106.14377 135.67095
+## 3  92.47135  82.15206 102.79063
+## 4  64.03533  57.69179  70.37887&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;predict(object=linreg, newdata=observations, interval=&amp;quot;predict&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         fit       lwr       upr
+## 1 149.34338 117.29233 181.39442
+## 2 120.90736  91.40203 150.41269
+## 3  92.47135  64.91979 120.02290
+## 4  64.03533  37.71345  90.35721&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;additional-material&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Additional material&lt;/h2&gt;
+&lt;p&gt;The package &lt;em&gt;HH&lt;/em&gt; (&lt;a href=&#34;https://www.amazon.com/Statistical-Analysis-Data-Display-Intermediate/dp/1493921215&#34;&gt;Statistical analysis and data display&lt;/a&gt;) has various (interesting) functions that we can use to examine a regression model. In the next section, we will look at several of those.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Let&amp;#39;s examine the regression graphically
+ci.plot(linreg)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/HH-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Tools to study the assumptions
+
+# Method to look for outliers using a Bonferroni adjustment
+outlierTest(linreg) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## No Studentized residuals with Bonferroni p &amp;lt; 0.05
+## Largest |rstudent|:
+##    rstudent unadjusted p-value Bonferroni p
+## 24 2.425727           0.021292      0.72394&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Quantile-quantile plot based on Student residuals
+qqPlot(linreg) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/HH-2.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 24 25&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Influence plot in which the size of the circle is proportion to Cook&amp;#39;s distance
+influencePlot(linreg) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/HH-3.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;##       StudRes        Hat      CookD
+## 24  2.4257274 0.04472257 0.11949821
+## 25 -2.2158610 0.02955685 0.06663113
+## 30 -0.9262390 0.25734844 0.14930872
+## 33  0.6594215 0.22318480 0.06358898&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Test of homoscedasticity 
+ncvTest(linreg)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Non-constant Variance Score Test 
+## Variance formula: ~ fitted.values 
+## Chisquare = 0.183475, Df = 1, p = 0.6684&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Method to verify if there is dependency in the model, which means that a transformation may be appropriate to model the relationship
+spreadLevelPlot(linreg) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/HH-4.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Suggested power transformation:  0.9466765&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Method to verify if there is evidence that the relationship is not linear
+crPlots(linreg)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/HH-5.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;In this exercise, the goal was to introduce different concepts in modeling, using a simple linear regression. With this base, we will extend the modeling idea with different examples that illustrate some of the tools that exist in R when we have more complex relationships. Given the time available for this workshop, even if the subsequent examples are more difficult to understand, this first, more developed example hopefully provides you some of the relevant tools to take the next step in your work to define and use different models. .&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;example&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Example&lt;/h2&gt;
+&lt;p&gt;The below example looks at the relationship between the weight of chickens as a function of the amount of lysine, which is an essential amino acid in the early phases of development.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;weight &amp;lt;-c(14.7, 17.8, 19.6, 18.4, 20.5, 21.1, 17.2, 18.7, 20.2, 16.0, 17.8, 19.4)
+lysine &amp;lt;-c(0.09, 0.14, 0.18, 0.15, 0.16, 0.23, 0.11, 0.19, 0.23, 0.13, 0.17, 0.21)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Modeling methods for regression</title>
+      <link>/post/regression_modeling/</link>
+      <pubDate>Thu, 01 Aug 2019 21:08:09 -0500</pubDate>
+      
+      <guid>/post/regression_modeling/</guid>
+      <description>
+
+
+&lt;div id=&#34;background&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Background&lt;/h2&gt;
+&lt;p&gt;When building a model, there are different methods we can take to construct it, ranging from manual to automated. There are strengths and weaknesses in using the different methods, but they provide a good background for those interested in taking their models to a higher level (machine level, etc.), since in those situations we are often interested to look for interactions that cannot easily be found with basic approaches.&lt;/p&gt;
+&lt;p&gt;The general idea in this example is that we are interested in examining the behaviour of the a dependent variable &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; as a function of different (possible) explanatory variables, &lt;span class=&#34;math inline&#34;&gt;\(X_i\)&lt;/span&gt;. The question that we are asking by looking at the different models is, “Is there a best approach to examing the different relationships?”&lt;/p&gt;
+&lt;p&gt;We will examine different approaches in this exercise and be prepared that the final model may not be the same (we will see a different example after that provides a “cleaner” model, if you will).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(Hmisc)
+library(corrplot)
+library(readr)
+library(HH)
+library(car)
+library(scatterplot3d)
+library(leaps)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data&lt;/h2&gt;
+&lt;p&gt;For this exercise, we will examine the relationshiop between the number of aphids in 34 lots as a function of temperature and relative humidity.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lot &amp;lt;- c(1:34)
+aphids &amp;lt;- c(61, 77, 87, 93, 98, 100, 104, 118, 102, 74, 63, 43, 27, 19, 14, 23, 30, 25, 67, 40, 6, 21, 18, 23, 42, 56, 60, 59, 82, 89, 77, 102, 108, 97)
+temperature &amp;lt;- c(21, 24.8, 28.3, 26, 27.5, 27.1, 26.8, 29, 28.3, 34, 30.5, 28.3, 30.8, 31, 33.6, 31.8, 31.3, 33.5, 33, 34.5, 34.3, 34.3, 33, 26.5, 32, 27.3, 27.8, 25.8, 25, 18.5, 26, 19, 18, 16.3)
+humidity &amp;lt;- c(57,48, 41.5, 56, 58, 31, 36.5, 41, 40, 25, 34, 13, 37, 19, 20, 17, 21, 18.5, 24.5, 16, 6, 26, 21, 26, 28, 24.5, 39, 29, 41, 53.5, 51, 48, 70, 79.5)
+
+aphids_data &amp;lt;- data.frame(lot, aphids, temperature, humidity)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;basic-model&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Basic model&lt;/h2&gt;
+&lt;p&gt;Our basic model is additive, meaning we expect there to be an effect of temperature and relative humidity:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[aphids = intercept + temperature + humidity + error\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Our model structure will start by assuming that both temperature and humidity explain “something” about the relationship. For completeness, one could start with each factor separately and examine the explanatory value and then build the subsequent model accordingly. In many situations, what we are most interested in understanding is if there are interactions that explain better the relationships, especially if it is not clear that a linear set of assumptions is appropriate. We will build on those ideas in subsequent steps.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;model_a &amp;lt;- with(aphids_data, lm(aphids ~ temperature + humidity))
+anova(model_a) # both factors are significant&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Response: aphids
+##             Df  Sum Sq Mean Sq F value    Pr(&amp;gt;F)    
+## temperature  1 15194.8 15194.8 28.7765 7.554e-06 ***
+## humidity     1  4813.1  4813.1  9.1151  0.005038 ** 
+## Residuals   31 16368.9   528.0                      
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(model_a) #R^2 = 0.55&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = aphids ~ temperature + humidity)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -35.393 -14.006  -3.198  10.335  49.265 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&amp;gt;|t|)   
+## (Intercept)  35.8255    53.5388   0.669  0.50835   
+## temperature  -0.6765     1.4360  -0.471  0.64089   
+## humidity      1.2811     0.4243   3.019  0.00504 **
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 22.98 on 31 degrees of freedom
+## Multiple R-squared:   0.55,  Adjusted R-squared:  0.521 
+## F-statistic: 18.95 on 2 and 31 DF,  p-value: 4.212e-06&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(model_a)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/regression_modeling_files/figure-html/baseline-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/regression_modeling_files/figure-html/baseline-2.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/regression_modeling_files/figure-html/baseline-3.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/regression_modeling_files/figure-html/baseline-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(model_a, which=4) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/regression_modeling_files/figure-html/baseline-5.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;full-model&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Full model&lt;/h2&gt;
+&lt;p&gt;The second model we will build takes into account what we define to be the full model. In some situations, this may just be all factors and all interactions. Here, given the two potential explanatory factors and the idea that there may not be purely a linear relationship, we will build our full model based on the individual factors, the interaction between those factors, as well as a quadratic form for the model for each factor.&lt;/p&gt;
+&lt;p&gt;Model B: &lt;span class=&#34;math inline&#34;&gt;\(aphids = intercept + temperature + humidity + temperature^2 + humidity^2 + temperature:humidity\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;We will use an indicator function to define the quadratic model forms (&lt;span class=&#34;math inline&#34;&gt;\(I\)&lt;/span&gt;) in the subsequent model.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;model_b &amp;lt;- with(aphids_data, lm(aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2) + temperature:humidity))
+anova(model_b) # significant factors: temperature, humidity, I(temperature^2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Response: aphids
+##                      Df  Sum Sq Mean Sq F value    Pr(&amp;gt;F)    
+## temperature           1 15194.8 15194.8 31.4527 5.278e-06 ***
+## humidity              1  4813.1  4813.1  9.9629  0.003801 ** 
+## I(temperature^2)      1  1982.4  1982.4  4.1036  0.052418 .  
+## I(humidity^2)         1   805.1   805.1  1.6666  0.207279    
+## temperature:humidity  1    54.6    54.6  0.1129  0.739344    
+## Residuals            28 13526.8   483.1                      
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(model_b) #R^2 = 0.63&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = aphids ~ temperature + humidity + I(temperature^2) + 
+##     I(humidity^2) + temperature:humidity)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -41.700 -12.220  -1.462  10.894  41.673 
+## 
+## Coefficients:
+##                        Estimate Std. Error t value Pr(&amp;gt;|t|)
+## (Intercept)          143.069144 610.542500   0.234    0.816
+## temperature           -5.639044  33.900957  -0.166    0.869
+## humidity              -0.182206   8.875236  -0.021    0.984
+## I(temperature^2)       0.029174   0.476345   0.061    0.952
+## I(humidity^2)         -0.008121   0.036214  -0.224    0.824
+## temperature:humidity   0.078534   0.233701   0.336    0.739
+## 
+## Residual standard error: 21.98 on 28 degrees of freedom
+## Multiple R-squared:  0.6281, Adjusted R-squared:  0.5617 
+## F-statistic:  9.46 on 5 and 28 DF,  p-value: 2.285e-05&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(model_b)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/regression_modeling_files/figure-html/full-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/regression_modeling_files/figure-html/full-2.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/regression_modeling_files/figure-html/full-3.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/regression_modeling_files/figure-html/full-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(model_b, which=4)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/regression_modeling_files/figure-html/full-5.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;model-comparison&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Model comparison&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# anova(a,b), enables comparision between nested models, based on the number of additional parameters
+
+anova(model_a, model_b) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Model 1: aphids ~ temperature + humidity
+## Model 2: aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2) + 
+##     temperature:humidity
+##   Res.Df   RSS Df Sum of Sq     F Pr(&amp;gt;F)
+## 1     31 16369                          
+## 2     28 13527  3    2842.1 1.961 0.1427&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# What the results indicates is that a full model does not explain better the relationship, probably due to being an over-adjusted model. This does not mean that they may not be a model that better explains the relationship that is less complicated. &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;modeling-three-methods-under-consideration&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Modeling: three methods under consideration&lt;/h2&gt;
+&lt;p&gt;Now, we will look at different methods to try to automate the model development. The general idea with this approach/exercise is to reduce the need to create many models and duplicate the same process over and over. The challenge will be to identify the most important factors, not just statistically, but also based on the biology and knowledge of the system.&lt;/p&gt;
+&lt;p&gt;The three methods we will consider:
+* Manual
+* Stepwise methods (“steps”)
+* Best subset methods&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Manual model construction
+# We will start with Model B in this situation and try to reduce the complexity of the model. 
+
+# The process involves elminating factors that are not significant followed by an examination of the new model fit.
+
+# We assume that we will work from interactions towards the simple, single factor models.
+
+# Step 1: eliminate the factor, temperature:humidity
+model_b2 &amp;lt;- update(model_b, .~.-temperature:humidity)
+summary(model_b2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = aphids ~ temperature + humidity + I(temperature^2) + 
+##     I(humidity^2))
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -40.969 -12.837  -1.096  12.670  41.617 
+## 
+## Coefficients:
+##                   Estimate Std. Error t value Pr(&amp;gt;|t|)  
+## (Intercept)      -57.45005  127.24411  -0.451   0.6550  
+## temperature        5.24487    9.85861   0.532   0.5988  
+## humidity           2.77322    1.17389   2.362   0.0251 *
+## I(temperature^2)  -0.11851    0.18088  -0.655   0.5175  
+## I(humidity^2)     -0.01921    0.01465  -1.311   0.2001  
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 21.64 on 29 degrees of freedom
+## Multiple R-squared:  0.6266, Adjusted R-squared:  0.5752 
+## F-statistic: 12.17 on 4 and 29 DF,  p-value: 6.302e-06&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;anova(model_b, model_b2) ## temperature:humidity = non-significant&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Model 1: aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2) + 
+##     temperature:humidity
+## Model 2: aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2)
+##   Res.Df   RSS Df Sum of Sq      F Pr(&amp;gt;F)
+## 1     28 13527                           
+## 2     29 13581 -1   -54.554 0.1129 0.7393&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# From model b2, we will now eliminate the factor I(humidity^2)
+model_b3 &amp;lt;- update(model_b2, .~.-I(humidity^2))
+summary(model_b3) # it appears that all factors explain something&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = aphids ~ temperature + humidity + I(temperature^2))
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -37.782 -13.595  -3.561   9.367  43.291 
+## 
+## Coefficients:
+##                   Estimate Std. Error t value Pr(&amp;gt;|t|)   
+## (Intercept)      -152.5753   105.7801  -1.442  0.15955   
+## temperature        13.9936     7.3439   1.905  0.06634 . 
+## humidity            1.3263     0.4050   3.275  0.00267 **
+## I(temperature^2)   -0.2769     0.1362  -2.033  0.05096 . 
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 21.9 on 30 degrees of freedom
+## Multiple R-squared:  0.6045, Adjusted R-squared:  0.565 
+## F-statistic: 15.29 on 3 and 30 DF,  p-value: 3.217e-06&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Compare the models b2 and b3
+anova(model_b2, model_b3) # I(humidity^2) = not signficant &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Model 1: aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2)
+## Model 2: aphids ~ temperature + humidity + I(temperature^2)
+##   Res.Df   RSS Df Sum of Sq      F Pr(&amp;gt;F)
+## 1     29 13581                           
+## 2     30 14386 -1   -805.11 1.7191 0.2001&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Compare with baseline model
+anova(model_a, model_b3) ## this model is close to p=0,05 and probably has some predictive value&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Model 1: aphids ~ temperature + humidity
+## Model 2: aphids ~ temperature + humidity + I(temperature^2)
+##   Res.Df   RSS Df Sum of Sq      F  Pr(&amp;gt;F)  
+## 1     31 16369                              
+## 2     30 14386  1    1982.4 4.1339 0.05096 .
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Remove temperature^2
+model_b4 &amp;lt;- update(model_b3, .~.-I(temperature^2))
+anova(model_b4)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Response: aphids
+##             Df  Sum Sq Mean Sq F value    Pr(&amp;gt;F)    
+## temperature  1 15194.8 15194.8 28.7765 7.554e-06 ***
+## humidity     1  4813.1  4813.1  9.1151  0.005038 ** 
+## Residuals   31 16368.9   528.0                      
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(model_b4)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = aphids ~ temperature + humidity)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -35.393 -14.006  -3.198  10.335  49.265 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&amp;gt;|t|)   
+## (Intercept)  35.8255    53.5388   0.669  0.50835   
+## temperature  -0.6765     1.4360  -0.471  0.64089   
+## humidity      1.2811     0.4243   3.019  0.00504 **
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 22.98 on 31 degrees of freedom
+## Multiple R-squared:   0.55,  Adjusted R-squared:  0.521 
+## F-statistic: 18.95 on 2 and 31 DF,  p-value: 4.212e-06&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;anova(model_b3, model_b4) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Model 1: aphids ~ temperature + humidity + I(temperature^2)
+## Model 2: aphids ~ temperature + humidity
+##   Res.Df   RSS Df Sum of Sq      F  Pr(&amp;gt;F)  
+## 1     30 14386                              
+## 2     31 16369 -1   -1982.4 4.1339 0.05096 .
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# You can continue reducing the model, but we do know now that there is some predictive value with the variables we have 
+
+# For the moment and seeing the results, b3 may be the best of the models. Agree?&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;stepwise-methods&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Stepwise methods&lt;/h2&gt;
+&lt;p&gt;Now, let;s use the function &lt;em&gt;step()&lt;/em&gt; to automate the search process for the best model.&lt;/p&gt;
+&lt;p&gt;What is required typically is the definition of the null model and the full model. With these defined, we can use “forward”, “backward”, or “both” direction searching.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;model_null &amp;lt;- lm(aphids~1, data=aphids_data)
+model_full &amp;lt;- model_b
+
+# Forward
+forward &amp;lt;- step(model_null, scope=list(lower=model_null, upper=model_full, direction=&amp;quot;forward&amp;quot;)) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Start:  AIC=239.16
+## aphids ~ 1
+## 
+##                    Df Sum of Sq   RSS    AIC
+## + humidity          1     19891 16486 214.25
+## + I(temperature^2)  1     16098 20279 221.29
+## + I(humidity^2)     1     15560 20817 222.18
+## + temperature       1     15195 21182 222.77
+## &amp;lt;none&amp;gt;                          36377 239.16
+## 
+## Step:  AIC=214.25
+## aphids ~ humidity
+## 
+##                    Df Sum of Sq   RSS    AIC
+## + I(humidity^2)     1    2371.2 14115 210.97
+## &amp;lt;none&amp;gt;                          16486 214.25
+## + I(temperature^2)  1     358.4 16128 215.51
+## + temperature       1     117.2 16369 216.01
+## - humidity          1   19890.7 36377 239.16
+## 
+## Step:  AIC=210.97
+## aphids ~ humidity + I(humidity^2)
+## 
+##                    Df Sum of Sq   RSS    AIC
+## &amp;lt;none&amp;gt;                          14115 210.97
+## + I(temperature^2)  1     400.9 13714 211.99
+## + temperature       1     332.4 13782 212.16
+## - I(humidity^2)     1    2371.2 16486 214.25
+## - humidity          1    6702.0 20817 222.18&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Backwards
+back &amp;lt;- step(model_b) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Start:  AIC=215.53
+## aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2) + 
+##     temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## - I(temperature^2)      1     1.812 13529 213.53
+## - I(humidity^2)         1    24.294 13551 213.59
+## - temperature:humidity  1    54.554 13581 213.66
+## &amp;lt;none&amp;gt;                              13527 215.53
+## 
+## Step:  AIC=213.53
+## aphids ~ temperature + humidity + I(humidity^2) + temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## - I(humidity^2)         1    76.241 13605 211.72
+## - temperature:humidity  1   253.787 13782 212.16
+## &amp;lt;none&amp;gt;                              13529 213.53
+## 
+## Step:  AIC=211.72
+## aphids ~ temperature + humidity + temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## &amp;lt;none&amp;gt;                              13605 211.72
+## - temperature:humidity  1      2764 16369 216.01&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;step(model_b, direction=&amp;quot;backward&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Start:  AIC=215.53
+## aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2) + 
+##     temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## - I(temperature^2)      1     1.812 13529 213.53
+## - I(humidity^2)         1    24.294 13551 213.59
+## - temperature:humidity  1    54.554 13581 213.66
+## &amp;lt;none&amp;gt;                              13527 215.53
+## 
+## Step:  AIC=213.53
+## aphids ~ temperature + humidity + I(humidity^2) + temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## - I(humidity^2)         1    76.241 13605 211.72
+## - temperature:humidity  1   253.787 13782 212.16
+## &amp;lt;none&amp;gt;                              13529 213.53
+## 
+## Step:  AIC=211.72
+## aphids ~ temperature + humidity + temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## &amp;lt;none&amp;gt;                              13605 211.72
+## - temperature:humidity  1      2764 16369 216.01&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = aphids ~ temperature + humidity + temperature:humidity)
+## 
+## Coefficients:
+##          (Intercept)           temperature              humidity  
+##            150.70989              -4.72276              -1.29670  
+## temperature:humidity  
+##              0.09728&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Both directions 
+both &amp;lt;- step(model_b, direction=&amp;quot;both&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Start:  AIC=215.53
+## aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2) + 
+##     temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## - I(temperature^2)      1     1.812 13529 213.53
+## - I(humidity^2)         1    24.294 13551 213.59
+## - temperature:humidity  1    54.554 13581 213.66
+## &amp;lt;none&amp;gt;                              13527 215.53
+## 
+## Step:  AIC=213.53
+## aphids ~ temperature + humidity + I(humidity^2) + temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## - I(humidity^2)         1    76.241 13605 211.72
+## - temperature:humidity  1   253.787 13782 212.16
+## &amp;lt;none&amp;gt;                              13529 213.53
+## + I(temperature^2)      1     1.812 13527 215.53
+## 
+## Step:  AIC=211.72
+## aphids ~ temperature + humidity + temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## &amp;lt;none&amp;gt;                              13605 211.72
+## + I(humidity^2)         1     76.24 13529 213.53
+## + I(temperature^2)      1     53.76 13551 213.59
+## - temperature:humidity  1   2764.04 16369 216.01&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;best-subsets&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Best subsets&lt;/h2&gt;
+&lt;p&gt;In the last section of this exercise, we will use a method based on best subsets regression. We will use the funtion &lt;em&gt;regsubsets&lt;/em&gt; in the package &lt;em&gt;leaps&lt;/em&gt; to do this exercise. This method looks at the full model and considers different combinations of models based on the number of best models we decide to examine. The result is not necessarily what is the best model but rather a series of models that explain something in our model. We would then need to go back, after model selection, and run the formal analysis to look at model fit, predictive value, biological relevance, etc..&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# regsubsets = package *leaps*
+
+# let&amp;#39;s start by looking at the best 3 models per level
+subsets &amp;lt;- regsubsets(aphids~temperature+humidity+I(temperature^2)+
+I(humidity^2)+temperature:humidity, nbest=3, data=aphids_data)
+
+plot(subsets, scale=&amp;quot;adjr2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/regression_modeling_files/figure-html/bestsubsets-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(subsets, scale=&amp;quot;bic&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/regression_modeling_files/figure-html/bestsubsets-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(subsets, scale=&amp;quot;Cp&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/regression_modeling_files/figure-html/bestsubsets-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Hopefully you saw that this was not an easy exercise since there was not a clear model that best fit the response. In modeling we are integrating mathematical/statistical concepts with computational methodology, as well as keeping in mind the biology/pathology.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;What is the best method to model observaed relationships?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;For this concluding part, I draw and adapt on ideas from Gelman and Hall (2007; &lt;em&gt;Data Analysis Using Regression and Multilevel/Hierarchical Models&lt;/em&gt;):&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Include all variables that for reasons known to the researcher may be important for predicting an outcome.&lt;/li&gt;
+&lt;li&gt;You do not always have to include all inputs as separate predictors. You can consider in some situations that several inputs could be averaged or summed to create a “total score” that then becomes the predictor variable (index value, etc.)&lt;/li&gt;
+&lt;li&gt;For predictive variables with large effects, an examination of the interactions may also be warranted (very common when we extend this to regression trees and other methods).&lt;/li&gt;
+&lt;li&gt;Strategy for decisions focused on excluding a variable based on the expected sign and statistical significance:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;If the predictor is not statistically significant and has the expected sign (+ or -), in general it is fine to keep the predictor. This means that while the predictor is not helping predictions dramatically, it is also not hurting them.&lt;/li&gt;
+&lt;li&gt;If the predictor is not statistically significant and does not have the expected sign, consider removing this from the model (i.e., the coefficiente is set to 0).&lt;/li&gt;
+&lt;li&gt;If the predictor is statistically significant but does not have the expected sign, this is somewhat more complicated since the challenge is in terms of interpretation. Consider trying to gather additional data on lurking variables and include those in the analysis.&lt;/li&gt;
+&lt;li&gt;If the predictor is statistically significant and has the expected sign, definitely you should keep this in the model!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Multiple regression</title>
+      <link>/post/multiple_regression/</link>
+      <pubDate>Thu, 01 Aug 2019 21:08:08 -0500</pubDate>
+      
+      <guid>/post/multiple_regression/</guid>
+      <description>
+
+
+&lt;div id=&#34;background&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Background&lt;/h2&gt;
+&lt;p&gt;Given the background and tools presented in linear regression, we will not extend the modeling approach to include additional variables, as well as relationships that are more complicated. This exercise provides the jumping off point for more automated modeling approaches, which will we see in the subsequent example(s).&lt;/p&gt;
+&lt;p&gt;Our assumption in this exercise is that multiple factors have explanatory value to explain the response variable of interest.&lt;/p&gt;
+&lt;p&gt;What does a model of this type look like? Some examples include:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Additive.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(Y = \beta_0 + \beta_1{X_1} + \beta_2{X_2} + \epsilon\)&lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;With interaction between the two terms.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(Y = \beta_0 + \beta_1{X_1} + \beta_2{X_2} + \beta_3{X_1}{X_2} + \epsilon\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Note: It is important to note that in modeling, when we add new explanatory variables that have merit (i.e., the sign makes sense in terms of the biological relation), the model will improve. This is not necessarily the same as being “biologically relevant”. We should always consider the variable in the context of the question of interest.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(Hmisc)
+library(corrplot)
+library(readr)
+library(HH)
+library(car)
+library(scatterplot3d)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-and-exploratory-analysis&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data and exploratory analysis&lt;/h2&gt;
+&lt;p&gt;Our database comes from counts of the number of aphids in different lots, as well as measures of average temperature and relative humidity. We assume that there is a relationship between those two latter factors with the observed number of aphids, which means from a predictive value, we hope that by just measuring T and RH, we can estimate the number of expected aphids.&lt;/p&gt;
+&lt;p&gt;Where do we start? The main question is to determine if there is (are) a relationship between T and RH with the counts. We are also interested in trying to determine if there may be a complext relationship (i.e., that the predictive values have some degree of interpretable interaction).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lot &amp;lt;- c(1:34)
+aphids &amp;lt;- c(61, 77, 87, 93, 98, 100, 104, 118, 102, 74, 63, 43, 27, 19, 14, 23, 30, 25, 67, 40, 6, 21, 18, 23, 42, 56, 60, 59, 82, 89, 77, 102, 108, 97)
+temperature &amp;lt;- c(21, 24.8, 28.3, 26, 27.5, 27.1, 26.8, 29, 28.3, 34, 30.5, 28.3, 30.8, 31, 33.6, 31.8, 31.3, 33.5, 33, 34.5, 34.3, 34.3, 33, 26.5, 32, 27.3, 27.8, 25.8, 25, 18.5, 26, 19, 18, 16.3)
+humidity &amp;lt;- c(57,48, 41.5, 56, 58, 31, 36.5, 41, 40, 25, 34, 13, 37, 19, 20, 17, 21, 18.5, 24.5, 16, 6, 26, 21, 26, 28, 24.5, 39, 29, 41, 53.5, 51, 48, 70, 79.5)
+
+aphids_data &amp;lt;- data.frame(lot, aphids, temperature, humidity)
+
+# Quick exploratory analysis
+summary(aphids_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##       lot            aphids        temperature       humidity    
+##  Min.   : 1.00   Min.   :  6.00   Min.   :16.30   Min.   : 6.00  
+##  1st Qu.: 9.25   1st Qu.: 27.75   1st Qu.:26.00   1st Qu.:21.88  
+##  Median :17.50   Median : 62.00   Median :28.30   Median :32.50  
+##  Mean   :17.50   Mean   : 61.91   Mean   :28.09   Mean   :35.19  
+##  3rd Qu.:25.75   3rd Qu.: 92.00   3rd Qu.:31.95   3rd Qu.:46.38  
+##  Max.   :34.00   Max.   :118.00   Max.   :34.50   Max.   :79.50&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(aphids_data[,2:4])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                 aphids temperature   humidity
+## aphids       1.0000000  -0.6463022  0.7394570
+## temperature -0.6463022   1.0000000 -0.8313696
+## humidity     0.7394570  -0.8313696  1.0000000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(aphids_data[,2:4]) # Graphical matrix
+pairs(aphids_data[,2:4]) # Gives us the same thing&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/data-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;linear-regression&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Linear regression&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Factor = temperature (X)
+
+model1&amp;lt;-with(aphids_data, lm(aphids~temperature))
+anova(model1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Response: aphids
+##             Df Sum Sq Mean Sq F value    Pr(&amp;gt;F)    
+## temperature  1  15195 15194.8  22.955 3.643e-05 ***
+## Residuals   32  21182   661.9                      
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(model1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = aphids ~ temperature)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -45.698 -18.111  -3.143  19.477  60.004 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## (Intercept) 182.1386    25.4785   7.149 4.10e-08 ***
+## temperature  -4.2808     0.8935  -4.791 3.64e-05 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 25.73 on 32 degrees of freedom
+## Multiple R-squared:  0.4177, Adjusted R-squared:  0.3995 
+## F-statistic: 22.96 on 1 and 32 DF,  p-value: 3.643e-05&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(model1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/linear-1.png&#34; width=&#34;576&#34; /&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/linear-2.png&#34; width=&#34;576&#34; /&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/linear-3.png&#34; width=&#34;576&#34; /&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/linear-4.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Assumptions = values, model1
+
+rstudent(model1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##           1           2           3           4           5           6           7           8           9          10          11          12          13          14          15          16          17          18          19          20          21          22          23          24          25          26          27          28          29          30          31          32          33          34 
+## -1.28585895  0.04005818  1.02696012  0.87344711  1.34166917  1.35439948  1.47093718  2.56708773  1.66182645  1.54106791  0.44669460 -0.70426322 -0.92092001 -1.21610745 -0.97682293 -0.91330799 -0.71519631 -0.54584549  1.04821427  0.22134400 -1.19286546 -0.57242992 -0.91388994 -1.87539948 -0.12367881 -0.36099265 -0.12169500 -0.49651581  0.26909704 -0.57840180  0.24013268  0.04903167  0.12114783 -0.66038629&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dfbetas(model1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     (Intercept)  temperature
+## 1  -0.366682839  0.331661207
+## 2   0.005815635 -0.004670407
+## 3   0.023305013  0.007772618
+## 4   0.089808162 -0.064378045
+## 5   0.067723562 -0.027686588
+## 6   0.087212625 -0.047068694
+## 7   0.110092705 -0.066711426
+## 8  -0.004133934  0.082814320
+## 9   0.037712163  0.012577648
+## 10 -0.276055170  0.328520764
+## 11 -0.024068323  0.038160258
+## 12 -0.015981987 -0.005330265
+## 13  0.059303647 -0.088531881
+## 14  0.086856812 -0.125611236
+## 15  0.160634492 -0.193579923
+## 16  0.091034920 -0.120629792
+## 17  0.058637009 -0.081569976
+## 18  0.087768241 -0.106135446
+## 19 -0.149512336  0.184383492
+## 20 -0.043753984  0.051380499
+## 21  0.226920851 -0.267823576
+## 22  0.108894329 -0.128522648
+## 23  0.130352947 -0.160755509
+## 24 -0.160003296  0.104963953
+## 25  0.013206774 -0.017231640
+## 26 -0.020732461  0.009996651
+## 27 -0.004874275  0.001223897
+## 28 -0.054538615  0.040127888
+## 29  0.037156513 -0.029440595
+## 30 -0.223031160  0.207642177
+## 31  0.024690533 -0.017699151
+## 32  0.017885539 -0.016575675
+## 33  0.049290028 -0.046078814
+## 34 -0.318930693  0.301601424&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dffits(model1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##            1            2            3            4            5            6            7            8            9           10           11           12           13           14           15           16           17           18           19           20           21           22           23           24           25           26           27           28           29           30           31           32           33           34 
+## -0.404272806  0.008432063  0.178944815  0.165495030  0.235239322  0.240562702  0.264859612  0.454709984  0.289568427  0.427975171  0.086872782 -0.122715819 -0.183780341 -0.247127470 -0.259852603 -0.200671906 -0.149517430 -0.143648162  0.261386769  0.064842854 -0.342084958 -0.164159053 -0.227891133 -0.343410519 -0.027739070 -0.063654708 -0.021220776 -0.095548871  0.055563960 -0.233580039  0.045498765  0.018866121  0.051306429 -0.327009697&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;covratio(model1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         1         2         3         4         5         6         7         8         9        10        11        12        13        14        15        16        17        18        19        20        21        22        23        24        25        26        27        28        29        30        31        32        33        34 
+## 1.0553084 1.1126545 1.0268519 1.0514226 0.9810703 0.9797855 0.9612415 0.7474350 0.9256398 0.9902076 1.0917586 1.0636026 1.0497679 1.0108127 1.0738384 1.0592292 1.0763152 1.1177641 1.0556567 1.1533544 1.0541908 1.1291908 1.0732083 0.8882885 1.1180537 1.0895089 1.0969090 1.0876492 1.1058148 1.2130097 1.0997154 1.2231239 1.2554800 1.2902753&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cooks.distance(model1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##            1            2            3            4            5            6            7            8            9           10           11           12           13           14           15           16           17           18           19           20           21           22           23           24           25           26           27           28           29           30           31           32           33           34 
+## 8.008297e-02 3.669472e-05 1.598333e-02 1.379652e-02 2.699386e-02 2.819990e-02 3.384457e-02 8.800702e-02 3.973731e-02 8.780865e-02 3.870253e-03 7.650078e-03 1.696816e-02 3.008573e-02 3.381010e-02 2.023952e-02 1.135101e-02 1.054883e-02 3.405642e-02 2.166690e-03 5.774783e-02 1.376327e-02 2.610161e-02 5.466541e-02 3.969427e-04 2.082560e-03 2.323129e-04 4.674868e-03 1.589759e-03 2.785916e-02 1.066474e-03 1.836918e-04 1.357989e-03 5.442676e-02&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Factor = humedad (X)
+
+model2&amp;lt;-with(aphids_data, lm(aphids~humidity))
+anova(model2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Response: aphids
+##           Df Sum Sq Mean Sq F value    Pr(&amp;gt;F)    
+## humidity   1  19891 19890.7  38.608 5.857e-07 ***
+## Residuals 32  16486   515.2                      
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(model2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = aphids ~ humidity)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -37.53 -13.44  -1.43  12.82  47.68 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## (Intercept)  10.9787     9.0744   1.210    0.235    
+## humidity      1.4473     0.2329   6.214 5.86e-07 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 22.7 on 32 degrees of freedom
+## Multiple R-squared:  0.5468, Adjusted R-squared:  0.5326 
+## F-statistic: 38.61 on 1 and 32 DF,  p-value: 5.857e-07&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(model2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/linear-5.png&#34; width=&#34;576&#34; /&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/linear-6.png&#34; width=&#34;576&#34; /&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/linear-7.png&#34; width=&#34;576&#34; /&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/linear-8.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Assumptions = values, model2
+
+rstudent(model2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##           1           2           3           4           5           6           7           8           9          10          11          12          13          14          15          16          17          18          19          20          21          22          23          24          25          26          27          28          29          30          31          32          33          34 
+## -1.52166116 -0.15329366  0.70958337  0.04378704  0.13944816  2.07616739  1.86604477  2.27067980  1.51293060  1.21600986  0.12382267  0.60092052 -1.73010695 -0.88059890 -1.18139920 -0.56699356 -0.50823171 -0.57307681  0.92313524  0.26372262 -0.63535605 -1.25128763 -1.05882161 -1.15657354 -0.42068829  0.42473282 -0.32760978  0.26710592  0.51730586  0.02642984 -0.34840648  0.97153856 -0.20281479 -1.49172395&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dfbetas(model2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     (Intercept)     humidity
+## 1   0.203962802 -0.354960067
+## 2   0.007091915 -0.020637509
+## 3   0.010888321  0.046732070
+## 4  -0.005432893  0.009722237
+## 5  -0.020090271  0.034108001
+## 6   0.237139151 -0.090726882
+## 7   0.116375070  0.025442918
+## 8   0.045533868  0.137646115
+## 9   0.044574968  0.075879906
+## 10  0.208590411 -0.129821254
+## 11  0.010635007 -0.001536502
+## 12  0.175091541 -0.142772652
+## 13 -0.099765368 -0.032603908
+## 14 -0.202822717  0.150676741
+## 15 -0.260370374  0.189329385
+## 16 -0.141963444  0.109421496
+## 17 -0.106991971  0.075962840
+## 18 -0.134852336  0.101178572
+## 19  0.162812727 -0.103448492
+## 20  0.068702630 -0.053805692
+## 21 -0.232992130  0.202795860
+## 22 -0.202585666  0.120351428
+## 23 -0.222901106  0.158256745
+## 24 -0.187251287  0.111241631
+## 25 -0.060049112  0.031601350
+## 26  0.074909835 -0.047596460
+## 27 -0.012732795 -0.013008080
+## 28  0.035580371 -0.017261761
+## 29  0.010373518  0.031358513
+## 30 -0.002627836  0.005134802
+## 31  0.026166587 -0.058167303
+## 32 -0.044946864  0.130795599
+## 33  0.055027998 -0.078907786
+## 34  0.575503750 -0.776106220&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dffits(model2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##            1            2            3            4            5            6            7            8            9           10           11           12           13           14           15           16           17           18           19           20           21           22           23           24           25           26           27           28           29           30           31           32           33           34 
+## -0.447191192 -0.033924951  0.132317421  0.012469416  0.042283274  0.372962648  0.325861688  0.419240517  0.274398674  0.249344653  0.021611110  0.178729735 -0.302985776 -0.216541182 -0.281470975 -0.148585846 -0.117356163 -0.143175941  0.191962176  0.071346658 -0.233677243 -0.249738808 -0.244493286 -0.230835253 -0.079949336  0.088321443 -0.058538076  0.049688881  0.095511299  0.006952189 -0.084642540  0.215008230 -0.087530558 -0.829472811&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;covratio(model2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         1         2         3         4         5         6         7         8         9        10        11        12        13        14        15        16        17        18        19        20        21        22        23        24        25        26        27        28        29        30        31        32        33        34 
+## 1.0022713 1.1160516 1.0676446 1.1518269 1.1620673 0.8477864 0.8874781 0.8100232 0.9544553 1.0115565 1.0969300 1.1332631 0.9133416 1.0755087 1.0311057 1.1154780 1.1038994 1.1084567 1.0529470 1.1384310 1.1787935 1.0040208 1.0453923 1.0182323 1.0915424 1.0988072 1.0920026 1.0973744 1.0831002 1.1392331 1.1196610 1.0526653 1.2606798 1.2144142&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cooks.distance(model2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##            1            2            3            4            5            6            7            8            9           10           11           12           13           14           15           16           17           18           19           20           21           22           23           24           25           26           27           28           29           30           31           32           33           34 
+## 9.604190e-02 5.935641e-04 8.891911e-03 8.024605e-05 9.221958e-04 6.302998e-02 4.927114e-02 7.777970e-02 3.618960e-02 3.062822e-02 2.409338e-04 1.629755e-02 4.320873e-02 2.361072e-02 3.912909e-02 1.127801e-02 7.049632e-03 1.046940e-02 1.851025e-02 2.621394e-03 2.782097e-02 3.064301e-02 2.977580e-02 2.636426e-02 3.280316e-03 4.002862e-03 1.762520e-03 1.271389e-03 4.668043e-03 2.494547e-05 3.683311e-03 2.315487e-02 3.949133e-03 3.313265e-01&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;additive-multiple-regression&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Additive multiple regression&lt;/h2&gt;
+&lt;p&gt;Model form:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[aphids = intercept + temperature + humidity + error\]&lt;/span&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;model3&amp;lt;-with(aphids_data, lm(aphids~temperature+humidity))
+anova(model3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Response: aphids
+##             Df  Sum Sq Mean Sq F value    Pr(&amp;gt;F)    
+## temperature  1 15194.8 15194.8 28.7765 7.554e-06 ***
+## humidity     1  4813.1  4813.1  9.1151  0.005038 ** 
+## Residuals   31 16368.9   528.0                      
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(model3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = aphids ~ temperature + humidity)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -35.393 -14.006  -3.198  10.335  49.265 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&amp;gt;|t|)   
+## (Intercept)  35.8255    53.5388   0.669  0.50835   
+## temperature  -0.6765     1.4360  -0.471  0.64089   
+## humidity      1.2811     0.4243   3.019  0.00504 **
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 22.98 on 31 degrees of freedom
+## Multiple R-squared:   0.55,  Adjusted R-squared:  0.521 
+## F-statistic: 18.95 on 2 and 31 DF,  p-value: 4.212e-06&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(model3)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/TRH-1.png&#34; width=&#34;576&#34; /&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/TRH-2.png&#34; width=&#34;576&#34; /&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/TRH-3.png&#34; width=&#34;576&#34; /&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/TRH-4.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;visualizing-more-complicated-relationships&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Visualizing more complicated relationships&lt;/h2&gt;
+&lt;p&gt;So far, we cannot say with certainty that the additive model is the best fitting model. Before we commit to another analysis, it is important to take a step back and think about the visualization of the data to be better informed about what has occurred. Another reason for doing this is to be able to better interpret the observed results about the model assumptions (i.e., influential observations, some unhidden spatial structure in the data collection process).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Start with temperature, let&amp;#39;s add to the graph infomration about the lots
+temp &amp;lt;- ggplot(aphids_data, aes(x=temperature, y=aphids, label=lot))
+temp + geom_point() + geom_text(hjust=0.5, nudge_y=3) #Have a look a few of the observations like 30, 32, 33, 34 and also 8 (maybe 9)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/visualization-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Now let&amp;#39;s consider RH and do the same thing
+temp2 &amp;lt;- ggplot(aphids_data, aes(x=humidity, y=aphids, label=lot))
+temp2 + geom_point() + geom_text(hjust=0.5, nudge_y=3) #Maybe a bit different grouping&amp;quot; 6-9, 33 and 34&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/visualization-2.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# In 3-dimensiones? This example comes from the package *scatterplot3d*
+
+with(aphids_data, scatterplot3d(temperature, humidity, aphids, angle=75)) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/visualization-3.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;multiple-regression-with-interactions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Multiple regression with interactions&lt;/h2&gt;
+&lt;p&gt;Given that individually, we see different relationships between the number of aphids with temperature or relative humidity, we might want to consider if there is an interaction between those two factors that helps to explain the overall relationship.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;model4 &amp;lt;- with(aphids_data, lm(aphids ~ temperature + humidity + temperature:humidity))
+
+anova(model4)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Response: aphids
+##                      Df  Sum Sq Mean Sq F value    Pr(&amp;gt;F)    
+## temperature           1 15194.8 15194.8  33.506 2.522e-06 ***
+## humidity              1  4813.1  4813.1  10.613  0.002789 ** 
+## temperature:humidity  1  2764.0  2764.0   6.095  0.019474 *  
+## Residuals            30 13604.8   453.5                      
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(model4) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = aphids ~ temperature + humidity + temperature:humidity)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -41.13 -12.87  -2.02  10.25  41.75 
+## 
+## Coefficients:
+##                       Estimate Std. Error t value Pr(&amp;gt;|t|)  
+## (Intercept)          150.70989   68.02395   2.216   0.0345 *
+## temperature           -4.72276    2.11121  -2.237   0.0329 *
+## humidity              -1.29670    1.11576  -1.162   0.2543  
+## temperature:humidity   0.09728    0.03940   2.469   0.0195 *
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 21.3 on 30 degrees of freedom
+## Multiple R-squared:  0.626,  Adjusted R-squared:  0.5886 
+## F-statistic: 16.74 on 3 and 30 DF,  p-value: 1.414e-06&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(model4)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/interaction-1.png&#34; width=&#34;576&#34; /&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/interaction-2.png&#34; width=&#34;576&#34; /&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/interaction-3.png&#34; width=&#34;576&#34; /&gt;&lt;img src=&#34;/post/multiple_regression_files/figure-html/interaction-4.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Compare the different models
+anova(model1, model3) # model 3 better&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Model 1: aphids ~ temperature
+## Model 2: aphids ~ temperature + humidity
+##   Res.Df   RSS Df Sum of Sq      F   Pr(&amp;gt;F)   
+## 1     32 21182                                
+## 2     31 16369  1    4813.1 9.1151 0.005038 **
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;anova(model2, model3) # model 2 mejor (only RH)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Model 1: aphids ~ humidity
+## Model 2: aphids ~ temperature + humidity
+##   Res.Df   RSS Df Sum of Sq      F Pr(&amp;gt;F)
+## 1     32 16486                           
+## 2     31 16369  1    117.18 0.2219 0.6409&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;anova(model2, model4) # the interaction improved the model?&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Model 1: aphids ~ humidity
+## Model 2: aphids ~ temperature + humidity + temperature:humidity
+##   Res.Df   RSS Df Sum of Sq      F  Pr(&amp;gt;F)  
+## 1     32 16486                              
+## 2     30 13605  2    2881.2 3.1767 0.05606 .
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;anova(model3, model4) # the interaction improved the model&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Model 1: aphids ~ temperature + humidity
+## Model 2: aphids ~ temperature + humidity + temperature:humidity
+##   Res.Df   RSS Df Sum of Sq     F  Pr(&amp;gt;F)  
+## 1     31 16369                             
+## 2     30 13605  1      2764 6.095 0.01947 *
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Remember that once we have a model selected, we should examine the assumptions in greater detail&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;predictions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Predictions&lt;/h2&gt;
+&lt;p&gt;To close our discussion, let’s again look at the function &lt;em&gt;predict&lt;/em&gt; using model 4.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Let&amp;#39;s start by considering the average values for temperature and relative humidity
+mean(temperature)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 28.08529&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(humidity)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 35.19118&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;observation &amp;lt;- data.frame(temperature=mean(temperature), humidity=mean(humidity))
+
+predict(object=model4, newdata=observation, interval=&amp;quot;confidence&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        fit      lwr      upr
+## 1 68.58645 59.30643 77.86646&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;predict(object=model4, newdata=observation, interval=&amp;quot;predict&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        fit      lwr      upr
+## 1 68.58645 24.11635 113.0565&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Looking at all observations in the database
+intervals&amp;lt;-predict(model4, interval=&amp;quot;confidence&amp;quot;)
+intervals&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##            fit        lwr       upr
+## 1   94.0665692  80.927158 107.20598
+## 2   87.1482874  76.271599  98.02498
+## 3   77.4955105  66.245093  88.74593
+## 4   96.9454425  81.365016 112.52587
+## 5  100.7900752  80.691122 120.88903
+## 6   64.2519748  53.158443  75.34551
+## 7   71.9715847  61.898562  82.04461
+## 8   76.2533767  64.356209  88.15054
+## 9   75.3109441  64.730640  85.89125
+## 10  40.4082060  27.149656  53.66676
+## 11  63.4592842  53.244672  73.67390
+## 12  35.9887485  16.985340  54.99216
+## 13  68.1334763  55.782306  80.48465
+## 14  36.9661205  26.029726  47.90252
+## 15  31.4646380  18.772561  44.15671
+## 16  31.0728691  19.114485  43.03125
+## 17  39.6002445  29.654831  49.54566
+## 18  28.7989865  15.821797  41.77618
+## 19  41.7421198  30.613084  52.87116
+## 20  20.7271297   4.815514  36.63875
+## 21   0.9596999 -21.139235  23.05864
+## 22  41.7610595  27.618756  55.90336
+## 23  35.0445138  23.621299  46.46773
+## 24  58.8698369  43.979310  73.76036
+## 25  50.4385954  40.432771  60.44442
+## 26  55.0764466  41.227039  68.92585
+## 27  74.3189517  64.396268  84.24164
+## 28  64.0447598  49.214277  78.87524
+## 29  79.1902050  68.065480  90.31493
+## 30  90.2502594  72.492852 108.00767
+## 31  90.7822943  77.942971 103.62162
+## 32  87.4570502  68.617765 106.29634
+## 33  97.5065531  75.468470 119.54464
+## 34  96.7041862  64.049441 129.35893&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;predictions&amp;lt;-predict(model4, interval=&amp;quot;predict&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in predict.lm(model4, interval = &amp;quot;predict&amp;quot;): predictions on current data refer to _future_ responses&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;predictions&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##            fit        lwr       upr
+## 1   94.0665692  48.634034 139.49910
+## 2   87.1482874  42.317791 131.97878
+## 3   77.4955105  32.572877 122.41814
+## 4   96.9454425  50.747815 143.14307
+## 5  100.7900752  52.879335 148.70082
+## 6   64.2519748  19.368375 109.13557
+## 7   71.9715847  27.329263 116.61391
+## 8   76.2533767  31.164423 121.34233
+## 9   75.3109441  30.551432 120.07046
+## 10  40.4082060  -5.058928  85.87534
+## 11  63.4592842  18.784802 108.13377
+## 12  35.9887485 -11.472822  83.45032
+## 13  68.1334763  22.922609 113.34434
+## 14  36.9661205  -7.878900  81.81114
+## 15  31.4646380 -13.840548  76.76982
+## 16  31.0728691 -14.032275  76.17801
+## 17  39.6002445  -5.013457  84.21395
+## 18  28.7989865 -16.586898  74.18487
+## 19  41.7421198  -3.150269  86.63451
+## 20  20.7271297 -25.583243  67.03750
+## 21   0.9596999 -47.823843  49.74324
+## 22  41.7610595  -3.971597  87.49372
+## 23  35.0445138  -9.921706  80.01073
+## 24  58.8698369  12.900294 104.83938
+## 25  50.4385954   5.811388  95.06580
+## 26  55.0764466   9.433515 100.71938
+## 27  74.3189517  29.710312 118.92759
+## 28  64.0447598  18.094631 109.99489
+## 29  79.1902050  34.298885 124.08152
+## 30  90.2502594  43.273705 137.22681
+## 31  90.7822943  45.435637 136.12895
+## 32  87.4570502  40.060956 134.85314
+## 33  97.5065531  48.750546 146.26256
+## 34  96.7041862  42.318494 151.08988&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;The objective in this exercise was to introduce the concept of using multiple regression to build a model. This provides a base also as you move forward in your modeling work to think about things like &lt;em&gt;hidden interactions&lt;/em&gt;, which is often very common in complex datasets and can often drive aspects of things like machine learning.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Polynomial regression</title>
+      <link>/post/polynomial_regression/</link>
+      <pubDate>Thu, 01 Aug 2019 21:08:07 -0500</pubDate>
+      
+      <guid>/post/polynomial_regression/</guid>
+      <description>
+
+
+&lt;div id=&#34;background&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Background&lt;/h2&gt;
+&lt;p&gt;In many studies, for example if one looks the relationship between nitrogen and yield for many cereal crops, the relationship is not linear, rather there is often a plateau where after a specific amount, the response decreases. A simpler linear-type model will explain some of the variability, but not very well. In these situations we can consider a polynomial form to the model.&lt;/p&gt;
+&lt;p&gt;We can define this relationship in general terms as the the relation betweeen the independent variable, &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, and the expected response, &lt;span class=&#34;math inline&#34;&gt;\(E(y|x)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Note: Very important with this type of analysis is to understand the software that you are using since often we focus on use &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(X^2\)&lt;/span&gt;, which depending on how those variables are defined, leads to high collinearity. This example illustrates that concept and provides methods to overcome the issue.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(Hmisc)
+library(corrplot)
+library(readr)
+library(HH)
+library(car)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data&lt;/h2&gt;
+&lt;p&gt;For this example, we have the following situation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Density = Seeding density (number of plants per &lt;span class=&#34;math inline&#34;&gt;\(m^2\)&lt;/span&gt;)&lt;/li&gt;
+&lt;li&gt;Yield = quantity of biomass&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;density &amp;lt;- rep(c(10,20,30,40,50), each=3)
+yield &amp;lt;- c(12.2, 11.4, 12.4, 16, 15.5, 16.5, 18.6, 20.2, 18.2, 17.6, 19.3, 17.1, 18, 16.4, 16.6)
+
+densities &amp;lt;- data.frame(density, yield)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;linear-regression&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Linear regression&lt;/h2&gt;
+&lt;p&gt;To start, we will build a simple linear regression models and examine the overall model fit, including model assumptions.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;model1 &amp;lt;- lm(yield~density)
+anova(model1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Response: yield
+##           Df Sum Sq Mean Sq F value   Pr(&amp;gt;F)   
+## density    1  43.20  43.200  10.825 0.005858 **
+## Residuals 13  51.88   3.991                    
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(model1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = yield ~ density)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+##   -2.6   -1.7    0.0    1.5    3.8 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## (Intercept) 12.80000    1.20966   10.58  9.3e-08 ***
+## density      0.12000    0.03647    3.29  0.00586 ** 
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 1.998 on 13 degrees of freedom
+## Multiple R-squared:  0.4544, Adjusted R-squared:  0.4124 
+## F-statistic: 10.82 on 1 and 13 DF,  p-value: 0.005858&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(model1) # You hopefully can see that the model fit is not very good&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/polynomial_regression_files/figure-html/lineal-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/polynomial_regression_files/figure-html/lineal-2.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/polynomial_regression_files/figure-html/lineal-3.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/polynomial_regression_files/figure-html/lineal-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ci.plot(model1) # It should be obvious that the regression line does not reflect the actual relationship well&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/polynomial_regression_files/figure-html/lineal-5.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;quadratic-regression-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Quadratic regression 1&lt;/h2&gt;
+&lt;p&gt;Given the result just seem with the simple linear regression, we will construct a quadratic model. The structure of the analysis is the same, but we will create a variable for &lt;em&gt;density&lt;/em&gt; to reflect the squared term, &lt;span class=&#34;math inline&#34;&gt;\(density^2\)&lt;/span&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Define the density as a squared term (there are multiple ways to do this, but we will use a simple approach for now)
+
+density2&amp;lt;-density^2
+
+model2&amp;lt;-lm(yield~density + density2)
+
+# Significance
+anova(model2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Response: yield
+##           Df Sum Sq Mean Sq F value    Pr(&amp;gt;F)    
+## density    1  43.20  43.200  52.470 1.024e-05 ***
+## density2   1  42.00  42.000  51.012 1.177e-05 ***
+## Residuals 12   9.88   0.823                      
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(model2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = yield ~ density + density2)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+##  -1.50  -0.50  -0.20   0.35   1.80 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## (Intercept)  5.80000    1.12359   5.162 0.000236 ***
+## density      0.72000    0.08563   8.409 2.25e-06 ***
+## density2    -0.01000    0.00140  -7.142 1.18e-05 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 0.9074 on 12 degrees of freedom
+## Multiple R-squared:  0.8961, Adjusted R-squared:  0.8788 
+## F-statistic: 51.74 on 2 and 12 DF,  p-value: 1.259e-06&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Assumptions
+plot(model2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/polynomial_regression_files/figure-html/quadratic1-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/polynomial_regression_files/figure-html/quadratic1-2.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/polynomial_regression_files/figure-html/quadratic1-3.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/polynomial_regression_files/figure-html/quadratic1-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Let&amp;#39;s focus on comparing the two models based on Cook&amp;#39;s Distance.
+plot(model1, which=4) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/polynomial_regression_files/figure-html/quadratic1-5.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(model2, which=4) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/polynomial_regression_files/figure-html/quadratic1-6.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# F-test between model 1 and model 2
+anova(model1, model2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Model 1: yield ~ density
+## Model 2: yield ~ density + density2
+##   Res.Df   RSS Df Sum of Sq      F    Pr(&amp;gt;F)    
+## 1     13 51.88                                  
+## 2     12  9.88  1        42 51.012 1.177e-05 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Additional tools to understand the model fit and model assumptions for the quadratic form
+influence.measures(model2) # this is a general function to create the base for subsequent measurments&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Influence measures of
+##   lm(formula = yield ~ density + density2) :
+## 
+##       dfb.1_ dfb.dnst dfb.dns2   dffit cov.r  cook.d   hat inf
+## 1   1.46e-01  -0.1121   0.0927  0.1632 1.811 0.00963 0.295   *
+## 2  -4.47e-01   0.3445  -0.2847 -0.5012 1.571 0.08663 0.295    
+## 3   2.94e-01  -0.2262   0.1870  0.3292 1.718 0.03850 0.295    
+## 4   3.67e-17  -0.0280   0.0373 -0.0849 1.461 0.00261 0.124    
+## 5   5.03e-17  -0.1007   0.1339 -0.3054 1.244 0.03199 0.124    
+## 6  -3.68e-17   0.0422  -0.0560  0.1278 1.436 0.00588 0.124    
+## 7  -5.44e-02   0.0764  -0.0779  0.1016 1.527 0.00373 0.162    
+## 8  -6.26e-01   0.8795  -0.8964  1.1687 0.349 0.30236 0.162    
+## 9   5.44e-02  -0.0764   0.0779 -0.1016 1.527 0.00373 0.162    
+## 10  2.07e-01  -0.2391   0.1976 -0.4506 1.025 0.06529 0.124    
+## 11 -1.40e-01   0.1620  -0.1339  0.3054 1.244 0.03199 0.124    
+## 12  3.39e-01  -0.3920   0.3240 -0.7388 0.601 0.14691 0.124    
+## 13  3.26e-01  -0.4683   0.6225  1.0961 0.919 0.34654 0.295    
+## 14 -9.79e-02   0.1406  -0.1870 -0.3292 1.718 0.03850 0.295    
+## 15 -4.85e-02   0.0697  -0.0927 -0.1632 1.811 0.00963 0.295   *&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dffits(model2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##           1           2           3           4           5           6 
+##  0.16317088 -0.50123382  0.32920738 -0.08494387 -0.30538465  0.12778710 
+##           7           8           9          10          11          12 
+##  0.10156307  1.16874641 -0.10156307 -0.45055886  0.30538465 -0.73883264 
+##          13          14          15 
+##  1.09610758 -0.32920738 -0.16317088&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dfbeta(model2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      (Intercept)      density      density2
+## 1   1.702703e-01 -0.010000000  1.351351e-04
+## 2  -5.108108e-01  0.030000000 -4.054054e-04
+## 3   3.405405e-01 -0.020000000  2.702703e-04
+## 4   4.299875e-17 -0.002500000  5.434783e-05
+## 5   5.733167e-17 -0.008750000  1.902174e-04
+## 6  -4.299875e-17  0.003750000 -8.152174e-05
+## 7  -6.363636e-02  0.006818182 -1.136364e-04
+## 8  -5.727273e-01  0.061363636 -1.022727e-03
+## 9   6.363636e-02 -0.006818182  1.136364e-04
+## 10  2.282609e-01 -0.020108696  2.717391e-04
+## 11 -1.597826e-01  0.014076087 -1.902174e-04
+## 12  3.423913e-01 -0.030163043  4.076087e-04
+## 13  3.405405e-01 -0.037297297  8.108108e-04
+## 14 -1.135135e-01  0.012432432 -2.702703e-04
+## 15 -5.675676e-02  0.006216216 -1.351351e-04&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;covratio(model2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         1         2         3         4         5         6         7 
+## 1.8105775 1.5709359 1.7180496 1.4612786 1.2440860 1.4359881 1.5267335 
+##         8         9        10        11        12        13        14 
+## 0.3493908 1.5267335 1.0252651 1.2440860 0.6006431 0.9193090 1.7180496 
+##        15 
+## 1.8105775&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cooks.distance(model2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##           1           2           3           4           5           6 
+## 0.009626105 0.086634944 0.038504420 0.002611680 0.031993085 0.005876281 
+##           7           8           9          10          11          12 
+## 0.003732810 0.302357630 0.003732810 0.065292011 0.031993085 0.146907024 
+##          13          14          15 
+## 0.346539778 0.038504420 0.009626105&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;vif(model2) # 26.71 is the value, values greater than 10 typically indicate high collinearity&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  density density2 
+## 26.71429 26.71429&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;quadratic-regression-2&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Quadratic regression 2&lt;/h2&gt;
+&lt;p&gt;Given the result for the first quadratic regression that indicated high collinearity for &lt;span class=&#34;math inline&#34;&gt;\(density\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(density^2\)&lt;/span&gt;, what we can do to remove this without affecting the analysis is to center the &lt;em&gt;density&lt;/em&gt; variable and then run the analysis again. This is a very common practice to reduce the impact of not only high collinearity but also for cases for things like multivariate statistics where the scale for individual response variables can have high leverage on the overall analysis. The fuction, &lt;em&gt;scale&lt;/em&gt;, allows us to the scale the density considering the mean value (we are not taking into account the variance, which is another common approach = location-scale type centering).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Center and standardize the density variable
+
+# This approach substracts the mean, scale=FALSE tells R that we do not take into account the standard deviation in the analysis
+den_centered&amp;lt;-scale(density, center=TRUE, scale=FALSE) 
+
+# The same if we did this by &amp;quot;hand&amp;quot;
+density-mean(density)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] -20 -20 -20 -10 -10 -10   0   0   0  10  10  10  20  20  20&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Create a new variable for density^2 based on centered values
+den_centered2 &amp;lt;- den_centered^2
+
+plot(den_centered, den_centered2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/polynomial_regression_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Regression model with centered data
+
+model3&amp;lt;-lm(yield~den_centered+den_centered2)
+anova(model3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Response: yield
+##               Df Sum Sq Mean Sq F value    Pr(&amp;gt;F)    
+## den_centered   1  43.20  43.200  52.470 1.024e-05 ***
+## den_centered2  1  42.00  42.000  51.012 1.177e-05 ***
+## Residuals     12   9.88   0.823                      
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(model3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = yield ~ den_centered + den_centered2)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+##  -1.50  -0.50  -0.20   0.35   1.80 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## (Intercept)   18.40000    0.36511  50.396 2.44e-15 ***
+## den_centered   0.12000    0.01657   7.244 1.02e-05 ***
+## den_centered2 -0.01000    0.00140  -7.142 1.18e-05 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 0.9074 on 12 degrees of freedom
+## Multiple R-squared:  0.8961, Adjusted R-squared:  0.8788 
+## F-statistic: 51.74 on 2 and 12 DF,  p-value: 1.259e-06&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Assumptions
+plot(model3)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/polynomial_regression_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/polynomial_regression_files/figure-html/unnamed-chunk-1-3.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/polynomial_regression_files/figure-html/unnamed-chunk-1-4.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/post/polynomial_regression_files/figure-html/unnamed-chunk-1-5.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Compare original model with the centered quadratic model
+anova(model1, model3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
+## 
+## Model 1: yield ~ density
+## Model 2: yield ~ den_centered + den_centered2
+##   Res.Df   RSS Df Sum of Sq      F    Pr(&amp;gt;F)    
+## 1     13 51.88                                  
+## 2     12  9.88  1        42 51.012 1.177e-05 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Collinearity?
+dffits(model3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##           1           2           3           4           5           6 
+##  0.16317088 -0.50123382  0.32920738 -0.08494387 -0.30538465  0.12778710 
+##           7           8           9          10          11          12 
+##  0.10156307  1.16874641 -0.10156307 -0.45055886  0.30538465 -0.73883264 
+##          13          14          15 
+##  1.09610758 -0.32920738 -0.16317088&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dfbeta(model3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     (Intercept)  den_centered den_centered2
+## 1  -0.008108108 -1.891892e-03  1.351351e-04
+## 2   0.024324324  5.675676e-03 -4.054054e-04
+## 3  -0.016216216 -3.783784e-03  2.702703e-04
+## 4  -0.026086957  7.608696e-04  5.434783e-05
+## 5  -0.091304348  2.663043e-03  1.902174e-04
+## 6   0.039130435 -1.141304e-03 -8.152174e-05
+## 7   0.038636364  7.647245e-20 -1.136364e-04
+## 8   0.347727273  9.416246e-19 -1.022727e-03
+## 9  -0.038636364  1.769001e-19  1.136364e-04
+## 10 -0.130434783 -3.804348e-03  2.717391e-04
+## 11  0.091304348  2.663043e-03 -1.902174e-04
+## 12 -0.195652174 -5.706522e-03  4.076087e-04
+## 13 -0.048648649  1.135135e-02  8.108108e-04
+## 14  0.016216216 -3.783784e-03 -2.702703e-04
+## 15  0.008108108 -1.891892e-03 -1.351351e-04&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;covratio(model3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         1         2         3         4         5         6         7 
+## 1.8105775 1.5709359 1.7180496 1.4612786 1.2440860 1.4359881 1.5267335 
+##         8         9        10        11        12        13        14 
+## 0.3493908 1.5267335 1.0252651 1.2440860 0.6006431 0.9193090 1.7180496 
+##        15 
+## 1.8105775&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cooks.distance(model3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##           1           2           3           4           5           6 
+## 0.009626105 0.086634944 0.038504420 0.002611680 0.031993085 0.005876281 
+##           7           8           9          10          11          12 
+## 0.003732810 0.302357630 0.003732810 0.065292011 0.031993085 0.146907024 
+##          13          14          15 
+## 0.346539778 0.038504420 0.009626105&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;vif(model3) #The value is now = 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  den_centered den_centered2 
+##             1             1&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;what-occurred&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What occurred?&lt;/h2&gt;
+&lt;p&gt;We will take a look at the correlations between the original forms for density and centered forms.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(density, density2) #high correlation = collinearity&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.9811049&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(den_centered, den_centered2) #no correlation&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1]
+## [1,]    0&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary-and-considerations&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary and considerations&lt;/h2&gt;
+&lt;p&gt;The goal of this exercise was to illustrate how one needs to check any &lt;em&gt;package&lt;/em&gt; or &lt;em&gt;software&lt;/em&gt; regarding assumptions on linear, quadratic, higher polynomial terms. This becomes very important as you consider working with centered or standardized variables.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Nonlinear regression</title>
+      <link>/post/nonlinear_regression/</link>
+      <pubDate>Thu, 01 Aug 2019 21:08:06 -0500</pubDate>
+      
+      <guid>/post/nonlinear_regression/</guid>
+      <description>
+
+
+&lt;div id=&#34;background&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Background&lt;/h2&gt;
+&lt;p&gt;Nonlinear regression is an important modeling tool for looking at more compliated biological, physiological, etc., relationships. This introductory exercise describes some of the concepts that one should consider when analyzing nonlinear data. The process is iterative for modeling fitting, meaning that the parameters are estimated in a stepwise fashion. In Plant Pathology this is a useful tool for things like disease development over time. These models can be further extended to incorporated additional factors like treatments, years, among other things, to study the overall behavior and observed variability.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Note that for this example, we will keep the tools to those that are available in the base package
+
+library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data&lt;/h2&gt;
+&lt;p&gt;This work originated in Costa Rica and focused on growth and development of onion in the northern areas of the Province of Cartago. Growth was measured using whole plant biomass. The goal was to understand how different varieties performed in this zone and future work would examine the impact of different management tactics and pests on improving overall productivity.&lt;/p&gt;
+&lt;p&gt;The data strcuture for the orginal worked involved three cultivars but for the exercise we will only focus on one of those, which is called Alvara.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;dap = days after planting&lt;/li&gt;
+&lt;li&gt;gdd = growing degree days based on threshold temperatures for onion&lt;/li&gt;
+&lt;li&gt;root = root dry weight (grams)&lt;/li&gt;
+&lt;li&gt;buld = bulb dry weight (grams)&lt;/li&gt;
+&lt;li&gt;aerial = aerial biomass dry weight (grams)&lt;/li&gt;
+&lt;li&gt;total = total dry weight considering the above measurements&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dap &amp;lt;- c(11, 18, 26, 33, 40, 47, 56, 61, 69, 82, 96, 111, 124)
+gdd &amp;lt;- c(148, 233, 327, 410, 492, 575, 686, 746, 837, 993, 1158, 1335, 1484)
+root &amp;lt;- c(0.04, 0.019, 0.113, 0.044, 0.045, 0.056, 0.08, 0.114, 0.109, 0.116, 0.098, 0.101, 0.066)
+bulb &amp;lt;- c(0.137, 0.166, 0.289, 0.2, 0.292, 0.298, 0.474, 0.416, 1.236, 2.594, 6.265, 6.174, 
+22.521)
+aerial &amp;lt;- c(0.162, 0.191, 0.308, 0.243, 0.25, 0.343, 0.988, 0.962, 2.593, 3.379, 2.83, 5.054,
+2.748)
+total &amp;lt;- c(0.34, 0.376, 0.711, 0.487, 0.587, 0.698, 1.542, 1.492, 3.938, 6.089, 9.193, 11.329,
+25.334)
+
+alvara &amp;lt;- data.frame(dap, gdd, root, bulb, aerial, total)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;graphical-representation---preliminary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Graphical representation - preliminary&lt;/h2&gt;
+&lt;p&gt;Graphically, we will use some basic tools to look at the overall behavior.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## The predictive factor is growing degree days, assuming that best explains the overall growth and development
+
+with(alvara, plot(x=gdd, y=root, type=&amp;quot;b&amp;quot;, lty=1, lwd=2, pch=19, col=&amp;quot;black&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/plots1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;with(alvara, plot(x=gdd, y=bulb, type=&amp;quot;b&amp;quot;, lty=1, lwd=2, pch=19, col=&amp;quot;black&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/plots1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;with(alvara, plot(x=gdd, y=aerial, type=&amp;quot;b&amp;quot;, lty=1, lwd=2, pch=19, col=&amp;quot;black&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/plots1-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;with(alvara, plot(x=gdd, y=total, type=&amp;quot;b&amp;quot;, lty=1, lwd=2, pch=19, col=&amp;quot;black&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/plots1-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;modeling&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Modeling&lt;/h2&gt;
+&lt;p&gt;Selecting a nonlinear model depends on many factors especially taking into account the biological relationship. In preliminary analyses with data of this type for onion, we saw two possible nonlinear models that best describe the relationships. In the first case the development was bell-shaped, showing increases until a specific point in the developmental process when dry weight was reduced. The second curve tupe was exponential and related to the ultimate growth phases just prior to harvest. Even though growth is not infinite, we still recognize that this model may explain well the relationship and is interpretable.&lt;/p&gt;
+&lt;p&gt;Model 1.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ DW = \alpha * exp(-\beta * (gdd-\gamma)^2)\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Where, DW is the dry weight (g), &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; is the measure of initial dry weight the start of evaluations (0 gdds), &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; is the growth rate, and &lt;span class=&#34;math inline&#34;&gt;\(\gamma\)&lt;/span&gt; represents the inflexion point in the process. “gdd” are the accumulated growing degree days.&lt;/p&gt;
+&lt;p&gt;Model 2.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ DW = X_0 * exp (K * gdd) \]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;where, DW is the dry weight (g), &lt;span class=&#34;math inline&#34;&gt;\(X_0\)&lt;/span&gt; is the condition where there has been no accumulation of heat units, and K is the growth rate as a function of the accumulated growing degree days (gdd).&lt;/p&gt;
+&lt;p&gt;In both cases, it is important to take into account that the model will be adjusted based on the definition of the initial starting parameters. There are different methods to define initial starting parameters, including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;using a grid search approach to find the best combination of all parameters in the model&lt;/li&gt;
+&lt;li&gt;using preliminary analyses to define the parameters (can be based on similar data to your situation)&lt;/li&gt;
+&lt;li&gt;functional estimate based on the model form and your knowledge about the system&lt;/li&gt;
+&lt;li&gt;genetic algorithms, see for example, &lt;a href=&#34;https://en.wikipedia.org/wiki/Genetic_algorithm&#34; class=&#34;uri&#34;&gt;https://en.wikipedia.org/wiki/Genetic_algorithm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;in R there are also for some of the models there are functions that will obtain initial starting parameters (see: &lt;a href=&#34;http://www.apsnet.org/edcenter/advanced/topics/EcologyAndEpidemiologyInR/DiseaseProgress/Pages/NonlinearRegression.aspx&#34; class=&#34;uri&#34;&gt;http://www.apsnet.org/edcenter/advanced/topics/EcologyAndEpidemiologyInR/DiseaseProgress/Pages/NonlinearRegression.aspx&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For the following examples, we will use the third method based on knowledge of the crop physiology and preliminary analyses.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;model-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Model 1&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Variable = root dry weight
+## nls = nonlinear least squares
+## start=list() provides the input to define the initial starting values for the parameters
+
+regnl1 &amp;lt;- nls(root ~ alpha * exp(-beta*(gdd-gamma)^2), 
+              start=list(alpha = 0.15, beta = 0.0000002, gamma = 900), trace=TRUE, data=alvara)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 0.07027501 :  1.5e-01 2.0e-07 9.0e+02
+## 0.008673095 :  1.007217e-01 7.854471e-07 1.308727e+03
+## 0.007106798 :  9.761952e-02 1.203522e-06 1.002286e+03
+## 0.006594237 :  1.069288e-01 1.562084e-06 1.021834e+03
+## 0.006588507 :  1.079002e-01 1.618805e-06 1.016275e+03
+## 0.006588451 :  1.079549e-01 1.621248e-06 1.016766e+03
+## 0.00658845 :  1.079619e-01 1.621827e-06 1.016741e+03
+## 0.00658845 :  1.079626e-01 1.621871e-06 1.016743e+03&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(regnl1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Formula: root ~ alpha * exp(-beta * (gdd - gamma)^2)
+## 
+## Parameters:
+##        Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## alpha 1.080e-01  1.268e-02   8.516 6.78e-06 ***
+## beta  1.622e-06  7.130e-07   2.275   0.0462 *  
+## gamma 1.017e+03  9.913e+01  10.257 1.26e-06 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 0.02567 on 10 degrees of freedom
+## 
+## Number of iterations to convergence: 7 
+## Achieved convergence tolerance: 2.89e-06&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Predictions
+
+regnl_pred &amp;lt;- predict(regnl1, data.frame(gdd=seq(100,1500,25)))
+
+## Database of predictions over a range of gdds
+
+predictions &amp;lt;- data.frame(gdd=seq(100,1500,25), pred=regnl_pred)
+
+## Graphically
+
+ej1 &amp;lt;- ggplot() 
+ej1 +
+  geom_point(data=alvara, aes(x=gdd, y=root)) +
+  geom_line(data=predictions, aes(x=gdd, y=pred), lty=1, lwd=1.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/model1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;model-2&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Model 2&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Variable = total dry weight 
+
+regnl2 &amp;lt;- nls(total ~ x0 * exp(k * gdd), start = list(x0=0.5, k=0.0002), trace=TRUE, data=alvara)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 838.571 :  5e-01 2e-04
+## 745.1133 :  0.164848298 0.001679615
+## 547.7136 :  0.066722470 0.002956091
+## 231.1729 :  0.086874301 0.003337606
+## 66.82676 :  0.124641432 0.003367594
+## 17.75713 :  0.161921536 0.003372197
+## 17.75511 :  0.16183068 0.00337153
+## 17.75511 :  0.16184411 0.00337147&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(regnl2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Formula: total ~ x0 * exp(k * gdd)
+## 
+## Parameters:
+##     Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## x0 0.1618441  0.0645079   2.509    0.029 *  
+## k  0.0033715  0.0002832  11.905 1.26e-07 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 1.27 on 11 degrees of freedom
+## 
+## Number of iterations to convergence: 7 
+## Achieved convergence tolerance: 5.642e-06&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Predictions
+
+regn2_pred &amp;lt;- predict(regnl2, data.frame(gdd=seq(100,1500,25)))
+
+## Database of predictions
+
+predictions &amp;lt;- data.frame(gdd=seq(100,1500,25), pred=regn2_pred)
+
+## Graphically
+
+ej2 &amp;lt;- ggplot() 
+ej2 +
+  geom_point(data=alvara, aes(x=gdd, y=total)) +
+  geom_line(data=predictions, aes(x=gdd, y=pred), lty=1, lwd=1.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/model2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exercises&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Exercises&lt;/h2&gt;
+&lt;p&gt;Perform the same set of the analyses for the following measurements and initial parameter conditions:&lt;/p&gt;
+&lt;p&gt;Aerial dry weight, you can consider the following starting parameter values: start=list(alpha = 5, beta = 0.00002, gamma = 1100).&lt;/p&gt;
+&lt;p&gt;Bulb dry weight, you can consider the following starting parameter values: start=list(x0 = 0.5, k = 0.0002).&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Nonparametric regression</title>
+      <link>/post/nonparametric_regression/</link>
+      <pubDate>Thu, 01 Aug 2019 21:08:05 -0500</pubDate>
+      
+      <guid>/post/nonparametric_regression/</guid>
+      <description>
+
+
+&lt;div id=&#34;background&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Background&lt;/h2&gt;
+&lt;p&gt;Many times, we are interested in estimating the relationship between different variables that has a general form described as follows:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[f(x) = E[Y|X=x]\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Where we do not have a specific function type defined (i.e., specific model):&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[Y = f(X) + e\]&lt;/span&gt;
+As such, we would like to describe the data using the most appropriate model and estimate the parameters. In this introductory exercise, we will use nonparametric methods to do such a task and focus on three possible methods:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Moving average = calculate the mean value, &lt;em&gt;Y&lt;/em&gt;, around a window of &lt;em&gt;X&lt;/em&gt; values&lt;/li&gt;
+&lt;li&gt;Weighted moving averages = kernel smoothing: weight data as a function of distance, i.e., points closer in space are given greater weight&lt;/li&gt;
+&lt;li&gt;Local polynomial regression: adjust the polynomial value based on least squares methods for observations in a local window (weighted by distance)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;packages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Packages&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(Hmisc)
+library(corrplot)
+library(readr)
+library(HH)
+library(car)
+library(scatterplot3d)
+library(leaps)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data&lt;/h2&gt;
+&lt;p&gt;For this example, we are using a database called &lt;em&gt;Emissions&lt;/em&gt;. This data comes from FAO and represents the amount of &lt;span class=&#34;math inline&#34;&gt;\(CO~2\)&lt;/span&gt; emitted in different countries from Mexico to Panama. The number of years of data collection was 21. The data are also standardized based on the area under agricultural production. Given that one of the authors of this worked in Costa Rica, we will use that as our data source for the exercise. This will required working with a database that is in .csv format and then subset out the part that relates to Costa Rica. To accomplish this first part, we will using coding based on &lt;em&gt;tidyverse&lt;/em&gt;, especially using &lt;em&gt;dplyr&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Please note: I have located the data in my local &lt;em&gt;Document&lt;/em&gt; folder for eash of reading this into R. You can change the location accordingly for your personal use. If you are using this as a script, you can also use the import options in RStudio.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;emissions &amp;lt;- read_csv(&amp;quot;Emissions.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Parsed with column specification:
+## cols(
+##   Country = col_character(),
+##   Year = col_double(),
+##   Area = col_double(),
+##   CO2 = col_double(),
+##   CO2_area = col_double()
+## )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(emissions)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 5
+##   Country  Year   Area   CO2  CO2_area
+##   &amp;lt;chr&amp;gt;   &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1 Belize      1 128277  7.31 0.000057 
+## 2 Belize      2 153923  7.31 0.0000475
+## 3 Belize      3 164124  7.31 0.0000445
+## 4 Belize      4 184274  7.31 0.0000397
+## 5 Belize      5 130610  5.85 0.0000448
+## 6 Belize      6 173667  6.33 0.0000365&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Quick summary of the results across the countries
+
+summaries &amp;lt;- emissions %&amp;gt;% group_by(Country)
+summaries %&amp;gt;% str()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Classes &amp;#39;grouped_df&amp;#39;, &amp;#39;tbl_df&amp;#39;, &amp;#39;tbl&amp;#39; and &amp;#39;data.frame&amp;#39;:  168 obs. of  5 variables:
+##  $ Country : chr  &amp;quot;Belize&amp;quot; &amp;quot;Belize&amp;quot; &amp;quot;Belize&amp;quot; &amp;quot;Belize&amp;quot; ...
+##  $ Year    : num  1 2 3 4 5 6 7 8 9 10 ...
+##  $ Area    : num  128277 153923 164124 184274 130610 ...
+##  $ CO2     : num  7.31 7.31 7.31 7.31 5.85 ...
+##  $ CO2_area: num  5.70e-05 4.75e-05 4.45e-05 3.97e-05 4.48e-05 3.65e-05 2.96e-05 3.36e-05 5.15e-05 5.60e-05 ...
+##  - attr(*, &amp;quot;spec&amp;quot;)=
+##   .. cols(
+##   ..   Country = col_character(),
+##   ..   Year = col_double(),
+##   ..   Area = col_double(),
+##   ..   CO2 = col_double(),
+##   ..   CO2_area = col_double()
+##   .. )
+##  - attr(*, &amp;quot;groups&amp;quot;)=Classes &amp;#39;tbl_df&amp;#39;, &amp;#39;tbl&amp;#39; and &amp;#39;data.frame&amp;#39;:   8 obs. of  2 variables:
+##   ..$ Country: chr  &amp;quot;Belize&amp;quot; &amp;quot;CostaRica&amp;quot; &amp;quot;ElSalvador&amp;quot; &amp;quot;Guatemala&amp;quot; ...
+##   ..$ .rows  :List of 8
+##   .. ..$ : int  1 2 3 4 5 6 7 8 9 10 ...
+##   .. ..$ : int  22 23 24 25 26 27 28 29 30 31 ...
+##   .. ..$ : int  43 44 45 46 47 48 49 50 51 52 ...
+##   .. ..$ : int  64 65 66 67 68 69 70 71 72 73 ...
+##   .. ..$ : int  85 86 87 88 89 90 91 92 93 94 ...
+##   .. ..$ : int  106 107 108 109 110 111 112 113 114 115 ...
+##   .. ..$ : int  127 128 129 130 131 132 133 134 135 136 ...
+##   .. ..$ : int  148 149 150 151 152 153 154 155 156 157 ...
+##   ..- attr(*, &amp;quot;.drop&amp;quot;)= logi TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summaries %&amp;gt;% summarise(
+  em_mean = mean(CO2_area),
+  em_sd = sd(CO2_area),
+  em_cv = sd(CO2_area)/mean(CO2_area)*100,
+  em_max = max(CO2_area),
+  em_min = min(CO2_area)
 )&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 1: A fancy pie chart.
-&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 8 x 6
+##   Country      em_mean     em_sd em_cv    em_max    em_min
+##   &amp;lt;chr&amp;gt;          &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1 Belize     0.000106  0.000147  139.  0.000668  0.0000296
+## 2 CostaRica  0.000415  0.000100   24.2 0.000649  0.000232 
+## 3 ElSalvador 0.000139  0.0000280  20.2 0.000196  0.0000983
+## 4 Guatemala  0.000142  0.0000239  16.8 0.000172  0.000099 
+## 5 Honduras   0.000125  0.0000740  59.4 0.000281  0.0000224
+## 6 Mexico     0.000111  0.0000147  13.3 0.000131  0.0000843
+## 7 Nicaragua  0.0000614 0.0000182  29.6 0.0000923 0.0000242
+## 8 Panama     0.000119  0.0000285  23.9 0.000169  0.0000828&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Create a subset database to work with data only from Costa Rica
+costa_rica &amp;lt;- filter(emissions, Country==&amp;quot;CostaRica&amp;quot;)
+head(costa_rica)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 5
+##   Country    Year   Area   CO2 CO2_area
+##   &amp;lt;chr&amp;gt;     &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;
+## 1 CostaRica     1 773395  271. 0.00035 
+## 2 CostaRica     2 783774  304. 0.000388
+## 3 CostaRica     3 778918  317. 0.000407
+## 4 CostaRica     4 740508  292. 0.000395
+## 5 CostaRica     5 769340  341  0.000443
+## 6 CostaRica     6 765005  341  0.000446&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+&lt;div id=&#34;loess-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Loess 1&lt;/h2&gt;
+&lt;p&gt;This the method based on local polynomial regression.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# What does the relationship look like?
+
+CR &amp;lt;- ggplot(data=costa_rica, aes(x=Year, y=CO2_area))
+
+CR + geom_point()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/loess-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;CR + geom_point() + geom_line()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/loess-2.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Loess
+
+cr_np1 &amp;lt;- with(costa_rica, loess(CO2_area ~ Year , span=0.75)) #default method
+summary(cr_np1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Call:
+## loess(formula = CO2_area ~ Year, span = 0.75)
+## 
+## Number of Observations: 21 
+## Equivalent Number of Parameters: 4.61 
+## Residual Standard Error: 7.132e-05 
+## Trace of smoother matrix: 5.06  (exact)
+## 
+## Control settings:
+##   span     :  0.75 
+##   degree   :  2 
+##   family   :  gaussian
+##   surface  :  interpolate      cell = 0.2
+##   normalize:  TRUE
+##  parametric:  FALSE
+## drop.square:  FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;crnp1_pred &amp;lt;- predict(cr_np1, data.frame(Year=seq(1,21,0.5)))
+pred1 &amp;lt;- data.frame(Year=seq(1,21,0.5), crnp1_pred)
+
+# Graphically
+ej1 &amp;lt;- ggplot() 
+ej1 +
+  geom_point(data=costa_rica, aes(x=Year, y=CO2_area)) +
+  geom_line(data=costa_rica, aes(x=Year, y=CO2_area), lty=1) +
+  geom_line(data=pred1, aes(x=Year, y=crnp1_pred), lty=2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/loess-3.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;modify-the-loess-line&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Modify the Loess line&lt;/h2&gt;
+&lt;p&gt;Let’s look at some different line forms with Loess.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Span=0.5
+cr_np2 &amp;lt;- with(costa_rica, loess(CO2_area ~ Year , span=0.5))
+crnp2_pred &amp;lt;- predict(cr_np2, data.frame(Year=seq(1,21,0.5)))
+pred2 &amp;lt;- data.frame(Year=seq(1,21,0.5), crnp2_pred)
+
+ej1 &amp;lt;- ggplot() 
+ej1 +
+  geom_point(data=costa_rica, aes(x=Year, y=CO2_area)) +
+  geom_line(data=costa_rica, aes(x=Year, y=CO2_area), lty=1) +
+  geom_line(data=pred1, aes(x=Year, y=crnp1_pred), lty=2, lwd=1.5) +
+  geom_line(data=pred2, aes(x=Year, y=crnp2_pred), lty=3, lwd=1.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/loess2-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Span=0.25
+cr_np3 &amp;lt;- with(costa_rica, loess(CO2_area ~ Year, span=0.25))
+crnp3_pred &amp;lt;- predict(cr_np3, data.frame(Year=seq(1,21,0.5)))
+pred3 &amp;lt;- data.frame(Year=seq(1,21,0.5), crnp2_pred)
+
+ej1 &amp;lt;- ggplot() 
+ej1 +
+  geom_point(data=costa_rica, aes(x=Year, y=CO2_area)) +
+  geom_line(data=costa_rica, aes(x=Year, y=CO2_area), lty=1) +
+  geom_line(data=pred1, aes(x=Year, y=crnp1_pred), lty=2, lwd=1.5) +
+  geom_line(data=pred2, aes(x=Year, y=crnp2_pred), lty=3, lwd=1.5) +
+  geom_line(data=pred3, aes(x=Year, y=crnp3_pred), lty=4, lwd=1.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/loess2-2.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;smoothing-splines&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Smoothing splines&lt;/h2&gt;
+&lt;p&gt;In our next example, we will use the function &lt;em&gt;smooth.spline()&lt;/em&gt;. With this method, we can change the smoothing parameter and the methodology is based on crossed-validation to be able to define the parameter.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Base method (by default)
+cr_spline &amp;lt;- with(costa_rica, smooth.spline(x=Year, y=CO2_area))
+cr_spline&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Call:
+## smooth.spline(x = Year, y = CO2_area)
+## 
+## Smoothing Parameter  spar= 0.3976519  lambda= 6.497957e-05 (11 iterations)
+## Equivalent Degrees of Freedom (Df): 9.578523
+## Penalized Criterion (RSS): 2.323599e-08
+## GCV: 3.740554e-09&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(cr_spline)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##            Length Class             Mode   
+## x          21     -none-            numeric
+## y          21     -none-            numeric
+## w          21     -none-            numeric
+## yin        21     -none-            numeric
+## tol         1     -none-            numeric
+## data        3     -none-            list   
+## no.weights  1     -none-            logical
+## lev        21     -none-            numeric
+## cv.crit     1     -none-            numeric
+## pen.crit    1     -none-            numeric
+## crit        1     -none-            numeric
+## df          1     -none-            numeric
+## spar        1     -none-            numeric
+## ratio       1     -none-            numeric
+## lambda      1     -none-            numeric
+## iparms      5     -none-            numeric
+## auxM        0     -none-            NULL   
+## fit         5     smooth.spline.fit list   
+## call        3     -none-            call&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;crsp_pred &amp;lt;- predict(cr_spline, data.frame(Year=seq(1,21,0.5)))
+pred4 &amp;lt;- data.frame(Year=seq(1,21,0.5), crsp_pred)
+
+#Compare the fit with the Loess fit
+ej1 &amp;lt;- ggplot() 
+ej1 +
+  geom_point(data=costa_rica, aes(x=Year, y=CO2_area)) +
+  geom_line(data=costa_rica, aes(x=Year, y=CO2_area), lty=1) +
+  geom_line(data=pred1, aes(x=Year, y=crnp1_pred), lty=2, lwd=1.5) +
+  geom_line(data=pred4, aes(x=Year, y=Year.2), lty=4, lwd=1.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/spline-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;change-smoothing-parameter&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Change smoothing parameter&lt;/h2&gt;
+&lt;p&gt;We will now create a series of model runs where we change the smoothing parameter.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cr25 &amp;lt;- with(costa_rica, smooth.spline(x=Year, y=CO2_area, spar=0.25))
+pred25 &amp;lt;-  data.frame(Year=seq(1,21,0.5), pred=(predict(cr25, data.frame(Year=seq(1,21,0.5)))))
+
+cr35 &amp;lt;- with(costa_rica, smooth.spline(x=Year, y=CO2_area, spar=0.35))
+pred35 &amp;lt;-  data.frame(Year=seq(1,21,0.5), pred=(predict(cr35, data.frame(Year=seq(1,21,0.5)))))
+
+cr45 &amp;lt;- with(costa_rica, smooth.spline(x=Year, y=CO2_area, spar=0.45))
+pred45 &amp;lt;-  data.frame(Year=seq(1,21,0.5), pred=(predict(cr45, data.frame(Year=seq(1,21,0.5)))))
+
+cr55 &amp;lt;- with(costa_rica, smooth.spline(x=Year, y=CO2_area, spar=0.55))
+pred55 &amp;lt;-  data.frame(Year=seq(1,21,0.5), pred=(predict(cr55, data.frame(Year=seq(1,21,0.5)))))
+
+cr65 &amp;lt;- with(costa_rica, smooth.spline(x=Year, y=CO2_area, spar=0.65))
+pred65 &amp;lt;-  data.frame(Year=seq(1,21,0.5), pred=(predict(cr65, data.frame(Year=seq(1,21,0.5)))))
+
+cr75 &amp;lt;- with(costa_rica, smooth.spline(x=Year, y=CO2_area, spar=0.75))
+pred75 &amp;lt;-  data.frame(Year=seq(1,21,0.5), pred=(predict(cr75, data.frame(Year=seq(1,21,0.5)))))
+
+cr85 &amp;lt;- with(costa_rica, smooth.spline(x=Year, y=CO2_area, spar=0.85))
+pred85 &amp;lt;-  data.frame(Year=seq(1,21,0.5), pred=(predict(cr85, data.frame(Year=seq(1,21,0.5)))))
+
+ej1 &amp;lt;- ggplot() 
+ej1 +
+  geom_point(data=costa_rica, aes(x=Year, y=CO2_area)) +
+  geom_line(data=costa_rica, aes(x=Year, y=CO2_area), lty=1) +
+  geom_line(data=pred25, aes(x=Year, y=pred.Year.1), lty=2, lwd=1.2) +
+  geom_line(data=pred35, aes(x=Year, y=pred.Year.1), lty=3, lwd=1.2) +
+  geom_line(data=pred45, aes(x=Year, y=pred.Year.1), lty=4, lwd=1.2) +
+  geom_line(data=pred55, aes(x=Year, y=pred.Year.1), lty=5, lwd=1.2) +
+  geom_line(data=pred65, aes(x=Year, y=pred.Year.1), lty=6, lwd=1.2) +
+  geom_line(data=pred75, aes(x=Year, y=pred.Year.1), lty=2, lwd=1.3) +
+  geom_line(data=pred85, aes(x=Year, y=pred.Year.1), lty=3, lwd=1.3) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/smoothers-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;last-word-for-now&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Last word for now&lt;/h2&gt;
+&lt;p&gt;To close this discussion, it is natural to ask the following question, “What methods can we use to examine and control the smoothing parameter?”&lt;/p&gt;
+&lt;p&gt;Within this list, there are several including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;trial and error,&lt;/li&gt;
+&lt;li&gt;degree of smoothing compared with the data fidelity or reliability,&lt;/li&gt;
+&lt;li&gt;minimize the mean square error,&lt;/li&gt;
+&lt;li&gt;use cross-validation methods.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 </description>
     </item>

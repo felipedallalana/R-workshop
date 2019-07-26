@@ -17,7 +17,7 @@ interests:
 - Integrated management of field crop diseases
 - Plant disease epidemiology
 - Statistical methods for the agricultural sciences
-name: Paul D. Esker
+name: Paul Esker
 organizations: 
 - name: Penn State University
 role: 

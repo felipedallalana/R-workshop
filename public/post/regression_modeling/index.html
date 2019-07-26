@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.3.1">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Felipe Dalla Lana">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="BackgroundWhen building a model, there are different methods we can take to construct it, ranging from manual to automated. There are strengths and weaknesses in using the different methods, but they provide a good background for those interested in taking their models to a higher level (machine level, etc.), since in those situations we are often interested to look for interactions that cannot easily be found with basic approaches.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/regression_modeling/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.3834c081887e44130d565828d71a7178.css">
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/regression_modeling/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="APS - WORKSHOP">
+  <meta property="og:url" content="/post/regression_modeling/">
+  <meta property="og:title" content="Modeling methods for regression | APS - WORKSHOP">
+  <meta property="og:description" content="BackgroundWhen building a model, there are different methods we can take to construct it, ranging from manual to automated. There are strengths and weaknesses in using the different methods, but they provide a good background for those interested in taking their models to a higher level (machine level, etc.), since in those situations we are often interested to look for interactions that cannot easily be found with basic approaches."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-08-01T21:08:09-05:00">
+  
+  <meta property="article:modified_time" content="2019-08-01T21:08:09-05:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Modeling methods for regression | APS - WORKSHOP</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">APS - WORKSHOP</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Topics</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Time and directions</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#people"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Modeling methods for regression</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-08-01 21:08:09 -0500 -0500" itemprop="datePublished">
+<meta content="2019-08-01 21:08:09 -0500 -0500" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/paul-esker-and-felipe-dalla-lana/">Paul Esker and Felipe Dalla Lana</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 1, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    14 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/categories/r/">R</a></span>
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/regression_modeling/&amp;text=Modeling%20methods%20for%20regression" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/regression_modeling/&amp;t=Modeling%20methods%20for%20regression" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Modeling%20methods%20for%20regression&amp;body=/post/regression_modeling/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/regression_modeling/&amp;title=Modeling%20methods%20for%20regression" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Modeling%20methods%20for%20regression%20/post/regression_modeling/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/regression_modeling/&amp;title=Modeling%20methods%20for%20regression" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<div id="background" class="section level2">
+<h2>Background</h2>
+<p>When building a model, there are different methods we can take to construct it, ranging from manual to automated. There are strengths and weaknesses in using the different methods, but they provide a good background for those interested in taking their models to a higher level (machine level, etc.), since in those situations we are often interested to look for interactions that cannot easily be found with basic approaches.</p>
+<p>The general idea in this example is that we are interested in examining the behaviour of the a dependent variable <span class="math inline">\(Y\)</span> as a function of different (possible) explanatory variables, <span class="math inline">\(X_i\)</span>. The question that we are asking by looking at the different models is, “Is there a best approach to examing the different relationships?”</p>
+<p>We will examine different approaches in this exercise and be prepared that the final model may not be the same (we will see a different example after that provides a “cleaner” model, if you will).</p>
+<pre class="r"><code>library(tidyverse)
+library(Hmisc)
+library(corrplot)
+library(readr)
+library(HH)
+library(car)
+library(scatterplot3d)
+library(leaps)</code></pre>
+</div>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>For this exercise, we will examine the relationshiop between the number of aphids in 34 lots as a function of temperature and relative humidity.</p>
+<pre class="r"><code>lot &lt;- c(1:34)
+aphids &lt;- c(61, 77, 87, 93, 98, 100, 104, 118, 102, 74, 63, 43, 27, 19, 14, 23, 30, 25, 67, 40, 6, 21, 18, 23, 42, 56, 60, 59, 82, 89, 77, 102, 108, 97)
+temperature &lt;- c(21, 24.8, 28.3, 26, 27.5, 27.1, 26.8, 29, 28.3, 34, 30.5, 28.3, 30.8, 31, 33.6, 31.8, 31.3, 33.5, 33, 34.5, 34.3, 34.3, 33, 26.5, 32, 27.3, 27.8, 25.8, 25, 18.5, 26, 19, 18, 16.3)
+humidity &lt;- c(57,48, 41.5, 56, 58, 31, 36.5, 41, 40, 25, 34, 13, 37, 19, 20, 17, 21, 18.5, 24.5, 16, 6, 26, 21, 26, 28, 24.5, 39, 29, 41, 53.5, 51, 48, 70, 79.5)
+
+aphids_data &lt;- data.frame(lot, aphids, temperature, humidity)</code></pre>
+</div>
+<div id="basic-model" class="section level2">
+<h2>Basic model</h2>
+<p>Our basic model is additive, meaning we expect there to be an effect of temperature and relative humidity:</p>
+<p><span class="math display">\[aphids = intercept + temperature + humidity + error\]</span></p>
+<p>Our model structure will start by assuming that both temperature and humidity explain “something” about the relationship. For completeness, one could start with each factor separately and examine the explanatory value and then build the subsequent model accordingly. In many situations, what we are most interested in understanding is if there are interactions that explain better the relationships, especially if it is not clear that a linear set of assumptions is appropriate. We will build on those ideas in subsequent steps.</p>
+<pre class="r"><code>model_a &lt;- with(aphids_data, lm(aphids ~ temperature + humidity))
+anova(model_a) # both factors are significant</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: aphids
+##             Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## temperature  1 15194.8 15194.8 28.7765 7.554e-06 ***
+## humidity     1  4813.1  4813.1  9.1151  0.005038 ** 
+## Residuals   31 16368.9   528.0                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>summary(model_a) #R^2 = 0.55</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = aphids ~ temperature + humidity)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -35.393 -14.006  -3.198  10.335  49.265 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)  35.8255    53.5388   0.669  0.50835   
+## temperature  -0.6765     1.4360  -0.471  0.64089   
+## humidity      1.2811     0.4243   3.019  0.00504 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 22.98 on 31 degrees of freedom
+## Multiple R-squared:   0.55,  Adjusted R-squared:  0.521 
+## F-statistic: 18.95 on 2 and 31 DF,  p-value: 4.212e-06</code></pre>
+<pre class="r"><code>plot(model_a)</code></pre>
+<p><img src="/post/regression_modeling_files/figure-html/baseline-1.png" width="672" /><img src="/post/regression_modeling_files/figure-html/baseline-2.png" width="672" /><img src="/post/regression_modeling_files/figure-html/baseline-3.png" width="672" /><img src="/post/regression_modeling_files/figure-html/baseline-4.png" width="672" /></p>
+<pre class="r"><code>plot(model_a, which=4) </code></pre>
+<p><img src="/post/regression_modeling_files/figure-html/baseline-5.png" width="672" /></p>
+</div>
+<div id="full-model" class="section level2">
+<h2>Full model</h2>
+<p>The second model we will build takes into account what we define to be the full model. In some situations, this may just be all factors and all interactions. Here, given the two potential explanatory factors and the idea that there may not be purely a linear relationship, we will build our full model based on the individual factors, the interaction between those factors, as well as a quadratic form for the model for each factor.</p>
+<p>Model B: <span class="math inline">\(aphids = intercept + temperature + humidity + temperature^2 + humidity^2 + temperature:humidity\)</span></p>
+<p>We will use an indicator function to define the quadratic model forms (<span class="math inline">\(I\)</span>) in the subsequent model.</p>
+<pre class="r"><code>model_b &lt;- with(aphids_data, lm(aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2) + temperature:humidity))
+anova(model_b) # significant factors: temperature, humidity, I(temperature^2)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: aphids
+##                      Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## temperature           1 15194.8 15194.8 31.4527 5.278e-06 ***
+## humidity              1  4813.1  4813.1  9.9629  0.003801 ** 
+## I(temperature^2)      1  1982.4  1982.4  4.1036  0.052418 .  
+## I(humidity^2)         1   805.1   805.1  1.6666  0.207279    
+## temperature:humidity  1    54.6    54.6  0.1129  0.739344    
+## Residuals            28 13526.8   483.1                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>summary(model_b) #R^2 = 0.63</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = aphids ~ temperature + humidity + I(temperature^2) + 
+##     I(humidity^2) + temperature:humidity)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -41.700 -12.220  -1.462  10.894  41.673 
+## 
+## Coefficients:
+##                        Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)          143.069144 610.542500   0.234    0.816
+## temperature           -5.639044  33.900957  -0.166    0.869
+## humidity              -0.182206   8.875236  -0.021    0.984
+## I(temperature^2)       0.029174   0.476345   0.061    0.952
+## I(humidity^2)         -0.008121   0.036214  -0.224    0.824
+## temperature:humidity   0.078534   0.233701   0.336    0.739
+## 
+## Residual standard error: 21.98 on 28 degrees of freedom
+## Multiple R-squared:  0.6281, Adjusted R-squared:  0.5617 
+## F-statistic:  9.46 on 5 and 28 DF,  p-value: 2.285e-05</code></pre>
+<pre class="r"><code>plot(model_b)</code></pre>
+<p><img src="/post/regression_modeling_files/figure-html/full-1.png" width="672" /><img src="/post/regression_modeling_files/figure-html/full-2.png" width="672" /><img src="/post/regression_modeling_files/figure-html/full-3.png" width="672" /><img src="/post/regression_modeling_files/figure-html/full-4.png" width="672" /></p>
+<pre class="r"><code>plot(model_b, which=4)</code></pre>
+<p><img src="/post/regression_modeling_files/figure-html/full-5.png" width="672" /></p>
+</div>
+<div id="model-comparison" class="section level2">
+<h2>Model comparison</h2>
+<pre class="r"><code># anova(a,b), enables comparision between nested models, based on the number of additional parameters
+
+anova(model_a, model_b) </code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: aphids ~ temperature + humidity
+## Model 2: aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2) + 
+##     temperature:humidity
+##   Res.Df   RSS Df Sum of Sq     F Pr(&gt;F)
+## 1     31 16369                          
+## 2     28 13527  3    2842.1 1.961 0.1427</code></pre>
+<pre class="r"><code># What the results indicates is that a full model does not explain better the relationship, probably due to being an over-adjusted model. This does not mean that they may not be a model that better explains the relationship that is less complicated. </code></pre>
+</div>
+<div id="modeling-three-methods-under-consideration" class="section level2">
+<h2>Modeling: three methods under consideration</h2>
+<p>Now, we will look at different methods to try to automate the model development. The general idea with this approach/exercise is to reduce the need to create many models and duplicate the same process over and over. The challenge will be to identify the most important factors, not just statistically, but also based on the biology and knowledge of the system.</p>
+<p>The three methods we will consider:
+* Manual
+* Stepwise methods (“steps”)
+* Best subset methods</p>
+<pre class="r"><code># Manual model construction
+# We will start with Model B in this situation and try to reduce the complexity of the model. 
+
+# The process involves elminating factors that are not significant followed by an examination of the new model fit.
+
+# We assume that we will work from interactions towards the simple, single factor models.
+
+# Step 1: eliminate the factor, temperature:humidity
+model_b2 &lt;- update(model_b, .~.-temperature:humidity)
+summary(model_b2)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = aphids ~ temperature + humidity + I(temperature^2) + 
+##     I(humidity^2))
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -40.969 -12.837  -1.096  12.670  41.617 
+## 
+## Coefficients:
+##                   Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept)      -57.45005  127.24411  -0.451   0.6550  
+## temperature        5.24487    9.85861   0.532   0.5988  
+## humidity           2.77322    1.17389   2.362   0.0251 *
+## I(temperature^2)  -0.11851    0.18088  -0.655   0.5175  
+## I(humidity^2)     -0.01921    0.01465  -1.311   0.2001  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 21.64 on 29 degrees of freedom
+## Multiple R-squared:  0.6266, Adjusted R-squared:  0.5752 
+## F-statistic: 12.17 on 4 and 29 DF,  p-value: 6.302e-06</code></pre>
+<pre class="r"><code>anova(model_b, model_b2) ## temperature:humidity = non-significant</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2) + 
+##     temperature:humidity
+## Model 2: aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2)
+##   Res.Df   RSS Df Sum of Sq      F Pr(&gt;F)
+## 1     28 13527                           
+## 2     29 13581 -1   -54.554 0.1129 0.7393</code></pre>
+<pre class="r"><code># From model b2, we will now eliminate the factor I(humidity^2)
+model_b3 &lt;- update(model_b2, .~.-I(humidity^2))
+summary(model_b3) # it appears that all factors explain something</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = aphids ~ temperature + humidity + I(temperature^2))
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -37.782 -13.595  -3.561   9.367  43.291 
+## 
+## Coefficients:
+##                   Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)      -152.5753   105.7801  -1.442  0.15955   
+## temperature        13.9936     7.3439   1.905  0.06634 . 
+## humidity            1.3263     0.4050   3.275  0.00267 **
+## I(temperature^2)   -0.2769     0.1362  -2.033  0.05096 . 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 21.9 on 30 degrees of freedom
+## Multiple R-squared:  0.6045, Adjusted R-squared:  0.565 
+## F-statistic: 15.29 on 3 and 30 DF,  p-value: 3.217e-06</code></pre>
+<pre class="r"><code># Compare the models b2 and b3
+anova(model_b2, model_b3) # I(humidity^2) = not signficant </code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2)
+## Model 2: aphids ~ temperature + humidity + I(temperature^2)
+##   Res.Df   RSS Df Sum of Sq      F Pr(&gt;F)
+## 1     29 13581                           
+## 2     30 14386 -1   -805.11 1.7191 0.2001</code></pre>
+<pre class="r"><code># Compare with baseline model
+anova(model_a, model_b3) ## this model is close to p=0,05 and probably has some predictive value</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: aphids ~ temperature + humidity
+## Model 2: aphids ~ temperature + humidity + I(temperature^2)
+##   Res.Df   RSS Df Sum of Sq      F  Pr(&gt;F)  
+## 1     31 16369                              
+## 2     30 14386  1    1982.4 4.1339 0.05096 .
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code># Remove temperature^2
+model_b4 &lt;- update(model_b3, .~.-I(temperature^2))
+anova(model_b4)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: aphids
+##             Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## temperature  1 15194.8 15194.8 28.7765 7.554e-06 ***
+## humidity     1  4813.1  4813.1  9.1151  0.005038 ** 
+## Residuals   31 16368.9   528.0                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>summary(model_b4)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = aphids ~ temperature + humidity)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -35.393 -14.006  -3.198  10.335  49.265 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)  35.8255    53.5388   0.669  0.50835   
+## temperature  -0.6765     1.4360  -0.471  0.64089   
+## humidity      1.2811     0.4243   3.019  0.00504 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 22.98 on 31 degrees of freedom
+## Multiple R-squared:   0.55,  Adjusted R-squared:  0.521 
+## F-statistic: 18.95 on 2 and 31 DF,  p-value: 4.212e-06</code></pre>
+<pre class="r"><code>anova(model_b3, model_b4) </code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: aphids ~ temperature + humidity + I(temperature^2)
+## Model 2: aphids ~ temperature + humidity
+##   Res.Df   RSS Df Sum of Sq      F  Pr(&gt;F)  
+## 1     30 14386                              
+## 2     31 16369 -1   -1982.4 4.1339 0.05096 .
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code># You can continue reducing the model, but we do know now that there is some predictive value with the variables we have 
+
+# For the moment and seeing the results, b3 may be the best of the models. Agree?</code></pre>
+</div>
+<div id="stepwise-methods" class="section level2">
+<h2>Stepwise methods</h2>
+<p>Now, let;s use the function <em>step()</em> to automate the search process for the best model.</p>
+<p>What is required typically is the definition of the null model and the full model. With these defined, we can use “forward”, “backward”, or “both” direction searching.</p>
+<pre class="r"><code>model_null &lt;- lm(aphids~1, data=aphids_data)
+model_full &lt;- model_b
+
+# Forward
+forward &lt;- step(model_null, scope=list(lower=model_null, upper=model_full, direction=&quot;forward&quot;)) </code></pre>
+<pre><code>## Start:  AIC=239.16
+## aphids ~ 1
+## 
+##                    Df Sum of Sq   RSS    AIC
+## + humidity          1     19891 16486 214.25
+## + I(temperature^2)  1     16098 20279 221.29
+## + I(humidity^2)     1     15560 20817 222.18
+## + temperature       1     15195 21182 222.77
+## &lt;none&gt;                          36377 239.16
+## 
+## Step:  AIC=214.25
+## aphids ~ humidity
+## 
+##                    Df Sum of Sq   RSS    AIC
+## + I(humidity^2)     1    2371.2 14115 210.97
+## &lt;none&gt;                          16486 214.25
+## + I(temperature^2)  1     358.4 16128 215.51
+## + temperature       1     117.2 16369 216.01
+## - humidity          1   19890.7 36377 239.16
+## 
+## Step:  AIC=210.97
+## aphids ~ humidity + I(humidity^2)
+## 
+##                    Df Sum of Sq   RSS    AIC
+## &lt;none&gt;                          14115 210.97
+## + I(temperature^2)  1     400.9 13714 211.99
+## + temperature       1     332.4 13782 212.16
+## - I(humidity^2)     1    2371.2 16486 214.25
+## - humidity          1    6702.0 20817 222.18</code></pre>
+<pre class="r"><code># Backwards
+back &lt;- step(model_b) </code></pre>
+<pre><code>## Start:  AIC=215.53
+## aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2) + 
+##     temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## - I(temperature^2)      1     1.812 13529 213.53
+## - I(humidity^2)         1    24.294 13551 213.59
+## - temperature:humidity  1    54.554 13581 213.66
+## &lt;none&gt;                              13527 215.53
+## 
+## Step:  AIC=213.53
+## aphids ~ temperature + humidity + I(humidity^2) + temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## - I(humidity^2)         1    76.241 13605 211.72
+## - temperature:humidity  1   253.787 13782 212.16
+## &lt;none&gt;                              13529 213.53
+## 
+## Step:  AIC=211.72
+## aphids ~ temperature + humidity + temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## &lt;none&gt;                              13605 211.72
+## - temperature:humidity  1      2764 16369 216.01</code></pre>
+<pre class="r"><code>step(model_b, direction=&quot;backward&quot;) </code></pre>
+<pre><code>## Start:  AIC=215.53
+## aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2) + 
+##     temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## - I(temperature^2)      1     1.812 13529 213.53
+## - I(humidity^2)         1    24.294 13551 213.59
+## - temperature:humidity  1    54.554 13581 213.66
+## &lt;none&gt;                              13527 215.53
+## 
+## Step:  AIC=213.53
+## aphids ~ temperature + humidity + I(humidity^2) + temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## - I(humidity^2)         1    76.241 13605 211.72
+## - temperature:humidity  1   253.787 13782 212.16
+## &lt;none&gt;                              13529 213.53
+## 
+## Step:  AIC=211.72
+## aphids ~ temperature + humidity + temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## &lt;none&gt;                              13605 211.72
+## - temperature:humidity  1      2764 16369 216.01</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = aphids ~ temperature + humidity + temperature:humidity)
+## 
+## Coefficients:
+##          (Intercept)           temperature              humidity  
+##            150.70989              -4.72276              -1.29670  
+## temperature:humidity  
+##              0.09728</code></pre>
+<pre class="r"><code># Both directions 
+both &lt;- step(model_b, direction=&quot;both&quot;)</code></pre>
+<pre><code>## Start:  AIC=215.53
+## aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2) + 
+##     temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## - I(temperature^2)      1     1.812 13529 213.53
+## - I(humidity^2)         1    24.294 13551 213.59
+## - temperature:humidity  1    54.554 13581 213.66
+## &lt;none&gt;                              13527 215.53
+## 
+## Step:  AIC=213.53
+## aphids ~ temperature + humidity + I(humidity^2) + temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## - I(humidity^2)         1    76.241 13605 211.72
+## - temperature:humidity  1   253.787 13782 212.16
+## &lt;none&gt;                              13529 213.53
+## + I(temperature^2)      1     1.812 13527 215.53
+## 
+## Step:  AIC=211.72
+## aphids ~ temperature + humidity + temperature:humidity
+## 
+##                        Df Sum of Sq   RSS    AIC
+## &lt;none&gt;                              13605 211.72
+## + I(humidity^2)         1     76.24 13529 213.53
+## + I(temperature^2)      1     53.76 13551 213.59
+## - temperature:humidity  1   2764.04 16369 216.01</code></pre>
+</div>
+<div id="best-subsets" class="section level2">
+<h2>Best subsets</h2>
+<p>In the last section of this exercise, we will use a method based on best subsets regression. We will use the funtion <em>regsubsets</em> in the package <em>leaps</em> to do this exercise. This method looks at the full model and considers different combinations of models based on the number of best models we decide to examine. The result is not necessarily what is the best model but rather a series of models that explain something in our model. We would then need to go back, after model selection, and run the formal analysis to look at model fit, predictive value, biological relevance, etc..</p>
+<pre class="r"><code># regsubsets = package *leaps*
+
+# let&#39;s start by looking at the best 3 models per level
+subsets &lt;- regsubsets(aphids~temperature+humidity+I(temperature^2)+
+I(humidity^2)+temperature:humidity, nbest=3, data=aphids_data)
+
+plot(subsets, scale=&quot;adjr2&quot;)</code></pre>
+<p><img src="/post/regression_modeling_files/figure-html/bestsubsets-1.png" width="672" /></p>
+<pre class="r"><code>plot(subsets, scale=&quot;bic&quot;)</code></pre>
+<p><img src="/post/regression_modeling_files/figure-html/bestsubsets-2.png" width="672" /></p>
+<pre class="r"><code>plot(subsets, scale=&quot;Cp&quot;)</code></pre>
+<p><img src="/post/regression_modeling_files/figure-html/bestsubsets-3.png" width="672" /></p>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>Hopefully you saw that this was not an easy exercise since there was not a clear model that best fit the response. In modeling we are integrating mathematical/statistical concepts with computational methodology, as well as keeping in mind the biology/pathology.</p>
+<p><em>What is the best method to model observaed relationships?</em></p>
+<p>For this concluding part, I draw and adapt on ideas from Gelman and Hall (2007; <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>):</p>
+<ol style="list-style-type: decimal">
+<li>Include all variables that for reasons known to the researcher may be important for predicting an outcome.</li>
+<li>You do not always have to include all inputs as separate predictors. You can consider in some situations that several inputs could be averaged or summed to create a “total score” that then becomes the predictor variable (index value, etc.)</li>
+<li>For predictive variables with large effects, an examination of the interactions may also be warranted (very common when we extend this to regression trees and other methods).</li>
+<li>Strategy for decisions focused on excluding a variable based on the expected sign and statistical significance:</li>
+</ol>
+<ul>
+<li>If the predictor is not statistically significant and has the expected sign (+ or -), in general it is fine to keep the predictor. This means that while the predictor is not helping predictions dramatically, it is also not hurting them.</li>
+<li>If the predictor is not statistically significant and does not have the expected sign, consider removing this from the model (i.e., the coefficiente is set to 0).</li>
+<li>If the predictor is statistically significant but does not have the expected sign, this is somewhat more complicated since the challenge is in terms of interpretation. Consider trying to gather additional data on lurking variables and include those in the analysis.</li>
+<li>If the predictor is statistically significant and has the expected sign, definitely you should keep this in the model!</li>
+</ul>
+</div>
+
+    </div>
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/regression/">Regression</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+  
+  
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/authors/paul-esker-and-felipe-dalla-lana/"></a></h5>
+      
+      
+      <ul class="network-icon" aria-hidden="true">
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/multiple_regression/">Multiple regression</a></li>
+          
+          <li><a href="/post/polynomial_regression/">Polynomial regression</a></li>
+          
+          <li><a href="/post/nonlinear_regression/">Nonlinear regression</a></li>
+          
+          <li><a href="/post/nonparametric_regression/">Nonparametric regression</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+      <script async defer src="//maps.googleapis.com/maps/api/js?key="></script>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js" integrity="sha256-7vjlAeb8OaTrCXZkCNun9djzuB2owUsaO72kXaFDBJs=" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.8cd55d839906ab9f8f6514a7081b20c1.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Privacy Policy</a>
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

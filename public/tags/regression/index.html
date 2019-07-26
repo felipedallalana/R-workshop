@@ -112,11 +112,11 @@
   
   <meta property="og:site_name" content="APS - WORKSHOP">
   <meta property="og:url" content="/tags/regression/">
-  <meta property="og:title" content="regression | APS - WORKSHOP">
+  <meta property="og:title" content="Regression | APS - WORKSHOP">
   <meta property="og:description" content="Ph.D. candidate"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2015-07-23T21:13:14-05:00">
+  <meta property="og:updated_time" content="2019-08-01T21:08:10-05:00">
   
 
   
@@ -128,7 +128,7 @@
 
 
 
-  <title>regression | APS - WORKSHOP</title>
+  <title>Regression | APS - WORKSHOP</title>
 
 </head>
 
@@ -324,7 +324,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1 itemprop="name">regression</h1>
+  <h1 itemprop="name">Regression</h1>
 
   
 
@@ -339,12 +339,63 @@
   
   
   <div>
-    <h2><a href="/post/2015-07-23-r-rmarkdown/">Hello R Markdown</a></h2>
+    <h2><a href="/post/linear_regression/">Regression 1</a></h2>
     <div class="article-style">
       
-      R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.
+      BackgroundThis example is focued on modeling via linear regression. We will illustrate the concepts using an example, with particular focus on the assumptions and the tools that exist in R to explore the model fit.
+Our goal is to related a “dependent variable” with an “independent variable” the explains something about the process.
+Our simple example is that we might relate plant height with an index of crop growth (leaf area index).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/regression_modeling/">Modeling methods for regression</a></h2>
+    <div class="article-style">
+      
+      BackgroundWhen building a model, there are different methods we can take to construct it, ranging from manual to automated. There are strengths and weaknesses in using the different methods, but they provide a good background for those interested in taking their models to a higher level (machine level, etc.), since in those situations we are often interested to look for interactions that cannot easily be found with basic approaches.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/multiple_regression/">Multiple regression</a></h2>
+    <div class="article-style">
+      
+      BackgroundGiven the background and tools presented in linear regression, we will not extend the modeling approach to include additional variables, as well as relationships that are more complicated. This exercise provides the jumping off point for more automated modeling approaches, which will we see in the subsequent example(s).
+Our assumption in this exercise is that multiple factors have explanatory value to explain the response variable of interest.
+What does a model of this type look like?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/polynomial_regression/">Polynomial regression</a></h2>
+    <div class="article-style">
+      
+      BackgroundIn many studies, for example if one looks the relationship between nitrogen and yield for many cereal crops, the relationship is not linear, rather there is often a plateau where after a specific amount, the response decreases. A simpler linear-type model will explain some of the variability, but not very well. In these situations we can consider a polynomial form to the model.
+We can define this relationship in general terms as the the relation betweeen the independent variable, \(x\), and the expected response, \(E(y|x)\).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/nonlinear_regression/">Nonlinear regression</a></h2>
+    <div class="article-style">
+      
+      BackgroundNonlinear regression is an important modeling tool for looking at more compliated biological, physiological, etc., relationships. This introductory exercise describes some of the concepts that one should consider when analyzing nonlinear data. The process is iterative for modeling fitting, meaning that the parameters are estimated in a stepwise fashion. In Plant Pathology this is a useful tool for things like disease development over time. These models can be further extended to incorporated additional factors like treatments, years, among other things, to study the overall behavior and observed variability.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/nonparametric_regression/">Nonparametric regression</a></h2>
+    <div class="article-style">
+      
+      BackgroundMany times, we are interested in estimating the relationship between different variables that has a general form described as follows:
+\[f(x) = E[Y|X=x]\]
+Where we do not have a specific function type defined (i.e., specific model):
+\[Y = f(X) + e\]As such, we would like to describe the data using the most appropriate model and estimate the parameters. In this introductory exercise, we will use nonparametric methods to do such a task and focus on three possible methods:
       
     </div>
   </div>
@@ -357,6 +408,9 @@ summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       
 
     
+    
+    
+    <script src="/js/mathjax-config.js"></script>
     
 
     
@@ -376,6 +430,8 @@ summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       
 
       
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
       
     
 

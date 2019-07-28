@@ -18,7 +18,7 @@ The general idea in this example is that we are interested in examining the beha
 
 We will examine different approaches in this exercise and be prepared that the final model may not be the same (we will see a different example after that provides a "cleaner" model, if you will).
 
-```{r packages, message=FALSE, warning=FALSE}
+```{r packages}
 
 library(tidyverse)
 library(Hmisc)
@@ -28,6 +28,7 @@ library(HH)
 library(car)
 library(scatterplot3d)
 library(leaps)
+library(olsrr)
   
 ```
 
@@ -76,9 +77,10 @@ We will use an indicator function to define the quadratic model forms ($I$) in t
 
 ```{r full}
 
-model_b <- with(aphids_data, lm(aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2) + temperature:humidity))
+model_b <- with(aphids_data, lm(aphids ~ temperature + humidity + I(temperature^2) + 
+                                  I(humidity^2) + temperature:humidity))
 anova(model_b) # significant factors: temperature, humidity, I(temperature^2)
-summary(model_b) #R^2 = 0.63
+summary(model_b) #R^2 = 0.63, adjusted R^2 = 0.5617
 
 plot(model_b)
 plot(model_b, which=4)
@@ -115,7 +117,7 @@ The three methods we will consider:
 
 # We assume that we will work from interactions towards the simple, single factor models.
 
-# Step 1: eliminate the factor, temperature:humidity
+# Initial step: eliminate the factor, temperature:humidity
 model_b2 <- update(model_b, .~.-temperature:humidity)
 summary(model_b2)
 anova(model_b, model_b2) ## temperature:humidity = non-significant
@@ -127,9 +129,17 @@ summary(model_b3) # it appears that all factors explain something
 # Compare the models b2 and b3
 anova(model_b2, model_b3) # I(humidity^2) = not signficant 
 # Compare with baseline model
-anova(model_a, model_b3) ## this model is close to p=0,05 and probably has some predictive value
+anova(model_a, model_b3) ## this model is close to p=0,05 and probably has 
+# some predictive value
 
-# Remove temperature^2
+# From model b2 (no interaction), we will now remove temperature to 
+# look at the humidity^2 term
+model_b3t <- update(model_b2, .~.-I(temperature^2))
+summary(model_b3t) # it appears that all factors explain something
+anova(model_a, model_b3t)
+anova(model_b2, model_b3t)
+
+# From model b3, remove temperature^2 (can do the same with model_b3t)
 model_b4 <- update(model_b3, .~.-I(temperature^2))
 anova(model_b4)
 summary(model_b4)
@@ -137,30 +147,45 @@ anova(model_b3, model_b4)
 
 # You can continue reducing the model, but we do know now that there is some predictive value with the variables we have 
 
-# For the moment and seeing the results, b3 may be the best of the models. Agree?
-
 ```
 
 ## Stepwise methods
 
-Now, let;s use the function *step()* to automate the search process for the best model.
+Now, let's use the function *step()* to automate the search process for the best model.
 
 What is required typically is the definition of the null model and the full model. With these defined, we can use "forward", "backward", or "both" direction searching.
 
 ```{r stepwise}
 
+## Stepwise methods
+
+# Null model
 model_null <- lm(aphids~1, data=aphids_data)
 model_full <- model_b
 
 # Forward
-forward <- step(model_null, scope=list(lower=model_null, upper=model_full, direction="forward")) 
+forward <- step(model_null, scope=list(lower=model_null, upper=model_full, 
+                                       direction="forward")) 
 
 # Backwards
-back <- step(model_b) 
-step(model_b, direction="backward") 
+back <- step(model_null, scope=list(lower=model_null, upper=model_full, 
+                                    direction="backward"))  
 
 # Both directions 
-both <- step(model_b, direction="both")
+back <- step(model_null, scope=list(lower=model_null, upper=model_full, 
+                                    direction="both"))
+
+```
+
+## Return to manual model
+
+For the moment, let's return to our manual model to take a look at suggest model from the stepwise procedure.
+
+```{r humiditymodel}
+
+model_b5<-with(aphids_data, lm(aphids~humidity+I(humidity^2)))
+anova(model_b5)
+summary(model_b5)
 
 ```
 

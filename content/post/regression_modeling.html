@@ -20,7 +20,8 @@ library(readr)
 library(HH)
 library(car)
 library(scatterplot3d)
-library(leaps)</code></pre>
+library(leaps)
+library(olsrr)</code></pre>
 </div>
 <div id="data" class="section level2">
 <h2>Data</h2>
@@ -78,7 +79,8 @@ anova(model_a) # both factors are significant</code></pre>
 <p>The second model we will build takes into account what we define to be the full model. In some situations, this may just be all factors and all interactions. Here, given the two potential explanatory factors and the idea that there may not be purely a linear relationship, we will build our full model based on the individual factors, the interaction between those factors, as well as a quadratic form for the model for each factor.</p>
 <p>Model B: <span class="math inline">\(aphids = intercept + temperature + humidity + temperature^2 + humidity^2 + temperature:humidity\)</span></p>
 <p>We will use an indicator function to define the quadratic model forms (<span class="math inline">\(I\)</span>) in the subsequent model.</p>
-<pre class="r"><code>model_b &lt;- with(aphids_data, lm(aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2) + temperature:humidity))
+<pre class="r"><code>model_b &lt;- with(aphids_data, lm(aphids ~ temperature + humidity + I(temperature^2) + 
+                                  I(humidity^2) + temperature:humidity))
 anova(model_b) # significant factors: temperature, humidity, I(temperature^2)</code></pre>
 <pre><code>## Analysis of Variance Table
 ## 
@@ -92,7 +94,7 @@ anova(model_b) # significant factors: temperature, humidity, I(temperature^2)</c
 ## Residuals            28 13526.8   483.1                      
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<pre class="r"><code>summary(model_b) #R^2 = 0.63</code></pre>
+<pre class="r"><code>summary(model_b) #R^2 = 0.63, adjusted R^2 = 0.5617</code></pre>
 <pre><code>## 
 ## Call:
 ## lm(formula = aphids ~ temperature + humidity + I(temperature^2) + 
@@ -148,7 +150,7 @@ anova(model_a, model_b) </code></pre>
 
 # We assume that we will work from interactions towards the simple, single factor models.
 
-# Step 1: eliminate the factor, temperature:humidity
+# Initial step: eliminate the factor, temperature:humidity
 model_b2 &lt;- update(model_b, .~.-temperature:humidity)
 summary(model_b2)</code></pre>
 <pre><code>## 
@@ -215,7 +217,7 @@ anova(model_b2, model_b3) # I(humidity^2) = not signficant </code></pre>
 ## 1     29 13581                           
 ## 2     30 14386 -1   -805.11 1.7191 0.2001</code></pre>
 <pre class="r"><code># Compare with baseline model
-anova(model_a, model_b3) ## this model is close to p=0,05 and probably has some predictive value</code></pre>
+anova(model_a, model_b3) ## this model is close to p=0,05 and probably has </code></pre>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Model 1: aphids ~ temperature + humidity
@@ -225,7 +227,51 @@ anova(model_a, model_b3) ## this model is close to p=0,05 and probably has some 
 ## 2     30 14386  1    1982.4 4.1339 0.05096 .
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<pre class="r"><code># Remove temperature^2
+<pre class="r"><code># some predictive value
+
+# From model b2 (no interaction), we will now remove temperature to 
+# look at the humidity^2 term
+model_b3t &lt;- update(model_b2, .~.-I(temperature^2))
+summary(model_b3t) # it appears that all factors explain something</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = aphids ~ temperature + humidity + I(humidity^2))
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -41.466 -10.864  -0.372   9.754  42.475 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)   18.95111   50.44302   0.376  0.70979   
+## temperature   -1.15206    1.35435  -0.851  0.40171   
+## humidity       3.24552    0.91764   3.537  0.00134 **
+## I(humidity^2) -0.02563    0.01080  -2.373  0.02426 * 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 21.43 on 30 degrees of freedom
+## Multiple R-squared:  0.6211, Adjusted R-squared:  0.5832 
+## F-statistic: 16.39 on 3 and 30 DF,  p-value: 1.711e-06</code></pre>
+<pre class="r"><code>anova(model_a, model_b3t)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: aphids ~ temperature + humidity
+## Model 2: aphids ~ temperature + humidity + I(humidity^2)
+##   Res.Df   RSS Df Sum of Sq    F  Pr(&gt;F)  
+## 1     31 16369                            
+## 2     30 13782  1    2586.5 5.63 0.02426 *
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>anova(model_b2, model_b3t)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2)
+## Model 2: aphids ~ temperature + humidity + I(humidity^2)
+##   Res.Df   RSS Df Sum of Sq      F Pr(&gt;F)
+## 1     29 13581                           
+## 2     30 13782 -1   -201.05 0.4293 0.5175</code></pre>
+<pre class="r"><code># From model b3, remove temperature^2 (can do the same with model_b3t)
 model_b4 &lt;- update(model_b3, .~.-I(temperature^2))
 anova(model_b4)</code></pre>
 <pre><code>## Analysis of Variance Table
@@ -267,19 +313,21 @@ anova(model_b4)</code></pre>
 ## 2     31 16369 -1   -1982.4 4.1339 0.05096 .
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<pre class="r"><code># You can continue reducing the model, but we do know now that there is some predictive value with the variables we have 
-
-# For the moment and seeing the results, b3 may be the best of the models. Agree?</code></pre>
+<pre class="r"><code># You can continue reducing the model, but we do know now that there is some predictive value with the variables we have </code></pre>
 </div>
 <div id="stepwise-methods" class="section level2">
 <h2>Stepwise methods</h2>
-<p>Now, let;s use the function <em>step()</em> to automate the search process for the best model.</p>
+<p>Now, let’s use the function <em>step()</em> to automate the search process for the best model.</p>
 <p>What is required typically is the definition of the null model and the full model. With these defined, we can use “forward”, “backward”, or “both” direction searching.</p>
-<pre class="r"><code>model_null &lt;- lm(aphids~1, data=aphids_data)
+<pre class="r"><code>## Stepwise methods
+
+# Null model
+model_null &lt;- lm(aphids~1, data=aphids_data)
 model_full &lt;- model_b
 
 # Forward
-forward &lt;- step(model_null, scope=list(lower=model_null, upper=model_full, direction=&quot;forward&quot;)) </code></pre>
+forward &lt;- step(model_null, scope=list(lower=model_null, upper=model_full, 
+                                       direction=&quot;forward&quot;)) </code></pre>
 <pre><code>## Start:  AIC=239.16
 ## aphids ~ 1
 ## 
@@ -310,94 +358,104 @@ forward &lt;- step(model_null, scope=list(lower=model_null, upper=model_full, di
 ## - I(humidity^2)     1    2371.2 16486 214.25
 ## - humidity          1    6702.0 20817 222.18</code></pre>
 <pre class="r"><code># Backwards
-back &lt;- step(model_b) </code></pre>
-<pre><code>## Start:  AIC=215.53
-## aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2) + 
-##     temperature:humidity
+back &lt;- step(model_null, scope=list(lower=model_null, upper=model_full, 
+                                    direction=&quot;backward&quot;))  </code></pre>
+<pre><code>## Start:  AIC=239.16
+## aphids ~ 1
 ## 
-##                        Df Sum of Sq   RSS    AIC
-## - I(temperature^2)      1     1.812 13529 213.53
-## - I(humidity^2)         1    24.294 13551 213.59
-## - temperature:humidity  1    54.554 13581 213.66
-## &lt;none&gt;                              13527 215.53
+##                    Df Sum of Sq   RSS    AIC
+## + humidity          1     19891 16486 214.25
+## + I(temperature^2)  1     16098 20279 221.29
+## + I(humidity^2)     1     15560 20817 222.18
+## + temperature       1     15195 21182 222.77
+## &lt;none&gt;                          36377 239.16
 ## 
-## Step:  AIC=213.53
-## aphids ~ temperature + humidity + I(humidity^2) + temperature:humidity
+## Step:  AIC=214.25
+## aphids ~ humidity
 ## 
-##                        Df Sum of Sq   RSS    AIC
-## - I(humidity^2)         1    76.241 13605 211.72
-## - temperature:humidity  1   253.787 13782 212.16
-## &lt;none&gt;                              13529 213.53
+##                    Df Sum of Sq   RSS    AIC
+## + I(humidity^2)     1    2371.2 14115 210.97
+## &lt;none&gt;                          16486 214.25
+## + I(temperature^2)  1     358.4 16128 215.51
+## + temperature       1     117.2 16369 216.01
+## - humidity          1   19890.7 36377 239.16
 ## 
-## Step:  AIC=211.72
-## aphids ~ temperature + humidity + temperature:humidity
+## Step:  AIC=210.97
+## aphids ~ humidity + I(humidity^2)
 ## 
-##                        Df Sum of Sq   RSS    AIC
-## &lt;none&gt;                              13605 211.72
-## - temperature:humidity  1      2764 16369 216.01</code></pre>
-<pre class="r"><code>step(model_b, direction=&quot;backward&quot;) </code></pre>
-<pre><code>## Start:  AIC=215.53
-## aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2) + 
-##     temperature:humidity
+##                    Df Sum of Sq   RSS    AIC
+## &lt;none&gt;                          14115 210.97
+## + I(temperature^2)  1     400.9 13714 211.99
+## + temperature       1     332.4 13782 212.16
+## - I(humidity^2)     1    2371.2 16486 214.25
+## - humidity          1    6702.0 20817 222.18</code></pre>
+<pre class="r"><code># Both directions 
+back &lt;- step(model_null, scope=list(lower=model_null, upper=model_full, 
+                                    direction=&quot;both&quot;))</code></pre>
+<pre><code>## Start:  AIC=239.16
+## aphids ~ 1
 ## 
-##                        Df Sum of Sq   RSS    AIC
-## - I(temperature^2)      1     1.812 13529 213.53
-## - I(humidity^2)         1    24.294 13551 213.59
-## - temperature:humidity  1    54.554 13581 213.66
-## &lt;none&gt;                              13527 215.53
+##                    Df Sum of Sq   RSS    AIC
+## + humidity          1     19891 16486 214.25
+## + I(temperature^2)  1     16098 20279 221.29
+## + I(humidity^2)     1     15560 20817 222.18
+## + temperature       1     15195 21182 222.77
+## &lt;none&gt;                          36377 239.16
 ## 
-## Step:  AIC=213.53
-## aphids ~ temperature + humidity + I(humidity^2) + temperature:humidity
+## Step:  AIC=214.25
+## aphids ~ humidity
 ## 
-##                        Df Sum of Sq   RSS    AIC
-## - I(humidity^2)         1    76.241 13605 211.72
-## - temperature:humidity  1   253.787 13782 212.16
-## &lt;none&gt;                              13529 213.53
+##                    Df Sum of Sq   RSS    AIC
+## + I(humidity^2)     1    2371.2 14115 210.97
+## &lt;none&gt;                          16486 214.25
+## + I(temperature^2)  1     358.4 16128 215.51
+## + temperature       1     117.2 16369 216.01
+## - humidity          1   19890.7 36377 239.16
 ## 
-## Step:  AIC=211.72
-## aphids ~ temperature + humidity + temperature:humidity
+## Step:  AIC=210.97
+## aphids ~ humidity + I(humidity^2)
 ## 
-##                        Df Sum of Sq   RSS    AIC
-## &lt;none&gt;                              13605 211.72
-## - temperature:humidity  1      2764 16369 216.01</code></pre>
+##                    Df Sum of Sq   RSS    AIC
+## &lt;none&gt;                          14115 210.97
+## + I(temperature^2)  1     400.9 13714 211.99
+## + temperature       1     332.4 13782 212.16
+## - I(humidity^2)     1    2371.2 16486 214.25
+## - humidity          1    6702.0 20817 222.18</code></pre>
+</div>
+<div id="return-to-manual-model" class="section level2">
+<h2>Return to manual model</h2>
+<p>For the moment, let’s return to our manual model to take a look at suggest model from the stepwise procedure.</p>
+<pre class="r"><code>model_b5&lt;-with(aphids_data, lm(aphids~humidity+I(humidity^2)))
+anova(model_b5)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: aphids
+##               Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## humidity       1 19890.7 19890.7 43.6854 2.194e-07 ***
+## I(humidity^2)  1  2371.2  2371.2  5.2079    0.0295 *  
+## Residuals     31 14114.8   455.3                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>summary(model_b5)</code></pre>
 <pre><code>## 
 ## Call:
-## lm(formula = aphids ~ temperature + humidity + temperature:humidity)
+## lm(formula = aphids ~ humidity + I(humidity^2))
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -44.703 -13.018  -0.288  12.098  40.196 
 ## 
 ## Coefficients:
-##          (Intercept)           temperature              humidity  
-##            150.70989              -4.72276              -1.29670  
-## temperature:humidity  
-##              0.09728</code></pre>
-<pre class="r"><code># Both directions 
-both &lt;- step(model_b, direction=&quot;both&quot;)</code></pre>
-<pre><code>## Start:  AIC=215.53
-## aphids ~ temperature + humidity + I(temperature^2) + I(humidity^2) + 
-##     temperature:humidity
+##                Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   -21.54288   16.60909  -1.297 0.204184    
+## humidity        3.41812    0.89093   3.837 0.000574 ***
+## I(humidity^2)  -0.02427    0.01063  -2.282 0.029504 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-##                        Df Sum of Sq   RSS    AIC
-## - I(temperature^2)      1     1.812 13529 213.53
-## - I(humidity^2)         1    24.294 13551 213.59
-## - temperature:humidity  1    54.554 13581 213.66
-## &lt;none&gt;                              13527 215.53
-## 
-## Step:  AIC=213.53
-## aphids ~ temperature + humidity + I(humidity^2) + temperature:humidity
-## 
-##                        Df Sum of Sq   RSS    AIC
-## - I(humidity^2)         1    76.241 13605 211.72
-## - temperature:humidity  1   253.787 13782 212.16
-## &lt;none&gt;                              13529 213.53
-## + I(temperature^2)      1     1.812 13527 215.53
-## 
-## Step:  AIC=211.72
-## aphids ~ temperature + humidity + temperature:humidity
-## 
-##                        Df Sum of Sq   RSS    AIC
-## &lt;none&gt;                              13605 211.72
-## + I(humidity^2)         1     76.24 13529 213.53
-## + I(temperature^2)      1     53.76 13551 213.59
-## - temperature:humidity  1   2764.04 16369 216.01</code></pre>
+## Residual standard error: 21.34 on 31 degrees of freedom
+## Multiple R-squared:  0.612,  Adjusted R-squared:  0.5869 
+## F-statistic: 24.45 on 2 and 31 DF,  p-value: 4.238e-07</code></pre>
 </div>
 <div id="best-subsets" class="section level2">
 <h2>Best subsets</h2>

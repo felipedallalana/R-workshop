@@ -28,10 +28,7 @@
   
     
   
-  <meta name="description" content="BackgroundMany times, we are interested in estimating the relationship between different variables that has a general form described as follows:
-\[f(x) = E[Y|X=x]\]
-Where we do not have a specific function type defined (i.e., specific model):
-\[Y = f(X) &#43; e\]As such, we would like to describe the data using the most appropriate model and estimate the parameters. In this introductory exercise, we will use nonparametric methods to do such a task and focus on three possible methods:">
+  <meta name="description" content="BackgroundNonlinear regression is an important modeling tool for looking at more compliated biological, physiological, etc., relationships. This introductory exercise describes some of the concepts that one should consider when analyzing nonlinear data. The process is iterative for modeling fitting, meaning that the parameters are estimated in a stepwise fashion. In Plant Pathology this is a useful tool for things like disease development over time. These models can be further extended to incorporated additional factors like treatments, years, among other things, to study the overall behavior and observed variability.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/nonparametric_regression/">
@@ -113,10 +110,7 @@ Where we do not have a specific function type defined (i.e., specific model):
   <meta property="og:site_name" content="APS - WORKSHOP">
   <meta property="og:url" content="/post/nonparametric_regression/">
   <meta property="og:title" content="Nonparametric regression | APS - WORKSHOP">
-  <meta property="og:description" content="BackgroundMany times, we are interested in estimating the relationship between different variables that has a general form described as follows:
-\[f(x) = E[Y|X=x]\]
-Where we do not have a specific function type defined (i.e., specific model):
-\[Y = f(X) &#43; e\]As such, we would like to describe the data using the most appropriate model and estimate the parameters. In this introductory exercise, we will use nonparametric methods to do such a task and focus on three possible methods:"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="BackgroundNonlinear regression is an important modeling tool for looking at more compliated biological, physiological, etc., relationships. This introductory exercise describes some of the concepts that one should consider when analyzing nonlinear data. The process is iterative for modeling fitting, meaning that the parameters are estimated in a stepwise fashion. In Plant Pathology this is a useful tool for things like disease development over time. These models can be further extended to incorporated additional factors like treatments, years, among other things, to study the overall behavior and observed variability."><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-08-01T21:08:05-05:00">
@@ -373,7 +367,7 @@ Where we do not have a specific function type defined (i.e., specific model):
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    8 min read
+    6 min read
   </span>
   
 
@@ -507,276 +501,165 @@ Where we do not have a specific function type defined (i.e., specific model):
 
 <div id="background" class="section level2">
 <h2>Background</h2>
-<p>Many times, we are interested in estimating the relationship between different variables that has a general form described as follows:</p>
-<p><span class="math display">\[f(x) = E[Y|X=x]\]</span></p>
-<p>Where we do not have a specific function type defined (i.e., specific model):</p>
-<p><span class="math display">\[Y = f(X) + e\]</span>
-As such, we would like to describe the data using the most appropriate model and estimate the parameters. In this introductory exercise, we will use nonparametric methods to do such a task and focus on three possible methods:</p>
-<ul>
-<li>Moving average = calculate the mean value, <em>Y</em>, around a window of <em>X</em> values</li>
-<li>Weighted moving averages = kernel smoothing: weight data as a function of distance, i.e., points closer in space are given greater weight</li>
-<li>Local polynomial regression: adjust the polynomial value based on least squares methods for observations in a local window (weighted by distance)</li>
-</ul>
-</div>
-<div id="packages" class="section level2">
-<h2>Packages</h2>
-<pre class="r"><code>library(tidyverse)
-library(Hmisc)
-library(corrplot)
-library(readr)
-library(HH)
-library(car)
-library(scatterplot3d)
-library(leaps)</code></pre>
+<p>Nonlinear regression is an important modeling tool for looking at more compliated biological, physiological, etc., relationships. This introductory exercise describes some of the concepts that one should consider when analyzing nonlinear data. The process is iterative for modeling fitting, meaning that the parameters are estimated in a stepwise fashion. In Plant Pathology this is a useful tool for things like disease development over time. These models can be further extended to incorporated additional factors like treatments, years, among other things, to study the overall behavior and observed variability.</p>
+<pre class="r"><code># Note that for this example, we will keep the tools to those that are available in the base package
+
+library(tidyverse)</code></pre>
 </div>
 <div id="data" class="section level2">
 <h2>Data</h2>
-<p>For this example, we are using a database called <em>Emissions</em>. This data comes from FAO and represents the amount of <span class="math inline">\(CO~2\)</span> emitted in different countries from Mexico to Panama. The number of years of data collection was 21. The data are also standardized based on the area under agricultural production. Given that one of the authors of this worked in Costa Rica, we will use that as our data source for the exercise. This will required working with a database that is in .csv format and then subset out the part that relates to Costa Rica. To accomplish this first part, we will using coding based on <em>tidyverse</em>, especially using <em>dplyr</em>.</p>
-<p>Please note: I have located the data in my local <em>Document</em> folder for eash of reading this into R. You can change the location accordingly for your personal use. If you are using this as a script, you can also use the import options in RStudio.</p>
-<pre class="r"><code>emissions &lt;- read_csv(&quot;Emissions.csv&quot;)</code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   Country = col_character(),
-##   Year = col_double(),
-##   Area = col_double(),
-##   CO2 = col_double(),
-##   CO2_area = col_double()
-## )</code></pre>
-<pre class="r"><code>head(emissions)</code></pre>
-<pre><code>## # A tibble: 6 x 5
-##   Country  Year   Area   CO2  CO2_area
-##   &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
-## 1 Belize      1 128277  7.31 0.000057 
-## 2 Belize      2 153923  7.31 0.0000475
-## 3 Belize      3 164124  7.31 0.0000445
-## 4 Belize      4 184274  7.31 0.0000397
-## 5 Belize      5 130610  5.85 0.0000448
-## 6 Belize      6 173667  6.33 0.0000365</code></pre>
-<pre class="r"><code># Quick summary of the results across the countries
-
-summaries &lt;- emissions %&gt;% group_by(Country)
-summaries %&gt;% str()</code></pre>
-<pre><code>## Classes &#39;grouped_df&#39;, &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:  168 obs. of  5 variables:
-##  $ Country : chr  &quot;Belize&quot; &quot;Belize&quot; &quot;Belize&quot; &quot;Belize&quot; ...
-##  $ Year    : num  1 2 3 4 5 6 7 8 9 10 ...
-##  $ Area    : num  128277 153923 164124 184274 130610 ...
-##  $ CO2     : num  7.31 7.31 7.31 7.31 5.85 ...
-##  $ CO2_area: num  5.70e-05 4.75e-05 4.45e-05 3.97e-05 4.48e-05 3.65e-05 2.96e-05 3.36e-05 5.15e-05 5.60e-05 ...
-##  - attr(*, &quot;spec&quot;)=
-##   .. cols(
-##   ..   Country = col_character(),
-##   ..   Year = col_double(),
-##   ..   Area = col_double(),
-##   ..   CO2 = col_double(),
-##   ..   CO2_area = col_double()
-##   .. )
-##  - attr(*, &quot;groups&quot;)=Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:   8 obs. of  2 variables:
-##   ..$ Country: chr  &quot;Belize&quot; &quot;CostaRica&quot; &quot;ElSalvador&quot; &quot;Guatemala&quot; ...
-##   ..$ .rows  :List of 8
-##   .. ..$ : int  1 2 3 4 5 6 7 8 9 10 ...
-##   .. ..$ : int  22 23 24 25 26 27 28 29 30 31 ...
-##   .. ..$ : int  43 44 45 46 47 48 49 50 51 52 ...
-##   .. ..$ : int  64 65 66 67 68 69 70 71 72 73 ...
-##   .. ..$ : int  85 86 87 88 89 90 91 92 93 94 ...
-##   .. ..$ : int  106 107 108 109 110 111 112 113 114 115 ...
-##   .. ..$ : int  127 128 129 130 131 132 133 134 135 136 ...
-##   .. ..$ : int  148 149 150 151 152 153 154 155 156 157 ...
-##   ..- attr(*, &quot;.drop&quot;)= logi TRUE</code></pre>
-<pre class="r"><code>summaries %&gt;% summarise(
-  em_mean = mean(CO2_area),
-  em_sd = sd(CO2_area),
-  em_cv = sd(CO2_area)/mean(CO2_area)*100,
-  em_max = max(CO2_area),
-  em_min = min(CO2_area)
-)</code></pre>
-<pre><code>## # A tibble: 8 x 6
-##   Country      em_mean     em_sd em_cv    em_max    em_min
-##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-## 1 Belize     0.000106  0.000147  139.  0.000668  0.0000296
-## 2 CostaRica  0.000415  0.000100   24.2 0.000649  0.000232 
-## 3 ElSalvador 0.000139  0.0000280  20.2 0.000196  0.0000983
-## 4 Guatemala  0.000142  0.0000239  16.8 0.000172  0.000099 
-## 5 Honduras   0.000125  0.0000740  59.4 0.000281  0.0000224
-## 6 Mexico     0.000111  0.0000147  13.3 0.000131  0.0000843
-## 7 Nicaragua  0.0000614 0.0000182  29.6 0.0000923 0.0000242
-## 8 Panama     0.000119  0.0000285  23.9 0.000169  0.0000828</code></pre>
-<pre class="r"><code># Create a subset database to work with data only from Costa Rica
-costa_rica &lt;- filter(emissions, Country==&quot;CostaRica&quot;)
-head(costa_rica)</code></pre>
-<pre><code>## # A tibble: 6 x 5
-##   Country    Year   Area   CO2 CO2_area
-##   &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
-## 1 CostaRica     1 773395  271. 0.00035 
-## 2 CostaRica     2 783774  304. 0.000388
-## 3 CostaRica     3 778918  317. 0.000407
-## 4 CostaRica     4 740508  292. 0.000395
-## 5 CostaRica     5 769340  341  0.000443
-## 6 CostaRica     6 765005  341  0.000446</code></pre>
-</div>
-<div id="loess-1" class="section level2">
-<h2>Loess 1</h2>
-<p>This the method based on local polynomial regression.</p>
-<pre class="r"><code># What does the relationship look like?
-
-CR &lt;- ggplot(data=costa_rica, aes(x=Year, y=CO2_area))
-
-CR + geom_point()</code></pre>
-<p><img src="/post/nonparametric_regression_files/figure-html/loess-1.png" width="576" /></p>
-<pre class="r"><code>CR + geom_point() + geom_line()</code></pre>
-<p><img src="/post/nonparametric_regression_files/figure-html/loess-2.png" width="576" /></p>
-<pre class="r"><code># Loess
-
-cr_np1 &lt;- with(costa_rica, loess(CO2_area ~ Year , span=0.75)) #default method
-summary(cr_np1)</code></pre>
-<pre><code>## Call:
-## loess(formula = CO2_area ~ Year, span = 0.75)
-## 
-## Number of Observations: 21 
-## Equivalent Number of Parameters: 4.61 
-## Residual Standard Error: 7.132e-05 
-## Trace of smoother matrix: 5.06  (exact)
-## 
-## Control settings:
-##   span     :  0.75 
-##   degree   :  2 
-##   family   :  gaussian
-##   surface  :  interpolate      cell = 0.2
-##   normalize:  TRUE
-##  parametric:  FALSE
-## drop.square:  FALSE</code></pre>
-<pre class="r"><code>crnp1_pred &lt;- predict(cr_np1, data.frame(Year=seq(1,21,0.5)))
-pred1 &lt;- data.frame(Year=seq(1,21,0.5), crnp1_pred)
-
-# Graphically
-ej1 &lt;- ggplot() 
-ej1 +
-  geom_point(data=costa_rica, aes(x=Year, y=CO2_area)) +
-  geom_line(data=costa_rica, aes(x=Year, y=CO2_area), lty=1) +
-  geom_line(data=pred1, aes(x=Year, y=crnp1_pred), lty=2)</code></pre>
-<p><img src="/post/nonparametric_regression_files/figure-html/loess-3.png" width="576" /></p>
-</div>
-<div id="modify-the-loess-line" class="section level2">
-<h2>Modify the Loess line</h2>
-<p>Let’s look at some different line forms with Loess.</p>
-<pre class="r"><code># Span=0.5
-cr_np2 &lt;- with(costa_rica, loess(CO2_area ~ Year , span=0.5))
-crnp2_pred &lt;- predict(cr_np2, data.frame(Year=seq(1,21,0.5)))
-pred2 &lt;- data.frame(Year=seq(1,21,0.5), crnp2_pred)
-
-ej1 &lt;- ggplot() 
-ej1 +
-  geom_point(data=costa_rica, aes(x=Year, y=CO2_area)) +
-  geom_line(data=costa_rica, aes(x=Year, y=CO2_area), lty=1) +
-  geom_line(data=pred1, aes(x=Year, y=crnp1_pred), lty=2, lwd=1.5) +
-  geom_line(data=pred2, aes(x=Year, y=crnp2_pred), lty=3, lwd=1.5)</code></pre>
-<p><img src="/post/nonparametric_regression_files/figure-html/loess2-1.png" width="576" /></p>
-<pre class="r"><code># Span=0.25
-cr_np3 &lt;- with(costa_rica, loess(CO2_area ~ Year, span=0.25))
-crnp3_pred &lt;- predict(cr_np3, data.frame(Year=seq(1,21,0.5)))
-pred3 &lt;- data.frame(Year=seq(1,21,0.5), crnp2_pred)
-
-ej1 &lt;- ggplot() 
-ej1 +
-  geom_point(data=costa_rica, aes(x=Year, y=CO2_area)) +
-  geom_line(data=costa_rica, aes(x=Year, y=CO2_area), lty=1) +
-  geom_line(data=pred1, aes(x=Year, y=crnp1_pred), lty=2, lwd=1.5) +
-  geom_line(data=pred2, aes(x=Year, y=crnp2_pred), lty=3, lwd=1.5) +
-  geom_line(data=pred3, aes(x=Year, y=crnp3_pred), lty=4, lwd=1.5)</code></pre>
-<p><img src="/post/nonparametric_regression_files/figure-html/loess2-2.png" width="576" /></p>
-</div>
-<div id="smoothing-splines" class="section level2">
-<h2>Smoothing splines</h2>
-<p>In our next example, we will use the function <em>smooth.spline()</em>. With this method, we can change the smoothing parameter and the methodology is based on crossed-validation to be able to define the parameter.</p>
-<pre class="r"><code># Base method (by default)
-cr_spline &lt;- with(costa_rica, smooth.spline(x=Year, y=CO2_area))
-cr_spline</code></pre>
-<pre><code>## Call:
-## smooth.spline(x = Year, y = CO2_area)
-## 
-## Smoothing Parameter  spar= 0.3976519  lambda= 6.497957e-05 (11 iterations)
-## Equivalent Degrees of Freedom (Df): 9.578523
-## Penalized Criterion (RSS): 2.323599e-08
-## GCV: 3.740554e-09</code></pre>
-<pre class="r"><code>summary(cr_spline)</code></pre>
-<pre><code>##            Length Class             Mode   
-## x          21     -none-            numeric
-## y          21     -none-            numeric
-## w          21     -none-            numeric
-## yin        21     -none-            numeric
-## tol         1     -none-            numeric
-## data        3     -none-            list   
-## no.weights  1     -none-            logical
-## lev        21     -none-            numeric
-## cv.crit     1     -none-            numeric
-## pen.crit    1     -none-            numeric
-## crit        1     -none-            numeric
-## df          1     -none-            numeric
-## spar        1     -none-            numeric
-## ratio       1     -none-            numeric
-## lambda      1     -none-            numeric
-## iparms      5     -none-            numeric
-## auxM        0     -none-            NULL   
-## fit         5     smooth.spline.fit list   
-## call        3     -none-            call</code></pre>
-<pre class="r"><code>crsp_pred &lt;- predict(cr_spline, data.frame(Year=seq(1,21,0.5)))
-pred4 &lt;- data.frame(Year=seq(1,21,0.5), crsp_pred)
-
-#Compare the fit with the Loess fit
-ej1 &lt;- ggplot() 
-ej1 +
-  geom_point(data=costa_rica, aes(x=Year, y=CO2_area)) +
-  geom_line(data=costa_rica, aes(x=Year, y=CO2_area), lty=1) +
-  geom_line(data=pred1, aes(x=Year, y=crnp1_pred), lty=2, lwd=1.5) +
-  geom_line(data=pred4, aes(x=Year, y=Year.2), lty=4, lwd=1.5)</code></pre>
-<p><img src="/post/nonparametric_regression_files/figure-html/spline-1.png" width="576" /></p>
-</div>
-<div id="change-smoothing-parameter" class="section level2">
-<h2>Change smoothing parameter</h2>
-<p>We will now create a series of model runs where we change the smoothing parameter.</p>
-<pre class="r"><code>cr25 &lt;- with(costa_rica, smooth.spline(x=Year, y=CO2_area, spar=0.25))
-pred25 &lt;-  data.frame(Year=seq(1,21,0.5), pred=(predict(cr25, data.frame(Year=seq(1,21,0.5)))))
-
-cr35 &lt;- with(costa_rica, smooth.spline(x=Year, y=CO2_area, spar=0.35))
-pred35 &lt;-  data.frame(Year=seq(1,21,0.5), pred=(predict(cr35, data.frame(Year=seq(1,21,0.5)))))
-
-cr45 &lt;- with(costa_rica, smooth.spline(x=Year, y=CO2_area, spar=0.45))
-pred45 &lt;-  data.frame(Year=seq(1,21,0.5), pred=(predict(cr45, data.frame(Year=seq(1,21,0.5)))))
-
-cr55 &lt;- with(costa_rica, smooth.spline(x=Year, y=CO2_area, spar=0.55))
-pred55 &lt;-  data.frame(Year=seq(1,21,0.5), pred=(predict(cr55, data.frame(Year=seq(1,21,0.5)))))
-
-cr65 &lt;- with(costa_rica, smooth.spline(x=Year, y=CO2_area, spar=0.65))
-pred65 &lt;-  data.frame(Year=seq(1,21,0.5), pred=(predict(cr65, data.frame(Year=seq(1,21,0.5)))))
-
-cr75 &lt;- with(costa_rica, smooth.spline(x=Year, y=CO2_area, spar=0.75))
-pred75 &lt;-  data.frame(Year=seq(1,21,0.5), pred=(predict(cr75, data.frame(Year=seq(1,21,0.5)))))
-
-cr85 &lt;- with(costa_rica, smooth.spline(x=Year, y=CO2_area, spar=0.85))
-pred85 &lt;-  data.frame(Year=seq(1,21,0.5), pred=(predict(cr85, data.frame(Year=seq(1,21,0.5)))))
-
-ej1 &lt;- ggplot() 
-ej1 +
-  geom_point(data=costa_rica, aes(x=Year, y=CO2_area)) +
-  geom_line(data=costa_rica, aes(x=Year, y=CO2_area), lty=1) +
-  geom_line(data=pred25, aes(x=Year, y=pred.Year.1), lty=2, lwd=1.2) +
-  geom_line(data=pred35, aes(x=Year, y=pred.Year.1), lty=3, lwd=1.2) +
-  geom_line(data=pred45, aes(x=Year, y=pred.Year.1), lty=4, lwd=1.2) +
-  geom_line(data=pred55, aes(x=Year, y=pred.Year.1), lty=5, lwd=1.2) +
-  geom_line(data=pred65, aes(x=Year, y=pred.Year.1), lty=6, lwd=1.2) +
-  geom_line(data=pred75, aes(x=Year, y=pred.Year.1), lty=2, lwd=1.3) +
-  geom_line(data=pred85, aes(x=Year, y=pred.Year.1), lty=3, lwd=1.3) </code></pre>
-<p><img src="/post/nonparametric_regression_files/figure-html/smoothers-1.png" width="576" /></p>
-</div>
-<div id="last-word-for-now" class="section level2">
-<h2>Last word for now</h2>
-<p>To close this discussion, it is natural to ask the following question, “What methods can we use to examine and control the smoothing parameter?”</p>
-<p>Within this list, there are several including:</p>
+<p>This work originated in Costa Rica and focused on growth and development of onion in the northern areas of the Province of Cartago. Growth was measured using whole plant biomass. The goal was to understand how different varieties performed in this zone and future work would examine the impact of different management tactics and pests on improving overall productivity.</p>
+<p>The data strcuture for the orginal worked involved three cultivars but for the exercise we will only focus on one of those, which is called Alvara.</p>
 <ul>
-<li>trial and error,</li>
-<li>degree of smoothing compared with the data fidelity or reliability,</li>
-<li>minimize the mean square error,</li>
-<li>use cross-validation methods.</li>
+<li>dap = days after planting</li>
+<li>gdd = growing degree days based on threshold temperatures for onion</li>
+<li>root = root dry weight (grams)</li>
+<li>buld = bulb dry weight (grams)</li>
+<li>aerial = aerial biomass dry weight (grams)</li>
+<li>total = total dry weight considering the above measurements</li>
 </ul>
+<pre class="r"><code>dap &lt;- c(11, 18, 26, 33, 40, 47, 56, 61, 69, 82, 96, 111, 124)
+gdd &lt;- c(148, 233, 327, 410, 492, 575, 686, 746, 837, 993, 1158, 1335, 1484)
+root &lt;- c(0.04, 0.019, 0.113, 0.044, 0.045, 0.056, 0.08, 0.114, 0.109, 0.116, 0.098, 0.101, 0.066)
+bulb &lt;- c(0.137, 0.166, 0.289, 0.2, 0.292, 0.298, 0.474, 0.416, 1.236, 2.594, 6.265, 6.174, 
+22.521)
+aerial &lt;- c(0.162, 0.191, 0.308, 0.243, 0.25, 0.343, 0.988, 0.962, 2.593, 3.379, 2.83, 5.054,
+2.748)
+total &lt;- c(0.34, 0.376, 0.711, 0.487, 0.587, 0.698, 1.542, 1.492, 3.938, 6.089, 9.193, 11.329,
+25.334)
+
+alvara &lt;- data.frame(dap, gdd, root, bulb, aerial, total)</code></pre>
+</div>
+<div id="graphical-representation---preliminary" class="section level2">
+<h2>Graphical representation - preliminary</h2>
+<p>Graphically, we will use some basic tools to look at the overall behavior.</p>
+<pre class="r"><code>## The predictive factor is growing degree days, assuming that best explains the overall growth and development
+
+with(alvara, plot(x=gdd, y=root, type=&quot;b&quot;, lty=1, lwd=2, pch=19, col=&quot;black&quot;))</code></pre>
+<p><img src="/post/nonparametric_regression_files/figure-html/plots1-1.png" width="672" /></p>
+<pre class="r"><code>with(alvara, plot(x=gdd, y=bulb, type=&quot;b&quot;, lty=1, lwd=2, pch=19, col=&quot;black&quot;))</code></pre>
+<p><img src="/post/nonparametric_regression_files/figure-html/plots1-2.png" width="672" /></p>
+<pre class="r"><code>with(alvara, plot(x=gdd, y=aerial, type=&quot;b&quot;, lty=1, lwd=2, pch=19, col=&quot;black&quot;))</code></pre>
+<p><img src="/post/nonparametric_regression_files/figure-html/plots1-3.png" width="672" /></p>
+<pre class="r"><code>with(alvara, plot(x=gdd, y=total, type=&quot;b&quot;, lty=1, lwd=2, pch=19, col=&quot;black&quot;))</code></pre>
+<p><img src="/post/nonparametric_regression_files/figure-html/plots1-4.png" width="672" /></p>
+</div>
+<div id="modeling" class="section level2">
+<h2>Modeling</h2>
+<p>Selecting a nonlinear model depends on many factors especially taking into account the biological relationship. In preliminary analyses with data of this type for onion, we saw two possible nonlinear models that best describe the relationships. In the first case the development was bell-shaped, showing increases until a specific point in the developmental process when dry weight was reduced. The second curve tupe was exponential and related to the ultimate growth phases just prior to harvest. Even though growth is not infinite, we still recognize that this model may explain well the relationship and is interpretable.</p>
+<p>Model 1.</p>
+<p><span class="math display">\[ DW = \alpha * exp(-\beta * (gdd-\gamma)^2)\]</span></p>
+<p>Where, DW is the dry weight (g), <span class="math inline">\(\alpha\)</span> is the measure of initial dry weight the start of evaluations (0 gdds), <span class="math inline">\(\beta\)</span> is the growth rate, and <span class="math inline">\(\gamma\)</span> represents the inflexion point in the process. “gdd” are the accumulated growing degree days.</p>
+<p>Model 2.</p>
+<p><span class="math display">\[ DW = X_0 * exp (K * gdd) \]</span></p>
+<p>where, DW is the dry weight (g), <span class="math inline">\(X_0\)</span> is the condition where there has been no accumulation of heat units, and K is the growth rate as a function of the accumulated growing degree days (gdd).</p>
+<p>In both cases, it is important to take into account that the model will be adjusted based on the definition of the initial starting parameters. There are different methods to define initial starting parameters, including:</p>
+<ul>
+<li>using a grid search approach to find the best combination of all parameters in the model</li>
+<li>using preliminary analyses to define the parameters (can be based on similar data to your situation)</li>
+<li>functional estimate based on the model form and your knowledge about the system</li>
+<li>genetic algorithms, see for example, <a href="https://en.wikipedia.org/wiki/Genetic_algorithm" class="uri">https://en.wikipedia.org/wiki/Genetic_algorithm</a></li>
+<li>in R there are also for some of the models there are functions that will obtain initial starting parameters (see: <a href="http://www.apsnet.org/edcenter/advanced/topics/EcologyAndEpidemiologyInR/DiseaseProgress/Pages/NonlinearRegression.aspx" class="uri">http://www.apsnet.org/edcenter/advanced/topics/EcologyAndEpidemiologyInR/DiseaseProgress/Pages/NonlinearRegression.aspx</a>)</li>
+</ul>
+<p>For the following examples, we will use the third method based on knowledge of the crop physiology and preliminary analyses.</p>
+</div>
+<div id="model-1" class="section level2">
+<h2>Model 1</h2>
+<pre class="r"><code>## Variable = root dry weight
+## nls = nonlinear least squares
+## start=list() provides the input to define the initial starting values for the parameters
+
+regnl1 &lt;- nls(root ~ alpha * exp(-beta*(gdd-gamma)^2), 
+              start=list(alpha = 0.15, beta = 0.0000002, gamma = 900), trace=TRUE, data=alvara)</code></pre>
+<pre><code>## 0.07027501 :  1.5e-01 2.0e-07 9.0e+02
+## 0.008673095 :  1.007217e-01 7.854471e-07 1.308727e+03
+## 0.007106798 :  9.761952e-02 1.203522e-06 1.002286e+03
+## 0.006594237 :  1.069288e-01 1.562084e-06 1.021834e+03
+## 0.006588507 :  1.079002e-01 1.618805e-06 1.016275e+03
+## 0.006588451 :  1.079549e-01 1.621248e-06 1.016766e+03
+## 0.00658845 :  1.079619e-01 1.621827e-06 1.016741e+03
+## 0.00658845 :  1.079626e-01 1.621871e-06 1.016743e+03</code></pre>
+<pre class="r"><code>summary(regnl1)</code></pre>
+<pre><code>## 
+## Formula: root ~ alpha * exp(-beta * (gdd - gamma)^2)
+## 
+## Parameters:
+##        Estimate Std. Error t value Pr(&gt;|t|)    
+## alpha 1.080e-01  1.268e-02   8.516 6.78e-06 ***
+## beta  1.622e-06  7.130e-07   2.275   0.0462 *  
+## gamma 1.017e+03  9.913e+01  10.257 1.26e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.02567 on 10 degrees of freedom
+## 
+## Number of iterations to convergence: 7 
+## Achieved convergence tolerance: 2.89e-06</code></pre>
+<pre class="r"><code>## Predictions
+
+regnl_pred &lt;- predict(regnl1, data.frame(gdd=seq(100,1500,25)))
+
+## Database of predictions over a range of gdds
+
+predictions &lt;- data.frame(gdd=seq(100,1500,25), pred=regnl_pred)
+
+## Graphically
+
+ej1 &lt;- ggplot() 
+ej1 +
+  geom_point(data=alvara, aes(x=gdd, y=root)) +
+  geom_line(data=predictions, aes(x=gdd, y=pred), lty=1, lwd=1.5)</code></pre>
+<p><img src="/post/nonparametric_regression_files/figure-html/model1-1.png" width="672" /></p>
+</div>
+<div id="model-2" class="section level2">
+<h2>Model 2</h2>
+<pre class="r"><code>## Variable = total dry weight 
+
+regnl2 &lt;- nls(total ~ x0 * exp(k * gdd), start = list(x0=0.5, k=0.0002), trace=TRUE, data=alvara)</code></pre>
+<pre><code>## 838.571 :  5e-01 2e-04
+## 745.1133 :  0.164848298 0.001679615
+## 547.7136 :  0.066722470 0.002956091
+## 231.1729 :  0.086874301 0.003337606
+## 66.82676 :  0.124641432 0.003367594
+## 17.75713 :  0.161921536 0.003372197
+## 17.75511 :  0.16183068 0.00337153
+## 17.75511 :  0.16184411 0.00337147</code></pre>
+<pre class="r"><code>summary(regnl2)</code></pre>
+<pre><code>## 
+## Formula: total ~ x0 * exp(k * gdd)
+## 
+## Parameters:
+##     Estimate Std. Error t value Pr(&gt;|t|)    
+## x0 0.1618441  0.0645079   2.509    0.029 *  
+## k  0.0033715  0.0002832  11.905 1.26e-07 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.27 on 11 degrees of freedom
+## 
+## Number of iterations to convergence: 7 
+## Achieved convergence tolerance: 5.642e-06</code></pre>
+<pre class="r"><code>## Predictions
+
+regn2_pred &lt;- predict(regnl2, data.frame(gdd=seq(100,1500,25)))
+
+## Database of predictions
+
+predictions &lt;- data.frame(gdd=seq(100,1500,25), pred=regn2_pred)
+
+## Graphically
+
+ej2 &lt;- ggplot() 
+ej2 +
+  geom_point(data=alvara, aes(x=gdd, y=total)) +
+  geom_line(data=predictions, aes(x=gdd, y=pred), lty=1, lwd=1.5)</code></pre>
+<p><img src="/post/nonparametric_regression_files/figure-html/model2-1.png" width="672" /></p>
+</div>
+<div id="exercises" class="section level2">
+<h2>Exercises</h2>
+<p>Perform the same set of the analyses for the following measurements and initial parameter conditions:</p>
+<p>Aerial dry weight, you can consider the following starting parameter values: start=list(alpha = 5, beta = 0.00002, gamma = 1100).</p>
+<p>Bulb dry weight, you can consider the following starting parameter values: start=list(x0 = 0.5, k = 0.0002).</p>
 </div>
 
     </div>

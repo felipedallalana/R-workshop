@@ -383,7 +383,10 @@ We can define this relationship in general terms as the the relation betweeen th
     <h2><a href="/post/nonlinear_regression/">Nonlinear regression</a></h2>
     <div class="article-style">
       
-      BackgroundNonlinear regression is an important modeling tool for looking at more compliated biological, physiological, etc., relationships. This introductory exercise describes some of the concepts that one should consider when analyzing nonlinear data. The process is iterative for modeling fitting, meaning that the parameters are estimated in a stepwise fashion. In Plant Pathology this is a useful tool for things like disease development over time. These models can be further extended to incorporated additional factors like treatments, years, among other things, to study the overall behavior and observed variability.
+      BackgroundMany times, we are interested in estimating the relationship between different variables that has a general form described as follows:
+\[f(x) = E[Y|X=x]\]
+Where we do not have a specific function type defined (i.e., specific model):
+\[Y = f(X) + e\]As such, we would like to describe the data using the most appropriate model and estimate the parameters. In this introductory exercise, we will use nonparametric methods to do such a task and focus on three possible methods:
       
     </div>
   </div>
@@ -392,10 +395,7 @@ We can define this relationship in general terms as the the relation betweeen th
     <h2><a href="/post/nonparametric_regression/">Nonparametric regression</a></h2>
     <div class="article-style">
       
-      BackgroundMany times, we are interested in estimating the relationship between different variables that has a general form described as follows:
-\[f(x) = E[Y|X=x]\]
-Where we do not have a specific function type defined (i.e., specific model):
-\[Y = f(X) + e\]As such, we would like to describe the data using the most appropriate model and estimate the parameters. In this introductory exercise, we will use nonparametric methods to do such a task and focus on three possible methods:
+      BackgroundNonlinear regression is an important modeling tool for looking at more compliated biological, physiological, etc., relationships. This introductory exercise describes some of the concepts that one should consider when analyzing nonlinear data. The process is iterative for modeling fitting, meaning that the parameters are estimated in a stepwise fashion. In Plant Pathology this is a useful tool for things like disease development over time. These models can be further extended to incorporated additional factors like treatments, years, among other things, to study the overall behavior and observed variability.
       
     </div>
   </div>

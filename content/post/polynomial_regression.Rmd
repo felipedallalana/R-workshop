@@ -6,6 +6,7 @@ categories: ["R"]
 tags: ["Regression"]
 ---
 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message=FALSE)
 ```
@@ -18,7 +19,7 @@ We can define this relationship in general terms as the the relation betweeen th
 
 Note: Very important with this type of analysis is to understand the software that you are using since often we focus on use $X$ and $X^2$, which depending on how those variables are defined, leads to high collinearity. This example illustrates that concept and provides methods to overcome the issue.
 
-```{r packages, message=FALSE, warning=FALSE}
+```{r packages}
 
 library(tidyverse)
 library(Hmisc)

@@ -7,7 +7,7 @@ tags: ["Regression"]
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.width=6, fig.height=4)
+knitr::opts_chunk$set(echo = TRUE, fig.width=6, fig.height=4, message=FALSE)
 options(width=999)
 ```
 
@@ -29,7 +29,7 @@ $Y = \beta_0 + \beta_1{X_1} + \beta_2{X_2} + \beta_3{X_1}{X_2} + \epsilon$
 
 Note: It is important to note that in modeling, when we add new explanatory variables that have merit (i.e., the sign makes sense in terms of the biological relation), the model will improve. This is not necessarily the same as being "biologically relevant". We should always consider the variable in the context of the question of interest. 
 
-```{r packages, message=FALSE, warning=FALSE}
+```{r packages}
 
 library(tidyverse)
 library(Hmisc)
@@ -38,6 +38,7 @@ library(readr)
 library(HH)
 library(car)
 library(scatterplot3d)
+library(olsrr)
 
 ```
 
@@ -112,6 +113,14 @@ model3<-with(aphids_data, lm(aphids~temperature+humidity))
 anova(model3)
 summary(model3)
 plot(model3)
+vif(lm(aphids~temperature+humidity, data=aphids_data))
+
+# Assumptions = values, model3
+rstudent(model3)
+dfbetas(model3)
+dffits(model3)
+covratio(model3)
+cooks.distance(model3)
 
 ```
 
@@ -147,6 +156,19 @@ model4 <- with(aphids_data, lm(aphids ~ temperature + humidity + temperature:hum
 anova(model4)
 summary(model4) 
 plot(model4)
+
+# Assumptions = values, model4
+rstudent(model4)
+dfbetas(model4)
+dffits(model4)
+covratio(model4)
+cooks.distance(model4)
+
+# Graphically from olsrr package
+ols_plot_resid_stud(model4)
+ols_plot_dfbetas(model4)
+ols_plot_dffits(model4)
+ols_plot_cooksd_chart(model4)
 
 # Compare the different models
 anova(model1, model3) # model 3 better

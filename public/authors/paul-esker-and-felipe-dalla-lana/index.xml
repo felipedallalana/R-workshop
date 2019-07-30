@@ -493,12 +493,12 @@ lysine &amp;lt;-c(0.09, 0.14, 0.18, 0.15, 0.16, 0.23, 0.11, 0.19, 0.23, 0.13, 0.
 &lt;p&gt;The general idea in this example is that we are interested in examining the behaviour of the a dependent variable &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; as a function of different (possible) explanatory variables, &lt;span class=&#34;math inline&#34;&gt;\(X_i\)&lt;/span&gt;. The question that we are asking by looking at the different models is, “Is there a best approach to examing the different relationships?”&lt;/p&gt;
 &lt;p&gt;We will examine different approaches in this exercise and be prepared that the final model may not be the same (we will see a different example after that provides a “cleaner” model, if you will).&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## -- Attaching packages --------------------------------------------------------- tidyverse 1.2.1 --&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## -- Attaching packages ---- tidyverse 1.2.1 --&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## v ggplot2 3.2.0     v purrr   0.3.2
 ## v tibble  2.1.3     v dplyr   0.8.3
 ## v tidyr   0.8.3     v stringr 1.4.0
 ## v readr   1.3.1     v forcats 0.4.0&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## -- Conflicts ------------------------------------------------------------ tidyverse_conflicts() --
+&lt;pre&gt;&lt;code&gt;## -- Conflicts ------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(Hmisc)&lt;/code&gt;&lt;/pre&gt;

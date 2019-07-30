@@ -51,7 +51,7 @@ hero_media = "hero-academic.png"
 
 **Modeling tools and techniques using R**
 
-A hands-on statistical modeling workshop using R, explorating tools from data analysis to model development, validation, and prediction.
+A hands-on statistical modeling workshop using R, exploring tools for data analysis, model development, validation, and prediction.
 
 
   

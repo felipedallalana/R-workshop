@@ -149,14 +149,14 @@ summary() - Notice here we are provided with a basic 5 (6) number summary.&lt;/p
 length(X)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 20&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(X)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 4.774738&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4.928089&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;median(X)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 5.390611&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4.818926&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;var(X)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 3.425036&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3.326446&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(X)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   1.509   3.184   5.391   4.775   6.257   7.476&lt;/code&gt;&lt;/pre&gt;
+##   1.340   4.189   4.819   4.928   5.399  11.122&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Another example
 Rendimiento&amp;lt;-c(4.2,4.94,4.45,4.36,3.5,4.17,5.4,4.55,5.75,5.15,4.4,3.9,2.82,3.14,3.8,3.74,4.43,2.92,4.82,3.9,4.5,4.57,5.32,4.35)
 mean(Rendimiento)&lt;/code&gt;&lt;/pre&gt;
@@ -462,13 +462,13 @@ group3&amp;lt;-rnorm(10,15,7)
 example.apply&amp;lt;-cbind(group1,group2,group3)
 apply(example.apply, MARGIN=2, mean)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    group1    group2    group3 
-##  4.078146  9.164799 14.115408&lt;/code&gt;&lt;/pre&gt;
+##  4.516295  9.380020 15.783641&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;apply(example.apply, MARGIN=2, sd)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##   group1   group2   group3 
-## 2.068672 4.206033 7.165093&lt;/code&gt;&lt;/pre&gt;
+## 2.158302 5.414892 6.279168&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;apply(example.apply, MARGIN=2, function (x) sd(x)/mean(x))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    group1    group2    group3 
-## 0.5072579 0.4589334 0.5076079&lt;/code&gt;&lt;/pre&gt;
+## 0.4778921 0.5772793 0.3978276&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#lapply() - works on a list
 L28 &amp;lt;- list(c(1,2,3),1000,seq(1,2,.1))
 L28&lt;/code&gt;&lt;/pre&gt;
@@ -493,13 +493,13 @@ L28&lt;/code&gt;&lt;/pre&gt;
 factor&amp;lt;-rep(c(&amp;quot;A&amp;quot;,&amp;quot;B&amp;quot;,&amp;quot;C&amp;quot;,&amp;quot;D&amp;quot;,&amp;quot;E&amp;quot;), each=2)
 tapply(example.apply[,1], factor, mean) #Summarizing the first column, by factor&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##        A        B        C        D        E 
-## 4.123336 6.709231 3.064666 3.196510 3.296988&lt;/code&gt;&lt;/pre&gt;
+## 3.245537 2.761789 6.760624 4.783778 5.029749&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tapply(example.apply[,1], factor, sd) #Summarizing the first column, by factor&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##          A          B          C          D          E 
-## 4.04273085 0.01253562 0.14919778 1.84832948 0.23161990&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         A         B         C         D         E 
+## 1.9881249 0.5217379 1.4402993 0.3200437 3.9232688&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tapply(example.apply[,1], factor, function (x) sd(x)/mean(x)) #CV by factor&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##           A           B           C           D           E 
-## 0.980451417 0.001868414 0.048683209 0.578233650 0.070251976&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##          A          B          C          D          E 
+## 0.61257201 0.18891303 0.21304235 0.06690188 0.78001281&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -986,12 +986,12 @@ lysine &amp;lt;-c(0.09, 0.14, 0.18, 0.15, 0.16, 0.23, 0.11, 0.19, 0.23, 0.13, 0.
 &lt;p&gt;The general idea in this example is that we are interested in examining the behaviour of the a dependent variable &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; as a function of different (possible) explanatory variables, &lt;span class=&#34;math inline&#34;&gt;\(X_i\)&lt;/span&gt;. The question that we are asking by looking at the different models is, “Is there a best approach to examing the different relationships?”&lt;/p&gt;
 &lt;p&gt;We will examine different approaches in this exercise and be prepared that the final model may not be the same (we will see a different example after that provides a “cleaner” model, if you will).&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## -- Attaching packages --------------------------------------------------------- tidyverse 1.2.1 --&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## -- Attaching packages ---- tidyverse 1.2.1 --&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## v ggplot2 3.2.0     v purrr   0.3.2
 ## v tibble  2.1.3     v dplyr   0.8.3
 ## v tidyr   0.8.3     v stringr 1.4.0
 ## v readr   1.3.1     v forcats 0.4.0&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## -- Conflicts ------------------------------------------------------------ tidyverse_conflicts() --
+&lt;pre&gt;&lt;code&gt;## -- Conflicts ------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(Hmisc)&lt;/code&gt;&lt;/pre&gt;

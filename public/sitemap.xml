@@ -4,54 +4,70 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-08-01T21:08:10-05:00</lastmod>
+    <lastmod>2019-08-01T21:09:10-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/authors/</loc>
-    <lastmod>2019-08-01T21:08:10-05:00</lastmod>
+    <lastmod>2019-08-01T21:09:10-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2019-08-01T21:08:10-05:00</lastmod>
+    <lastmod>2019-08-01T21:09:10-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/authors/paul-esker-and-felipe-dalla-lana/</loc>
-    <lastmod>2019-08-01T21:08:10-05:00</lastmod>
+    <loc>/post/introduction_mcroberts_and_esker/</loc>
+    <lastmod>2019-08-01T21:09:10-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/neil-mcroberts-and-paul-esker/</loc>
+    <lastmod>2019-08-01T21:09:10-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-08-01T21:08:10-05:00</lastmod>
+    <lastmod>2019-08-01T21:09:10-05:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/r/</loc>
-    <lastmod>2019-08-01T21:08:10-05:00</lastmod>
+    <lastmod>2019-08-01T21:09:10-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/regression/</loc>
-    <lastmod>2019-08-01T21:08:10-05:00</lastmod>
+    <lastmod>2019-08-01T21:09:10-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-08-01T21:09:10-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/correlations/</loc>
+    <lastmod>2019-08-01T21:09:09-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/paul-esker-and-felipe-dalla-lana/</loc>
+    <lastmod>2019-08-01T21:09:09-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/post/linear_regression/</loc>
     <lastmod>2019-08-01T21:08:10-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-08-01T21:08:10-05:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -77,6 +93,22 @@
   <url>
     <loc>/post/nonparametric_regression/</loc>
     <lastmod>2019-08-01T21:08:05-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/julie-baniszewski-and-paul-esker/</loc>
+    <lastmod>2019-08-01T21:08:04-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/mosquito_dose_response/</loc>
+    <lastmod>2019-08-01T21:08:04-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/resources_and_references/</loc>
+    <lastmod>2019-08-01T21:07:04-05:00</lastmod>
   </url>
   
   <url>

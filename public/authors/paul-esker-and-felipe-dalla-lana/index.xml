@@ -6,13 +6,140 @@
     <description>Recent content in Paul Esker and Felipe Dalla Lana on APS - WORKSHOP</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Aug 2019 21:08:10 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 01 Aug 2019 21:09:09 -0500</lastBuildDate>
     
 	    <atom:link href="/authors/paul-esker-and-felipe-dalla-lana/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Regression 1</title>
+      <title>Correlation</title>
+      <link>/post/correlations/</link>
+      <pubDate>Thu, 01 Aug 2019 21:09:09 -0500</pubDate>
+      
+      <guid>/post/correlations/</guid>
+      <description>
+
+
+&lt;div id=&#34;background&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Background&lt;/h2&gt;
+&lt;p&gt;Correlation analysis is helpful to identify the associations between different variables (measurements). For databases with combinations of qualitative and quantitative data, we use this as a preliminary step to understand the likely relationships, or potential explanatory value of different measurements. We will apply some examples here based on &lt;em&gt;tidyverse&lt;/em&gt; to estimate the correlation coefficients based on different methods. We will also visualize the associations graphically. Two primary packages we need for this example are &lt;em&gt;Hmisc&lt;/em&gt; y de &lt;em&gt;corrplot&lt;/em&gt;. We will also use the package &lt;em&gt;readr&lt;/em&gt; to read data into R.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(Hmisc)
+library(corrplot)
+library(readr)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;database&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Database&lt;/h2&gt;
+&lt;p&gt;There are different options for working with data that is in a local folder. For many, the manual options with a data import are easier, but it is also useful to understand how you can directly read data into R. We will use both at time during the workshop, so do not stress too much for now.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Introduce the data to R - in this situation, we apply the function read_csv the most important item is to know the physical location of the file. In this example, I mainain a copy in Documents folder on my Mac
+  
+correlations &amp;lt;- read_csv(&amp;quot;Correlations.csv&amp;quot;)
+correlations&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 54 x 6
+##    Treatment Count1 Count2 Yield Protein   Oil
+##        &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+##  1         1   241    241  2569.    35.4  19.6
+##  2         1   241    250. 2905.    35.8  19.5
+##  3         1   241    250. 3186.    36.2  19.3
+##  4         2   396.   482  2887.    36    19  
+##  5         2   284    275. 3389.    36.3  19.4
+##  6         2   293.   310. 3482.    35.5  19.3
+##  7         3   465.   473. 2836.    35.6  19.5
+##  8         3   422.   456. 3361.    36.2  19.7
+##  9         3   370.   379. 3569.    36.4  19.1
+## 10         4   413.   448. 2919.    33.9  20  
+## # ... with 44 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pearson&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pearson&lt;/h2&gt;
+&lt;p&gt;We will begin with the first type of correlation, which is the Pearson correlation. In this situation, we assume that we have quantitative variables. Depending on the database, you may just define the function by calling the name of the database. Nonetheless, we do need to understand our database and “clean” this some, especially to ignore the first column that defines some treatment. We will then use the function &lt;em&gt;rcorr&lt;/em&gt;. This function allows us to perform two types of analyses: (1) Pearson and (2) Spearman (nonparametric method).&lt;/p&gt;
+&lt;p&gt;In R, and this is something that will carry throughout different types of models and analyses, there are often different packages and functions that we can use. Each has its advantages and disadvantages, for example, some functions do not provide a test statistic. In other cases the method does not permit the use of some of the graphical methods to visualize the associations.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# In this first example, the &amp;quot;select&amp;quot; option is indicating that we will use all columns except the first one, which is for treatment
+
+example_cor &amp;lt;- correlations %&amp;gt;% 
+  select(-Treatment) %&amp;gt;%
+  as.matrix() %&amp;gt;%
+  rcorr(type = &amp;quot;pearson&amp;quot;)
+
+example_cor&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         Count1 Count2 Yield Protein   Oil
+## Count1    1.00   0.98  0.27    0.02 -0.10
+## Count2    0.98   1.00  0.23    0.00 -0.09
+## Yield     0.27   0.23  1.00   -0.13 -0.25
+## Protein   0.02   0.00 -0.13    1.00 -0.38
+## Oil      -0.10  -0.09 -0.25   -0.38  1.00
+## 
+## n= 54 
+## 
+## 
+## P
+##         Count1 Count2 Yield  Protein Oil   
+## Count1         0.0000 0.0527 0.9077  0.4726
+## Count2  0.0000        0.1017 0.9952  0.4999
+## Yield   0.0527 0.1017        0.3677  0.0646
+## Protein 0.9077 0.9952 0.3677         0.0047
+## Oil     0.4726 0.4999 0.0646 0.0047&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# We will now apply the function corrplot, which is in the package &amp;quot;corrplot&amp;quot; to look at the associations
+
+example_cor2 &amp;lt;- correlations %&amp;gt;% 
+  select(-Treatment) %&amp;gt;%
+  as.matrix() %&amp;gt;%
+  cor(method = &amp;quot;pearson&amp;quot;)
+
+corrplot(example_cor2, method=&amp;quot;number&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/Correlations_files/figure-html/pearson-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corrplot(example_cor2, method=&amp;quot;circle&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/Correlations_files/figure-html/pearson-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;spearman&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Spearman&lt;/h2&gt;
+&lt;p&gt;This is a non-parametric rank-order correlation analysis.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Following again from our example.
+
+example_corB &amp;lt;- correlations %&amp;gt;% 
+  select(-Treatment) %&amp;gt;%
+  as.matrix() %&amp;gt;%
+  rcorr(type = &amp;quot;spearman&amp;quot;)
+
+example_corB&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         Count1 Count2 Yield Protein   Oil
+## Count1    1.00   0.97  0.18    0.06 -0.06
+## Count2    0.97   1.00  0.16    0.02 -0.06
+## Yield     0.18   0.16  1.00   -0.14 -0.21
+## Protein   0.06   0.02 -0.14    1.00 -0.41
+## Oil      -0.06  -0.06 -0.21   -0.41  1.00
+## 
+## n= 54 
+## 
+## 
+## P
+##         Count1 Count2 Yield  Protein Oil   
+## Count1         0.0000 0.1843 0.6741  0.6511
+## Count2  0.0000        0.2367 0.8616  0.6477
+## Yield   0.1843 0.2367        0.3269  0.1366
+## Protein 0.6741 0.8616 0.3269         0.0023
+## Oil     0.6511 0.6477 0.1366 0.0023&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Graphically, following from our initial example.
+
+example_corB2 &amp;lt;- correlations %&amp;gt;% 
+  select(-Treatment) %&amp;gt;%
+  as.matrix() %&amp;gt;%
+  cor(method = &amp;quot;spearman&amp;quot;)
+
+corrplot(example_corB2, method=&amp;quot;number&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/Correlations_files/figure-html/spearman-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corrplot(example_corB2, method=&amp;quot;circle&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/Correlations_files/figure-html/spearman-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;The goal of this introductory example was to provide some of the tools we can apply to calculate different correlation coefficients and graph the results. Remember that with these examples we assume a linear correlation so the intepretation of the results need to consider the biological associations as well (think about this for a correlation coefficient of 0 that has a curvilinear relationship).&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Linar regression</title>
       <link>/post/linear_regression/</link>
       <pubDate>Thu, 01 Aug 2019 21:08:10 -0500</pubDate>
       
@@ -25,8 +152,7 @@
 &lt;p&gt;This example is focued on modeling via linear regression. We will illustrate the concepts using an example, with particular focus on the assumptions and the tools that exist in R to explore the model fit.&lt;/p&gt;
 &lt;p&gt;Our goal is to related a “dependent variable” with an “independent variable” the explains something about the process.&lt;/p&gt;
 &lt;p&gt;Our simple example is that we might relate plant height with an index of crop growth (leaf area index). This would provide a simple base for considering in the future the impact of some pest on growth and development.&lt;/p&gt;
-&lt;p&gt;Our basic model form is:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[Y = f(X) + e\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Our basic model form is: &lt;span class=&#34;math display&#34;&gt;\[Y = f(X) + e\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Where:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Y = dependent variable,&lt;/li&gt;
@@ -47,19 +173,19 @@ library(tinytex)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;In the majority of our examples, we will use a manual data input approach, to minimize some of the confusion that occurs when trying to import data. R and RStudio are very flexible in this regards.&lt;/p&gt;
 &lt;p&gt;The data we are using for this first example comes from peanut, where we have two measures:
 1. The percentage of clean grain,
-2. The concentration of alfatoxin in &lt;em&gt;ppb&lt;/em&gt; (ug per kg).&lt;/p&gt;
+2. The concentration of aflatoxin in &lt;em&gt;ppb&lt;/em&gt; (ug per kg).&lt;/p&gt;
 &lt;p&gt;We describe the variables as follows:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;clean = % of clean grain&lt;br /&gt;
 &lt;/li&gt;
-&lt;li&gt;alfatoxin = alfatoxin concentration&lt;/li&gt;
+&lt;li&gt;aflatoxin = aflatoxin concentration&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;clean &amp;lt;- c(99.97, 99.94, 99.86, 99.98, 99.93, 99.81, 99.98, 99.91, 99.88, 99.97, 99.97, 99.8, 99.96, 99.99, 99.86, 99.96, 99.93, 99.79, 99.96, 99.86, 99.82, 99.97, 99.99, 99.83, 99.89, 99.96, 99.72, 99.96, 99.91, 99.64, 99.98, 99.86, 99.66, 99.98)
-alfatoxin &amp;lt;- c(3, 18.8, 46.8, 4.7, 18.9, 46.8, 8.3, 21.7, 58.1, 9.3, 21.9, 62.3, 9.9, 22.8, 70.6, 11, 24.2, 71.1, 12.3, 25.8, 71.3, 12.5, 30.6, 83.2, 12.6, 36.2, 83.6, 15.9, 39.8, 99.5, 16.7, 44.3, 111.2, 18.8)
+aflatoxin &amp;lt;- c(3, 18.8, 46.8, 4.7, 18.9, 46.8, 8.3, 21.7, 58.1, 9.3, 21.9, 62.3, 9.9, 22.8, 70.6, 11, 24.2, 71.1, 12.3, 25.8, 71.3, 12.5, 30.6, 83.2, 12.6, 36.2, 83.6, 15.9, 39.8, 99.5, 16.7, 44.3, 111.2, 18.8)
 
-peanut &amp;lt;- data.frame(clean, alfatoxin)
+peanut &amp;lt;- data.frame(clean, aflatoxin)
 head(peanut)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   clean alfatoxin
+&lt;pre&gt;&lt;code&gt;##   clean aflatoxin
 ## 1 99.97       3.0
 ## 2 99.94      18.8
 ## 3 99.86      46.8
@@ -69,11 +195,11 @@ head(peanut)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exploratory-analysis&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Exploratory analysis&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(alfatoxin)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(aflatoxin)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 36.60294&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sd(alfatoxin)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sd(aflatoxin)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 29.3194&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sd(alfatoxin)/mean(alfatoxin)*100&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sd(aflatoxin)/mean(aflatoxin)*100&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 80.1012&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(clean)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 99.89647&lt;/code&gt;&lt;/pre&gt;
@@ -81,9 +207,9 @@ head(peanut)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.09351332&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sd(clean)/mean(clean)*100&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.09361024&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(clean, alfatoxin)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(clean, aflatoxin)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] -0.9069581&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rcorr(clean, alfatoxin)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rcorr(clean, aflatoxin)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##       x     y
 ## x  1.00 -0.91
 ## y -0.91  1.00
@@ -99,28 +225,24 @@ head(peanut)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;linear-regression&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Linear regression&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Visualizing the relationship
-with(peanut, plot(x=clean, y=alfatoxin, xlim=c(99.5,100), ylim=c(0,120), pch=10)) &lt;/code&gt;&lt;/pre&gt;
+with(peanut, plot(x=clean, y=aflatoxin, xlim=c(99.5,100), ylim=c(0,120), pch=10)) &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/regression-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# We will use lm() = linear model, to run the regression
 
-#Format, Y &amp;lt;- X
-linreg &amp;lt;- with(peanut, lm(alfatoxin~clean)) 
-
-#ANOVA table to see how the model fit looks
-anova(linreg)&lt;/code&gt;&lt;/pre&gt;
+linreg &amp;lt;- with(peanut, lm(aflatoxin~clean)) #Format, Y &amp;lt;- X
+anova(linreg) #ANOVA table to see how the model fit looks&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Analysis of Variance Table
 ## 
-## Response: alfatoxin
+## Response: aflatoxin
 ##           Df  Sum Sq Mean Sq F value    Pr(&amp;gt;F)    
 ## clean      1 23334.5 23334.5  148.36 1.479e-13 ***
 ## Residuals 32  5033.2   157.3                      
 ## ---
 ## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Another way to see results of the model, with a few more details. This is important as we extend on the modeling concept to understand more complex relationships. 
-summary(linreg)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(linreg) #Another way to see results of the model, with a few more details. This is important as we extend on the modeling concept to understand more complex relationships. &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 
 ## Call:
-## lm(formula = alfatoxin ~ clean)
+## lm(formula = aflatoxin ~ clean)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
@@ -137,7 +259,7 @@ summary(linreg)&lt;/code&gt;&lt;/pre&gt;
 ## Multiple R-squared:  0.8226, Adjusted R-squared:  0.817 
 ## F-statistic: 148.4 on 1 and 32 DF,  p-value: 1.479e-13&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The results indicated that there is a “significant” relationship. In the next step, we are going to learn about some of the tools that we can use to extract more information about the results to look at hypothesis testing on the parameters (intercept, slope, etc.)&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;### Example: let&amp;#39;s say that we are interested in comparing the slope to a known value of -220, which means that for every 1% change in the percentage of clean grain, the concentration of alfatoxin will be reduced by 220 ug per kg
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;### Example: let&amp;#39;s say that we are interested in comparing the slope to a known value of -220, which means that for every 1% change in the percentage of clean grain, the concentration of aflatoxin will be reduced by 220 ug per kg
 
 # First, we need to see and understand where the coefficients are located, especially the intercept and slope
 linreg$coef&lt;/code&gt;&lt;/pre&gt;
@@ -305,7 +427,7 @@ predict(object=linreg, newdata=observations, interval=&amp;quot;confidence&amp;q
 &lt;/div&gt;
 &lt;div id=&#34;additional-material&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Additional material&lt;/h2&gt;
-&lt;p&gt;The package &lt;em&gt;HH&lt;/em&gt; (&lt;a href=&#34;https://www.amazon.com/Statistical-Analysis-Data-Display-Intermediate/dp/1493921215&#34;&gt;Statistical analysis and data display&lt;/a&gt;) has various (interesting) functions that we can use to examine a regression model. In the next section, we will look at several of those.&lt;/p&gt;
+&lt;p&gt;The package &lt;em&gt;HH&lt;/em&gt; (Statistical analysis and data display, &lt;a href=&#34;https://www.amazon.com/Statistical-Analysis-Data-Display-Intermediate/dp/1493921215&#34; class=&#34;uri&#34;&gt;https://www.amazon.com/Statistical-Analysis-Data-Display-Intermediate/dp/1493921215&lt;/a&gt;) has various (interesting) functions that we can use to examine a regression model. In the next section, we will look at several of those.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Let&amp;#39;s examine the regression graphically
 ci.plot(linreg)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/linear_regression_files/figure-html/HH-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
@@ -2187,6 +2309,53 @@ ej2 +
 &lt;p&gt;Aerial dry weight, you can consider the following starting parameter values: start=list(alpha = 5, beta = 0.00002, gamma = 1100).&lt;/p&gt;
 &lt;p&gt;Bulb dry weight, you can consider the following starting parameter values: start=list(x0 = 0.5, k = 0.0002).&lt;/p&gt;
 &lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Resources and references</title>
+      <link>/post/resources_and_references/</link>
+      <pubDate>Thu, 01 Aug 2019 21:07:04 -0500</pubDate>
+      
+      <guid>/post/resources_and_references/</guid>
+      <description>
+
+
+&lt;p&gt;Here are some useful online references that related to topics discussed during the workshop.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Modeling&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www3.nd.edu/~steve/Rcourse/Lecture7v1.pdf&#34; class=&#34;uri&#34;&gt;https://www3.nd.edu/~steve/Rcourse/Lecture7v1.pdf&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://tutorials.iq.harvard.edu/R/Rstatistics/Rstatistics.html&#34; class=&#34;uri&#34;&gt;https://tutorials.iq.harvard.edu/R/Rstatistics/Rstatistics.html&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.statslab.cam.ac.uk/~pat/redwsheets.pdf&#34; class=&#34;uri&#34;&gt;http://www.statslab.cam.ac.uk/~pat/redwsheets.pdf&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;tidyverse&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.tidyverse.org/&#34; class=&#34;uri&#34;&gt;https://www.tidyverse.org/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://r4ds.had.co.nz/&#34; class=&#34;uri&#34;&gt;http://r4ds.had.co.nz/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://jrnold.github.io/r4ds-exercise-solutions/&#34; class=&#34;uri&#34;&gt;https://jrnold.github.io/r4ds-exercise-solutions/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Correlation and Regression&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.statmethods.net/stats/regression.html&#34; class=&#34;uri&#34;&gt;https://www.statmethods.net/stats/regression.html&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://rcompanion.org/handbook/F_12.html&#34; class=&#34;uri&#34;&gt;http://rcompanion.org/handbook/F_12.html&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Multiple regression&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.statmethods.net/stats/regression.html&#34; class=&#34;uri&#34;&gt;http://www.statmethods.net/stats/regression.html&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://ww2.coastal.edu/kingw/statistics/R-tutorials/multregr.html&#34; class=&#34;uri&#34;&gt;http://ww2.coastal.edu/kingw/statistics/R-tutorials/multregr.html&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.r-bloggers.com/r-tutorial-series-multiple-linear-regression/&#34; class=&#34;uri&#34;&gt;http://www.r-bloggers.com/r-tutorial-series-multiple-linear-regression/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://newonlinecourses.science.psu.edu/stat501/node/283/&#34; class=&#34;uri&#34;&gt;https://newonlinecourses.science.psu.edu/stat501/node/283/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Nonlinear regression&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.jstatsoft.org/article/view/v066i05/v66i05.pdf&#34; class=&#34;uri&#34;&gt;https://www.jstatsoft.org/article/view/v066i05/v66i05.pdf&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.apsnet.org/edcenter/advanced/topics/EcologyAndEpidemiologyInR/DiseaseProgress/Pages/NonlinearRegression.aspx&#34; class=&#34;uri&#34;&gt;http://www.apsnet.org/edcenter/advanced/topics/EcologyAndEpidemiologyInR/DiseaseProgress/Pages/NonlinearRegression.aspx&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Books and other articles&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Nonlinear Regression with R: &lt;a href=&#34;https://www.springer.com/la/book/9780387096155&#34; class=&#34;uri&#34;&gt;https://www.springer.com/la/book/9780387096155&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Extending the Linear Model with R: &lt;a href=&#34;https://www.crcpress.com/Extending-the-Linear-Model-with-R-Generalized-Linear-Mixed-Effects-and/Faraway/p/book/9781498720960&#34; class=&#34;uri&#34;&gt;https://www.crcpress.com/Extending-the-Linear-Model-with-R-Generalized-Linear-Mixed-Effects-and/Faraway/p/book/9781498720960&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

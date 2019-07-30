@@ -1,5 +1,5 @@
 ---
-title: "Regression 1"
+title: "Linar regression"
 authors: ["Paul Esker and Felipe Dalla Lana"]
 date: 2019-08-01T21:08:10-05:00
 categories: ["R"]
@@ -13,8 +13,7 @@ tags: ["Regression"]
 <p>This example is focued on modeling via linear regression. We will illustrate the concepts using an example, with particular focus on the assumptions and the tools that exist in R to explore the model fit.</p>
 <p>Our goal is to related a “dependent variable” with an “independent variable” the explains something about the process.</p>
 <p>Our simple example is that we might relate plant height with an index of crop growth (leaf area index). This would provide a simple base for considering in the future the impact of some pest on growth and development.</p>
-<p>Our basic model form is:</p>
-<p><span class="math display">\[Y = f(X) + e\]</span></p>
+<p>Our basic model form is: <span class="math display">\[Y = f(X) + e\]</span></p>
 <p>Where:</p>
 <ul>
 <li>Y = dependent variable,</li>
@@ -35,19 +34,19 @@ library(tinytex)</code></pre>
 <p>In the majority of our examples, we will use a manual data input approach, to minimize some of the confusion that occurs when trying to import data. R and RStudio are very flexible in this regards.</p>
 <p>The data we are using for this first example comes from peanut, where we have two measures:
 1. The percentage of clean grain,
-2. The concentration of alfatoxin in <em>ppb</em> (ug per kg).</p>
+2. The concentration of aflatoxin in <em>ppb</em> (ug per kg).</p>
 <p>We describe the variables as follows:</p>
 <ul>
 <li>clean = % of clean grain<br />
 </li>
-<li>alfatoxin = alfatoxin concentration</li>
+<li>aflatoxin = aflatoxin concentration</li>
 </ul>
 <pre class="r"><code>clean &lt;- c(99.97, 99.94, 99.86, 99.98, 99.93, 99.81, 99.98, 99.91, 99.88, 99.97, 99.97, 99.8, 99.96, 99.99, 99.86, 99.96, 99.93, 99.79, 99.96, 99.86, 99.82, 99.97, 99.99, 99.83, 99.89, 99.96, 99.72, 99.96, 99.91, 99.64, 99.98, 99.86, 99.66, 99.98)
-alfatoxin &lt;- c(3, 18.8, 46.8, 4.7, 18.9, 46.8, 8.3, 21.7, 58.1, 9.3, 21.9, 62.3, 9.9, 22.8, 70.6, 11, 24.2, 71.1, 12.3, 25.8, 71.3, 12.5, 30.6, 83.2, 12.6, 36.2, 83.6, 15.9, 39.8, 99.5, 16.7, 44.3, 111.2, 18.8)
+aflatoxin &lt;- c(3, 18.8, 46.8, 4.7, 18.9, 46.8, 8.3, 21.7, 58.1, 9.3, 21.9, 62.3, 9.9, 22.8, 70.6, 11, 24.2, 71.1, 12.3, 25.8, 71.3, 12.5, 30.6, 83.2, 12.6, 36.2, 83.6, 15.9, 39.8, 99.5, 16.7, 44.3, 111.2, 18.8)
 
-peanut &lt;- data.frame(clean, alfatoxin)
+peanut &lt;- data.frame(clean, aflatoxin)
 head(peanut)</code></pre>
-<pre><code>##   clean alfatoxin
+<pre><code>##   clean aflatoxin
 ## 1 99.97       3.0
 ## 2 99.94      18.8
 ## 3 99.86      46.8
@@ -57,11 +56,11 @@ head(peanut)</code></pre>
 </div>
 <div id="exploratory-analysis" class="section level2">
 <h2>Exploratory analysis</h2>
-<pre class="r"><code>mean(alfatoxin)</code></pre>
+<pre class="r"><code>mean(aflatoxin)</code></pre>
 <pre><code>## [1] 36.60294</code></pre>
-<pre class="r"><code>sd(alfatoxin)</code></pre>
+<pre class="r"><code>sd(aflatoxin)</code></pre>
 <pre><code>## [1] 29.3194</code></pre>
-<pre class="r"><code>sd(alfatoxin)/mean(alfatoxin)*100</code></pre>
+<pre class="r"><code>sd(aflatoxin)/mean(aflatoxin)*100</code></pre>
 <pre><code>## [1] 80.1012</code></pre>
 <pre class="r"><code>mean(clean)</code></pre>
 <pre><code>## [1] 99.89647</code></pre>
@@ -69,9 +68,9 @@ head(peanut)</code></pre>
 <pre><code>## [1] 0.09351332</code></pre>
 <pre class="r"><code>sd(clean)/mean(clean)*100</code></pre>
 <pre><code>## [1] 0.09361024</code></pre>
-<pre class="r"><code>cor(clean, alfatoxin)</code></pre>
+<pre class="r"><code>cor(clean, aflatoxin)</code></pre>
 <pre><code>## [1] -0.9069581</code></pre>
-<pre class="r"><code>rcorr(clean, alfatoxin)</code></pre>
+<pre class="r"><code>rcorr(clean, aflatoxin)</code></pre>
 <pre><code>##       x     y
 ## x  1.00 -0.91
 ## y -0.91  1.00
@@ -87,28 +86,24 @@ head(peanut)</code></pre>
 <div id="linear-regression" class="section level2">
 <h2>Linear regression</h2>
 <pre class="r"><code># Visualizing the relationship
-with(peanut, plot(x=clean, y=alfatoxin, xlim=c(99.5,100), ylim=c(0,120), pch=10)) </code></pre>
+with(peanut, plot(x=clean, y=aflatoxin, xlim=c(99.5,100), ylim=c(0,120), pch=10)) </code></pre>
 <p><img src="/post/linear_regression_files/figure-html/regression-1.png" width="576" /></p>
 <pre class="r"><code># We will use lm() = linear model, to run the regression
 
-#Format, Y &lt;- X
-linreg &lt;- with(peanut, lm(alfatoxin~clean)) 
-
-#ANOVA table to see how the model fit looks
-anova(linreg)</code></pre>
+linreg &lt;- with(peanut, lm(aflatoxin~clean)) #Format, Y &lt;- X
+anova(linreg) #ANOVA table to see how the model fit looks</code></pre>
 <pre><code>## Analysis of Variance Table
 ## 
-## Response: alfatoxin
+## Response: aflatoxin
 ##           Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
 ## clean      1 23334.5 23334.5  148.36 1.479e-13 ***
 ## Residuals 32  5033.2   157.3                      
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<pre class="r"><code>#Another way to see results of the model, with a few more details. This is important as we extend on the modeling concept to understand more complex relationships. 
-summary(linreg)</code></pre>
+<pre class="r"><code>summary(linreg) #Another way to see results of the model, with a few more details. This is important as we extend on the modeling concept to understand more complex relationships. </code></pre>
 <pre><code>## 
 ## Call:
-## lm(formula = alfatoxin ~ clean)
+## lm(formula = aflatoxin ~ clean)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
@@ -125,7 +120,7 @@ summary(linreg)</code></pre>
 ## Multiple R-squared:  0.8226, Adjusted R-squared:  0.817 
 ## F-statistic: 148.4 on 1 and 32 DF,  p-value: 1.479e-13</code></pre>
 <p>The results indicated that there is a “significant” relationship. In the next step, we are going to learn about some of the tools that we can use to extract more information about the results to look at hypothesis testing on the parameters (intercept, slope, etc.)</p>
-<pre class="r"><code>### Example: let&#39;s say that we are interested in comparing the slope to a known value of -220, which means that for every 1% change in the percentage of clean grain, the concentration of alfatoxin will be reduced by 220 ug per kg
+<pre class="r"><code>### Example: let&#39;s say that we are interested in comparing the slope to a known value of -220, which means that for every 1% change in the percentage of clean grain, the concentration of aflatoxin will be reduced by 220 ug per kg
 
 # First, we need to see and understand where the coefficients are located, especially the intercept and slope
 linreg$coef</code></pre>
@@ -293,7 +288,7 @@ predict(object=linreg, newdata=observations, interval=&quot;confidence&quot;)</c
 </div>
 <div id="additional-material" class="section level2">
 <h2>Additional material</h2>
-<p>The package <em>HH</em> (<a href="https://www.amazon.com/Statistical-Analysis-Data-Display-Intermediate/dp/1493921215">Statistical analysis and data display</a>) has various (interesting) functions that we can use to examine a regression model. In the next section, we will look at several of those.</p>
+<p>The package <em>HH</em> (Statistical analysis and data display, <a href="https://www.amazon.com/Statistical-Analysis-Data-Display-Intermediate/dp/1493921215" class="uri">https://www.amazon.com/Statistical-Analysis-Data-Display-Intermediate/dp/1493921215</a>) has various (interesting) functions that we can use to examine a regression model. In the next section, we will look at several of those.</p>
 <pre class="r"><code># Let&#39;s examine the regression graphically
 ci.plot(linreg)</code></pre>
 <p><img src="/post/linear_regression_files/figure-html/HH-1.png" width="576" /></p>

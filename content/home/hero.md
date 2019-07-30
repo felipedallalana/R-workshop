@@ -34,14 +34,15 @@ hero_media = "hero-academic.png"
 #   Display link(s) by specifying a URL and label below. Icon is optional for `[cta]`.
 #   Remove a link/note by deleting a cta/note block.
 [cta]
-  url = "/files/test.zip"
+  url = "/files/APS2019_Rtools.zip"
   label = "Download material"
   icon_pack = "fas"
   icon = "download"
   
-#[cta_alt]
-#  url = "https://sourcethemes.com/academic/"
-#  label = "View Documentation"
+[cta_alt]
+  url = "https://github.com/PSUPlantEpidemiology/APS2019/releases/tag/APS2019v1.1"
+  label = "GitHub Repository"
+
 
 # Note. An optional note to show underneath the links.
 #[cta_note]

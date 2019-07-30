@@ -1,13 +1,13 @@
 {
-    "path" : "D:/Github/R-workshop",
+    "path" : "D:/Github/R-workshop/content/authors/felipe",
     "sortOrder" : [
         {
             "ascending" : false,
-            "columnIndex" : 3
+            "columnIndex" : 2
         },
         {
-            "ascending" : true,
-            "columnIndex" : 2
+            "ascending" : false,
+            "columnIndex" : 3
         }
     ]
 }

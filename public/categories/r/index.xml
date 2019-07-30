@@ -149,14 +149,14 @@ summary() - Notice here we are provided with a basic 5 (6) number summary.&lt;/p
 length(X)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 20&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(X)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 5.315794&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4.774738&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;median(X)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 5.262273&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5.390611&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;var(X)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 3.220747&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3.425036&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(X)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   2.010   4.301   5.262   5.316   6.140   9.965&lt;/code&gt;&lt;/pre&gt;
+##   1.509   3.184   5.391   4.775   6.257   7.476&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Another example
 Rendimiento&amp;lt;-c(4.2,4.94,4.45,4.36,3.5,4.17,5.4,4.55,5.75,5.15,4.4,3.9,2.82,3.14,3.8,3.74,4.43,2.92,4.82,3.9,4.5,4.57,5.32,4.35)
 mean(Rendimiento)&lt;/code&gt;&lt;/pre&gt;
@@ -462,13 +462,13 @@ group3&amp;lt;-rnorm(10,15,7)
 example.apply&amp;lt;-cbind(group1,group2,group3)
 apply(example.apply, MARGIN=2, mean)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    group1    group2    group3 
-##  5.342142  9.459058 16.865356&lt;/code&gt;&lt;/pre&gt;
+##  4.078146  9.164799 14.115408&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;apply(example.apply, MARGIN=2, sd)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##   group1   group2   group3 
-## 1.805927 4.389215 6.810194&lt;/code&gt;&lt;/pre&gt;
+## 2.068672 4.206033 7.165093&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;apply(example.apply, MARGIN=2, function (x) sd(x)/mean(x))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    group1    group2    group3 
-## 0.3380529 0.4640224 0.4037979&lt;/code&gt;&lt;/pre&gt;
+## 0.5072579 0.4589334 0.5076079&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#lapply() - works on a list
 L28 &amp;lt;- list(c(1,2,3),1000,seq(1,2,.1))
 L28&lt;/code&gt;&lt;/pre&gt;
@@ -493,13 +493,13 @@ L28&lt;/code&gt;&lt;/pre&gt;
 factor&amp;lt;-rep(c(&amp;quot;A&amp;quot;,&amp;quot;B&amp;quot;,&amp;quot;C&amp;quot;,&amp;quot;D&amp;quot;,&amp;quot;E&amp;quot;), each=2)
 tapply(example.apply[,1], factor, mean) #Summarizing the first column, by factor&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##        A        B        C        D        E 
-## 5.393254 5.547669 6.684877 5.772247 3.312664&lt;/code&gt;&lt;/pre&gt;
+## 4.123336 6.709231 3.064666 3.196510 3.296988&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tapply(example.apply[,1], factor, sd) #Summarizing the first column, by factor&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##         A         B         C         D         E 
-## 0.4238861 1.6318971 0.4830597 3.6599872 0.7599961&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tapply(example.apply[,1], factor, function (x) sd(x)/mean(x)) #CV by factor&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##          A          B          C          D          E 
-## 0.07859563 0.29415907 0.07226156 0.63406628 0.22942143&lt;/code&gt;&lt;/pre&gt;
+## 4.04273085 0.01253562 0.14919778 1.84832948 0.23161990&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tapply(example.apply[,1], factor, function (x) sd(x)/mean(x)) #CV by factor&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##           A           B           C           D           E 
+## 0.980451417 0.001868414 0.048683209 0.578233650 0.070251976&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -985,15 +985,88 @@ lysine &amp;lt;-c(0.09, 0.14, 0.18, 0.15, 0.16, 0.23, 0.11, 0.19, 0.23, 0.13, 0.
 &lt;p&gt;When building a model, there are different methods we can take to construct it, ranging from manual to automated. There are strengths and weaknesses in using the different methods, but they provide a good background for those interested in taking their models to a higher level (machine level, etc.), since in those situations we are often interested to look for interactions that cannot easily be found with basic approaches.&lt;/p&gt;
 &lt;p&gt;The general idea in this example is that we are interested in examining the behaviour of the a dependent variable &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; as a function of different (possible) explanatory variables, &lt;span class=&#34;math inline&#34;&gt;\(X_i\)&lt;/span&gt;. The question that we are asking by looking at the different models is, “Is there a best approach to examing the different relationships?”&lt;/p&gt;
 &lt;p&gt;We will examine different approaches in this exercise and be prepared that the final model may not be the same (we will see a different example after that provides a “cleaner” model, if you will).&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
-library(Hmisc)
-library(corrplot)
-library(readr)
-library(HH)
-library(car)
-library(scatterplot3d)
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## -- Attaching packages --------------------------------------------------------- tidyverse 1.2.1 --&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## v ggplot2 3.2.0     v purrr   0.3.2
+## v tibble  2.1.3     v dplyr   0.8.3
+## v tidyr   0.8.3     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.4.0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## -- Conflicts ------------------------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(Hmisc)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: lattice&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: survival&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: Formula&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;Hmisc&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:dplyr&amp;#39;:
+## 
+##     src, summarize&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     format.pval, units&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(corrplot)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## corrplot 0.84 loaded&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(readr)
+library(HH)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: grid&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: latticeExtra&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: RColorBrewer&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;latticeExtra&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:ggplot2&amp;#39;:
+## 
+##     layer&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: multcomp&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: mvtnorm&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: TH.data&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: MASS&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;MASS&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:dplyr&amp;#39;:
+## 
+##     select&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;TH.data&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:MASS&amp;#39;:
+## 
+##     geyser&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: gridExtra&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;gridExtra&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:dplyr&amp;#39;:
+## 
+##     combine&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;HH&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:purrr&amp;#39;:
+## 
+##     transpose&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(car)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: carData&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;car&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:HH&amp;#39;:
+## 
+##     logit, vif&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:dplyr&amp;#39;:
+## 
+##     recode&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:purrr&amp;#39;:
+## 
+##     some&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(scatterplot3d)
 library(leaps)
 library(olsrr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;olsrr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:MASS&amp;#39;:
+## 
+##     cement&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:datasets&amp;#39;:
+## 
+##     rivers&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;data&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Data&lt;/h2&gt;

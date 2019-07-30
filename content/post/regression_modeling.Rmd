@@ -5,11 +5,6 @@ date: 2019-08-01T21:08:09-05:00
 categories: ["R"]
 tags: ["Regression"]
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message=FALSE)
-```
-
 ## Background
 
 When building a model, there are different methods we can take to construct it, ranging from manual to automated. There are strengths and weaknesses in using the different methods, but they provide a good background for those interested in taking their models to a higher level (machine level, etc.), since in those situations we are often interested to look for interactions that cannot easily be found with basic approaches. 

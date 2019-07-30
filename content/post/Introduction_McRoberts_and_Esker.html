@@ -137,14 +137,14 @@ summary() - Notice here we are provided with a basic 5 (6) number summary.</p>
 length(X)</code></pre>
 <pre><code>## [1] 20</code></pre>
 <pre class="r"><code>mean(X)</code></pre>
-<pre><code>## [1] 5.315794</code></pre>
+<pre><code>## [1] 4.774738</code></pre>
 <pre class="r"><code>median(X)</code></pre>
-<pre><code>## [1] 5.262273</code></pre>
+<pre><code>## [1] 5.390611</code></pre>
 <pre class="r"><code>var(X)</code></pre>
-<pre><code>## [1] 3.220747</code></pre>
+<pre><code>## [1] 3.425036</code></pre>
 <pre class="r"><code>summary(X)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   2.010   4.301   5.262   5.316   6.140   9.965</code></pre>
+##   1.509   3.184   5.391   4.775   6.257   7.476</code></pre>
 <pre class="r"><code>#Another example
 Rendimiento&lt;-c(4.2,4.94,4.45,4.36,3.5,4.17,5.4,4.55,5.75,5.15,4.4,3.9,2.82,3.14,3.8,3.74,4.43,2.92,4.82,3.9,4.5,4.57,5.32,4.35)
 mean(Rendimiento)</code></pre>
@@ -450,13 +450,13 @@ group3&lt;-rnorm(10,15,7)
 example.apply&lt;-cbind(group1,group2,group3)
 apply(example.apply, MARGIN=2, mean)</code></pre>
 <pre><code>##    group1    group2    group3 
-##  5.342142  9.459058 16.865356</code></pre>
+##  4.078146  9.164799 14.115408</code></pre>
 <pre class="r"><code>apply(example.apply, MARGIN=2, sd)</code></pre>
 <pre><code>##   group1   group2   group3 
-## 1.805927 4.389215 6.810194</code></pre>
+## 2.068672 4.206033 7.165093</code></pre>
 <pre class="r"><code>apply(example.apply, MARGIN=2, function (x) sd(x)/mean(x))</code></pre>
 <pre><code>##    group1    group2    group3 
-## 0.3380529 0.4640224 0.4037979</code></pre>
+## 0.5072579 0.4589334 0.5076079</code></pre>
 <pre class="r"><code>#lapply() - works on a list
 L28 &lt;- list(c(1,2,3),1000,seq(1,2,.1))
 L28</code></pre>
@@ -481,11 +481,11 @@ L28</code></pre>
 factor&lt;-rep(c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;,&quot;E&quot;), each=2)
 tapply(example.apply[,1], factor, mean) #Summarizing the first column, by factor</code></pre>
 <pre><code>##        A        B        C        D        E 
-## 5.393254 5.547669 6.684877 5.772247 3.312664</code></pre>
+## 4.123336 6.709231 3.064666 3.196510 3.296988</code></pre>
 <pre class="r"><code>tapply(example.apply[,1], factor, sd) #Summarizing the first column, by factor</code></pre>
-<pre><code>##         A         B         C         D         E 
-## 0.4238861 1.6318971 0.4830597 3.6599872 0.7599961</code></pre>
-<pre class="r"><code>tapply(example.apply[,1], factor, function (x) sd(x)/mean(x)) #CV by factor</code></pre>
 <pre><code>##          A          B          C          D          E 
-## 0.07859563 0.29415907 0.07226156 0.63406628 0.22942143</code></pre>
+## 4.04273085 0.01253562 0.14919778 1.84832948 0.23161990</code></pre>
+<pre class="r"><code>tapply(example.apply[,1], factor, function (x) sd(x)/mean(x)) #CV by factor</code></pre>
+<pre><code>##           A           B           C           D           E 
+## 0.980451417 0.001868414 0.048683209 0.578233650 0.070251976</code></pre>
 </div>

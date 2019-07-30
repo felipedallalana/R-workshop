@@ -56,7 +56,5 @@ university:
 department:
 - Department of Plant Pathology
 activity:
-- Workshop Assistent
-
-
+- Workshop Assistant
 ---

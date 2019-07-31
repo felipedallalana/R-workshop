@@ -6,7 +6,7 @@ categories: ["R"]
 tags: ["Regression"]
 ---
 
-This introduction were developed by Neil McRoberts and Paul Esker, and presented on APS 2015 and ISPP 2018 Workshops.
+This introduction was developed by Neil McRoberts and Paul Esker, and presented at APS 2015 and ISPP 2018 Workshops.
 
 ### _**Basic introduction to R.**_
 

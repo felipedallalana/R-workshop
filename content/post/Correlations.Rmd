@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 ## Background
 
-Correlation analysis is helpful to identify the associations between different variables (measurements). For databases with combinations of qualitative and quantitative data, we use this as a preliminary step to understand the likely relationships, or potential explanatory value of different measurements. We will apply some examples here based on *tidyverse* to estimate the correlation coefficients based on different methods. We will also visualize the associations graphically. Two primary packages we need for this example are *Hmisc* y de *corrplot*. We will also use the package *readr* to read data into R.
+Correlation analysis is helpful to identify associations between different variables (measurements). For databases with combinations of qualitative and quantitative data, we use this as a preliminary step to understand the likely relationships, or potential explanatory value of different measurements. We will apply some examples here based on *tidyverse* to estimate the correlation coefficients based on different methods. We will also visualize the associations graphically. Two primary packages we need for this example are *Hmisc* y de *corrplot*. We will also use the package *readr* to read data into R.
 
 
 ```{r paquetes}

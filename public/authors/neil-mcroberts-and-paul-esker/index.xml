@@ -20,7 +20,7 @@
       <description>
 
 
-&lt;p&gt;This introduction were developed by Neil McRoberts and Paul Esker, and presented on APS 2015 and ISPP 2018 Workshops.&lt;/p&gt;
+&lt;p&gt;This introduction was developed by Neil McRoberts and Paul Esker, and presented at APS 2015 and ISPP 2018 Workshops.&lt;/p&gt;
 &lt;div id=&#34;basic-introduction-to-r.&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;&lt;em&gt;&lt;strong&gt;Basic introduction to R.&lt;/strong&gt;&lt;/em&gt;&lt;/h3&gt;
 &lt;p&gt;Some online resouces:&lt;/p&gt;
@@ -149,14 +149,14 @@ summary() - Notice here we are provided with a basic 5 (6) number summary.&lt;/p
 length(X)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 20&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(X)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 4.928089&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5.008492&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;median(X)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 4.818926&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5.363689&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;var(X)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 3.326446&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4.03335&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(X)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   1.340   4.189   4.819   4.928   5.399  11.122&lt;/code&gt;&lt;/pre&gt;
+##   1.017   3.399   5.364   5.008   6.466   8.670&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Another example
 Rendimiento&amp;lt;-c(4.2,4.94,4.45,4.36,3.5,4.17,5.4,4.55,5.75,5.15,4.4,3.9,2.82,3.14,3.8,3.74,4.43,2.92,4.82,3.9,4.5,4.57,5.32,4.35)
 mean(Rendimiento)&lt;/code&gt;&lt;/pre&gt;
@@ -462,13 +462,13 @@ group3&amp;lt;-rnorm(10,15,7)
 example.apply&amp;lt;-cbind(group1,group2,group3)
 apply(example.apply, MARGIN=2, mean)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    group1    group2    group3 
-##  4.516295  9.380020 15.783641&lt;/code&gt;&lt;/pre&gt;
+##  4.414448  9.568496 15.943556&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;apply(example.apply, MARGIN=2, sd)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##   group1   group2   group3 
-## 2.158302 5.414892 6.279168&lt;/code&gt;&lt;/pre&gt;
+## 2.582181 4.563697 6.478381&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;apply(example.apply, MARGIN=2, function (x) sd(x)/mean(x))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    group1    group2    group3 
-## 0.4778921 0.5772793 0.3978276&lt;/code&gt;&lt;/pre&gt;
+## 0.5849386 0.4769503 0.4063322&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#lapply() - works on a list
 L28 &amp;lt;- list(c(1,2,3),1000,seq(1,2,.1))
 L28&lt;/code&gt;&lt;/pre&gt;
@@ -493,13 +493,13 @@ L28&lt;/code&gt;&lt;/pre&gt;
 factor&amp;lt;-rep(c(&amp;quot;A&amp;quot;,&amp;quot;B&amp;quot;,&amp;quot;C&amp;quot;,&amp;quot;D&amp;quot;,&amp;quot;E&amp;quot;), each=2)
 tapply(example.apply[,1], factor, mean) #Summarizing the first column, by factor&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##        A        B        C        D        E 
-## 3.245537 2.761789 6.760624 4.783778 5.029749&lt;/code&gt;&lt;/pre&gt;
+## 4.127003 5.085092 2.916942 4.017769 5.925436&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tapply(example.apply[,1], factor, sd) #Summarizing the first column, by factor&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##         A         B         C         D         E 
-## 1.9881249 0.5217379 1.4402993 0.3200437 3.9232688&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tapply(example.apply[,1], factor, function (x) sd(x)/mean(x)) #CV by factor&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##          A          B          C          D          E 
-## 0.61257201 0.18891303 0.21304235 0.06690188 0.78001281&lt;/code&gt;&lt;/pre&gt;
+## 5.64948260 0.02675175 3.81575580 1.67630214 0.53934367&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tapply(example.apply[,1], factor, function (x) sd(x)/mean(x)) #CV by factor&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##           A           B           C           D           E 
+## 1.368906892 0.005260818 1.308135489 0.417222174 0.091021770&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>

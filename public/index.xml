@@ -20,7 +20,7 @@
       <description>
 
 
-&lt;p&gt;This introduction were developed by Neil McRoberts and Paul Esker, and presented on APS 2015 and ISPP 2018 Workshops.&lt;/p&gt;
+&lt;p&gt;This introduction was developed by Neil McRoberts and Paul Esker, and presented at APS 2015 and ISPP 2018 Workshops.&lt;/p&gt;
 &lt;div id=&#34;basic-introduction-to-r.&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;&lt;em&gt;&lt;strong&gt;Basic introduction to R.&lt;/strong&gt;&lt;/em&gt;&lt;/h3&gt;
 &lt;p&gt;Some online resouces:&lt;/p&gt;
@@ -149,14 +149,14 @@ summary() - Notice here we are provided with a basic 5 (6) number summary.&lt;/p
 length(X)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 20&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(X)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 4.928089&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5.008492&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;median(X)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 4.818926&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5.363689&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;var(X)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 3.326446&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4.03335&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(X)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   1.340   4.189   4.819   4.928   5.399  11.122&lt;/code&gt;&lt;/pre&gt;
+##   1.017   3.399   5.364   5.008   6.466   8.670&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Another example
 Rendimiento&amp;lt;-c(4.2,4.94,4.45,4.36,3.5,4.17,5.4,4.55,5.75,5.15,4.4,3.9,2.82,3.14,3.8,3.74,4.43,2.92,4.82,3.9,4.5,4.57,5.32,4.35)
 mean(Rendimiento)&lt;/code&gt;&lt;/pre&gt;
@@ -462,13 +462,13 @@ group3&amp;lt;-rnorm(10,15,7)
 example.apply&amp;lt;-cbind(group1,group2,group3)
 apply(example.apply, MARGIN=2, mean)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    group1    group2    group3 
-##  4.516295  9.380020 15.783641&lt;/code&gt;&lt;/pre&gt;
+##  4.414448  9.568496 15.943556&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;apply(example.apply, MARGIN=2, sd)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##   group1   group2   group3 
-## 2.158302 5.414892 6.279168&lt;/code&gt;&lt;/pre&gt;
+## 2.582181 4.563697 6.478381&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;apply(example.apply, MARGIN=2, function (x) sd(x)/mean(x))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    group1    group2    group3 
-## 0.4778921 0.5772793 0.3978276&lt;/code&gt;&lt;/pre&gt;
+## 0.5849386 0.4769503 0.4063322&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#lapply() - works on a list
 L28 &amp;lt;- list(c(1,2,3),1000,seq(1,2,.1))
 L28&lt;/code&gt;&lt;/pre&gt;
@@ -493,13 +493,13 @@ L28&lt;/code&gt;&lt;/pre&gt;
 factor&amp;lt;-rep(c(&amp;quot;A&amp;quot;,&amp;quot;B&amp;quot;,&amp;quot;C&amp;quot;,&amp;quot;D&amp;quot;,&amp;quot;E&amp;quot;), each=2)
 tapply(example.apply[,1], factor, mean) #Summarizing the first column, by factor&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##        A        B        C        D        E 
-## 3.245537 2.761789 6.760624 4.783778 5.029749&lt;/code&gt;&lt;/pre&gt;
+## 4.127003 5.085092 2.916942 4.017769 5.925436&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tapply(example.apply[,1], factor, sd) #Summarizing the first column, by factor&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##         A         B         C         D         E 
-## 1.9881249 0.5217379 1.4402993 0.3200437 3.9232688&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tapply(example.apply[,1], factor, function (x) sd(x)/mean(x)) #CV by factor&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##          A          B          C          D          E 
-## 0.61257201 0.18891303 0.21304235 0.06690188 0.78001281&lt;/code&gt;&lt;/pre&gt;
+## 5.64948260 0.02675175 3.81575580 1.67630214 0.53934367&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tapply(example.apply[,1], factor, function (x) sd(x)/mean(x)) #CV by factor&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##           A           B           C           D           E 
+## 1.368906892 0.005260818 1.308135489 0.417222174 0.091021770&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -515,7 +515,7 @@ tapply(example.apply[,1], factor, mean) #Summarizing the first column, by factor
 
 &lt;div id=&#34;background&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Background&lt;/h2&gt;
-&lt;p&gt;Correlation analysis is helpful to identify the associations between different variables (measurements). For databases with combinations of qualitative and quantitative data, we use this as a preliminary step to understand the likely relationships, or potential explanatory value of different measurements. We will apply some examples here based on &lt;em&gt;tidyverse&lt;/em&gt; to estimate the correlation coefficients based on different methods. We will also visualize the associations graphically. Two primary packages we need for this example are &lt;em&gt;Hmisc&lt;/em&gt; y de &lt;em&gt;corrplot&lt;/em&gt;. We will also use the package &lt;em&gt;readr&lt;/em&gt; to read data into R.&lt;/p&gt;
+&lt;p&gt;Correlation analysis is helpful to identify associations between different variables (measurements). For databases with combinations of qualitative and quantitative data, we use this as a preliminary step to understand the likely relationships, or potential explanatory value of different measurements. We will apply some examples here based on &lt;em&gt;tidyverse&lt;/em&gt; to estimate the correlation coefficients based on different methods. We will also visualize the associations graphically. Two primary packages we need for this example are &lt;em&gt;Hmisc&lt;/em&gt; y de &lt;em&gt;corrplot&lt;/em&gt;. We will also use the package &lt;em&gt;readr&lt;/em&gt; to read data into R.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
 library(Hmisc)
 library(corrplot)
@@ -986,12 +986,12 @@ lysine &amp;lt;-c(0.09, 0.14, 0.18, 0.15, 0.16, 0.23, 0.11, 0.19, 0.23, 0.13, 0.
 &lt;p&gt;The general idea in this example is that we are interested in examining the behaviour of the a dependent variable &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; as a function of different (possible) explanatory variables, &lt;span class=&#34;math inline&#34;&gt;\(X_i\)&lt;/span&gt;. The question that we are asking by looking at the different models is, “Is there a best approach to examing the different relationships?”&lt;/p&gt;
 &lt;p&gt;We will examine different approaches in this exercise and be prepared that the final model may not be the same (we will see a different example after that provides a “cleaner” model, if you will).&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## -- Attaching packages ---- tidyverse 1.2.1 --&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## -- Attaching packages ---------------------------------------------- tidyverse 1.2.1 --&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## v ggplot2 3.2.0     v purrr   0.3.2
 ## v tibble  2.1.3     v dplyr   0.8.3
 ## v tidyr   0.8.3     v stringr 1.4.0
 ## v readr   1.3.1     v forcats 0.4.0&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## -- Conflicts ------- tidyverse_conflicts() --
+&lt;pre&gt;&lt;code&gt;## -- Conflicts ------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(Hmisc)&lt;/code&gt;&lt;/pre&gt;
@@ -2428,11 +2428,11 @@ dffits(model3)&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
-      <title>Nonlinear regression</title>
-      <link>/post/nonlinear_regression/</link>
+      <title>Nonparametric regression</title>
+      <link>/post/nonparametric_regression/</link>
       <pubDate>Thu, 01 Aug 2019 21:08:06 -0500</pubDate>
       
-      <guid>/post/nonlinear_regression/</guid>
+      <guid>/post/nonparametric_regression/</guid>
       <description>
 
 
@@ -2544,9 +2544,9 @@ head(costa_rica)&lt;/code&gt;&lt;/pre&gt;
 CR &amp;lt;- ggplot(data=costa_rica, aes(x=Year, y=CO2_area))
 
 CR + geom_point()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/loess-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/loess-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;CR + geom_point() + geom_line()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/loess-2.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/loess-2.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Loess
 
 cr_np1 &amp;lt;- with(costa_rica, loess(CO2_area ~ Year , span=0.75)) #default method
@@ -2576,7 +2576,7 @@ ej1 +
   geom_point(data=costa_rica, aes(x=Year, y=CO2_area)) +
   geom_line(data=costa_rica, aes(x=Year, y=CO2_area), lty=1) +
   geom_line(data=pred1, aes(x=Year, y=crnp1_pred), lty=2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/loess-3.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/loess-3.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;modify-the-loess-line&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Modify the Loess line&lt;/h2&gt;
@@ -2592,7 +2592,7 @@ ej1 +
   geom_line(data=costa_rica, aes(x=Year, y=CO2_area), lty=1) +
   geom_line(data=pred1, aes(x=Year, y=crnp1_pred), lty=2, lwd=1.5) +
   geom_line(data=pred2, aes(x=Year, y=crnp2_pred), lty=3, lwd=1.5)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/loess2-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/loess2-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Span=0.25
 cr_np3 &amp;lt;- with(costa_rica, loess(CO2_area ~ Year, span=0.25))
 crnp3_pred &amp;lt;- predict(cr_np3, data.frame(Year=seq(1,21,0.5)))
@@ -2605,7 +2605,7 @@ ej1 +
   geom_line(data=pred1, aes(x=Year, y=crnp1_pred), lty=2, lwd=1.5) +
   geom_line(data=pred2, aes(x=Year, y=crnp2_pred), lty=3, lwd=1.5) +
   geom_line(data=pred3, aes(x=Year, y=crnp3_pred), lty=4, lwd=1.5)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/loess2-2.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/loess2-2.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;smoothing-splines&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Smoothing splines&lt;/h2&gt;
@@ -2651,7 +2651,7 @@ ej1 +
   geom_line(data=costa_rica, aes(x=Year, y=CO2_area), lty=1) +
   geom_line(data=pred1, aes(x=Year, y=crnp1_pred), lty=2, lwd=1.5) +
   geom_line(data=pred4, aes(x=Year, y=Year.2), lty=4, lwd=1.5)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/spline-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/spline-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;change-smoothing-parameter&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Change smoothing parameter&lt;/h2&gt;
@@ -2688,7 +2688,7 @@ ej1 +
   geom_line(data=pred65, aes(x=Year, y=pred.Year.1), lty=6, lwd=1.2) +
   geom_line(data=pred75, aes(x=Year, y=pred.Year.1), lty=2, lwd=1.3) +
   geom_line(data=pred85, aes(x=Year, y=pred.Year.1), lty=3, lwd=1.3) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/smoothers-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/smoothers-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;last-word-for-now&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Last word for now&lt;/h2&gt;
@@ -2705,11 +2705,11 @@ ej1 +
     </item>
     
     <item>
-      <title>Nonparametric regression</title>
-      <link>/post/nonparametric_regression/</link>
+      <title>Nonlinear regression</title>
+      <link>/post/nonlinear_regression/</link>
       <pubDate>Thu, 01 Aug 2019 21:08:05 -0500</pubDate>
       
-      <guid>/post/nonparametric_regression/</guid>
+      <guid>/post/nonlinear_regression/</guid>
       <description>
 
 
@@ -2750,13 +2750,13 @@ alvara &amp;lt;- data.frame(dap, gdd, root, bulb, aerial, total)&lt;/code&gt;&lt
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## The predictive factor is growing degree days, assuming that best explains the overall growth and development
 
 with(alvara, plot(x=gdd, y=root, type=&amp;quot;b&amp;quot;, lty=1, lwd=2, pch=19, col=&amp;quot;black&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/plots1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/plots1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;with(alvara, plot(x=gdd, y=bulb, type=&amp;quot;b&amp;quot;, lty=1, lwd=2, pch=19, col=&amp;quot;black&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/plots1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/plots1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;with(alvara, plot(x=gdd, y=aerial, type=&amp;quot;b&amp;quot;, lty=1, lwd=2, pch=19, col=&amp;quot;black&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/plots1-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/plots1-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;with(alvara, plot(x=gdd, y=total, type=&amp;quot;b&amp;quot;, lty=1, lwd=2, pch=19, col=&amp;quot;black&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/plots1-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/plots1-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;modeling&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Modeling&lt;/h2&gt;
@@ -2823,7 +2823,7 @@ ej1 &amp;lt;- ggplot()
 ej1 +
   geom_point(data=alvara, aes(x=gdd, y=root)) +
   geom_line(data=predictions, aes(x=gdd, y=pred), lty=1, lwd=1.5)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/model1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/model1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;model-2&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Model 2&lt;/h2&gt;
@@ -2867,7 +2867,7 @@ ej2 &amp;lt;- ggplot()
 ej2 +
   geom_point(data=alvara, aes(x=gdd, y=total)) +
   geom_line(data=predictions, aes(x=gdd, y=pred), lty=1, lwd=1.5)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/nonparametric_regression_files/figure-html/model2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/nonlinear_regression_files/figure-html/model2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exercises&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Exercises&lt;/h2&gt;
